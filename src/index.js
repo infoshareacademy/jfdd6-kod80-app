@@ -1,9 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+
+import App from './components/App';
+import ConcertCard from './components/ConcertCard';
+import UserCard from './components/UserCard';
+import ConcertAttenders from './components/ConcertAttenders';
+
+import './styles/index.css';
 
 ReactDOM.render(
-  <App />,
+  (
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <Route path="concert-card" component={ConcertCard} />
+        <Route path="user-card" component={UserCard} />
+        <Route path="concert-attenders" component={ConcertAttenders} />
+        {/*deafult widok - wyszukiwarka*/}
+
+      </Route>
+
+    </Router>
+  ),
   document.getElementById('root')
 );
