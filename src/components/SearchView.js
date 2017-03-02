@@ -1,5 +1,6 @@
 import React from 'react';
 import Search from './Search'
+import SearchRowResult from './search-view-row-result'
 
 
 const db =[
@@ -15,16 +16,17 @@ const db =[
 
 var searchResult = Search(db);
 
-
 const SearchView = () => {
   return (
     <div>
       <div>Tu bedzie wyszukiwarka</div>
       <div>Wyniki Wyszukania</div>
+      <ul>
       {
         searchResult
-          .map( search => (<div>{search.zespol}</div>) )
+          .map( koncert => SearchRowResult(koncert) )
       }
+      </ul>
     </div>
   )
 }
