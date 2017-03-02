@@ -1,10 +1,11 @@
 import React from 'react';
+import Search from './Search'
 
 
-const Search = () => (
-  <div>Tu Bedzie wyszukiwarka</div>
+const SearchView = () => (
+  Search(db)
 )
 
-export default Search;
+export default SearchView;
 
 
