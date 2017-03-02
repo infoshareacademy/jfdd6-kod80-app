@@ -1,10 +1,10 @@
 import React from 'react';
-import Search from './Search';
+import SearchView from './SearchView';
 
 
 const Home = () => (
   <div>Strona Główna
-    <Search />
+    <SearchView />
   </div>
 )
 
