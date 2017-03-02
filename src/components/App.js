@@ -4,7 +4,7 @@ import React from 'react';
 
 const App = (props) => (
   <div>
-    <h1>Strona glowa</h1>
+    <h1>Menu NavBar</h1>
     <h2>Layout</h2>
     <div>
       {props.children}
