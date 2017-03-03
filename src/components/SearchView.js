@@ -1,20 +1,29 @@
 import React from 'react';
-import Search from './Search'
+import search from './search'
 import SearchRowResult from './search-view-row-result'
 
-import db from '../data/data-testowa-baza-danych.json'
+import database from '../data/data-testowa-baza-danych.json'
 
-var searchResult = Search(db);
+let searchValues = {
+  date: "",
+  places: "",
+  music: "",
+  concert: ""
+}
+
+//Przekaz do store wyniku szukania search values
 
 const SearchView = () => {
+  var searchResult = search(database);
   return (
     <div>
       <div>Tu bedzie wyszukiwarka</div>
       <div>Wyniki Wyszukania</div>
       <ul>
+
       {
         searchResult
-          .map( koncert => SearchRowResult(koncert) )
+          .map( concert => <SearchRowResult key={concert.id} concert={concert} /> )
       }
       </ul>
     </div>
