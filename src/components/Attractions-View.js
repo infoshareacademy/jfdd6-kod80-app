@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Grid, Table } from 'react-bootstrap'
 import attractionsDb from '../data/data-attractions.json'
 
-const Attractions = () => (
+const Attractions = ({ concertId }) => (
   <Grid>This is sooo much attractions
 
     <Table striped>

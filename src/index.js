@@ -18,7 +18,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <Route path="home" component={Home} />
-        <Route path="concert-card" component={ConcertCard} />
+        <Route path="concert-card/:concertId" component={ConcertCard} />
         <Route path="user-card" component={UserCard} />
         <Route path="concert-attenders" component={ConcertAttenders} />
         {/*deafult widok - wyszukiwarka*/}
