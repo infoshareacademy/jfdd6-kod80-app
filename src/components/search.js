@@ -6,7 +6,7 @@ import filter_date from './search_functions/Filter_date'
 
 
 
-const search = (database) => {
+const search = (database, searchValues) => {
   return database
     .filter( filter_music )
     .filter( filter_band )

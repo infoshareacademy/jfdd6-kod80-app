@@ -14,7 +14,7 @@ let searchValues = {
 //Przekaz do store wyniku szukania search values
 
 const SearchView = () => {
-  var searchResult = search(database);
+  var searchResult = search(database, searchValues);
   return (
     <div>
       <div>Tu bedzie wyszukiwarka</div>
