@@ -18,6 +18,9 @@ const App = (props) => (
       </Navbar.Header>
       <Navbar.Collapse>
           <Nav pullRight>
+            <LinkContainer to="/concert-card">
+              <NavItem href="#">Karta koncertu</NavItem>
+            </LinkContainer>
             <LinkContainer to="/concerts">
               <NavItem eventKey={1} href="#">Moje koncerty</NavItem>
             </LinkContainer>

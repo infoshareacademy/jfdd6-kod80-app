@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import App from './components/App';
-import ConcertCard from './components/ConcertCard';
+import ConcertCard from './components/ConcertCard-View';
 import UserCard from './components/UserCard';
 import ConcertAttenders from './components/ConcertAttenders';
 import Home from './components/Home';
