@@ -1,11 +1,11 @@
 import React from 'react';
 
-const SearchRowResult = (koncert) => {
+const SearchRowResult = ({concert}) => {
   return (
     <li>
       <ul>
-        <li>{koncert.Band}</li>
-        <li>{koncert.Date}</li>
+        <li>{concert.Band}</li>
+        <li>{concert.Date}</li>
       </ul>
     </li>
   )
