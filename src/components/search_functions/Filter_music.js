@@ -1,5 +1,12 @@
-const Filter_music= (data) => {
-  return data
+
+//=odczytaj ze store warunki wyszukiwania
+
+//Sprawdz czy dany koncert
+const Filter_music= (concert) => {
+  //if ( warunek(concert) ===  true)
+  return true
+  //else
+  //return false
 }
 
 
