@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Provider } from 'react-redux'
+import store from './store'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
@@ -15,17 +17,17 @@ import './styles/index.css';
 
 ReactDOM.render(
   (
-    <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <Route path="home" component={Home} />
-        <Route path="concert-card" component={ConcertCard} />
-        <Route path="user-card" component={UserCard} />
-        <Route path="concert-attenders" component={ConcertAttenders} />
-        {/*deafult widok - wyszukiwarka*/}
-
-      </Route>
-
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <Route path="/" component={App}>
+          <Route path="home" component={Home} />
+          <Route path="concert-card" component={ConcertCard} />
+          <Route path="user-card" component={UserCard} />
+          <Route path="concert-attenders" component={ConcertAttenders} />
+          {/*deafult widok - wyszukiwarka*/}
+        </Route>
     </Router>
+    </Provider>
   ),
   document.getElementById('root')
 );
