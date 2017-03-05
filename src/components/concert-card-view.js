@@ -1,6 +1,5 @@
 import React from 'react';
-import Attractions from './Attractions-View'
-
+import Attractions from './attractions-view'
 
 const ConcertCard = () => (
   <div>

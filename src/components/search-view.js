@@ -1,5 +1,5 @@
 import React from 'react';
-import search from './search'
+import search from '../search/search'
 import SearchRowResult from './search-view-row-result'
 
 import database from '../data/data-testowa-baza-danych.json'
