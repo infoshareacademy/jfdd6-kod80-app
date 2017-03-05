@@ -1,11 +1,10 @@
 import React from 'react';
-import Search from './Search';
-
+import SearchView from './search-view';
 
 const Home = () => (
   <div>Strona Główna
-    <Search />
+    <SearchView />
   </div>
 )
 
-export default Home;
+export default Home
