@@ -2,12 +2,19 @@
 //=odczytaj ze store warunki wyszukiwania
 
 //Sprawdz czy dany koncert
-const Filter_music= (concert) => {
+const filter_music= searchValues => concert => {
   //if ( warunek(concert) ===  true)
-  return true
-  //else
-  //return false
+  //console.log(searchValues);
+  //console.log(concert);
+  //if ( warunek(concert) ===  true)
+  // np.: sTypeOfMusic
+  if( concert.TypeOfMusic === "Metal") {
+    console.log(concert);
+    return true
+  } else {
+    return false
+  }
 }
 
 
-export default Filter_music
+export default filter_music

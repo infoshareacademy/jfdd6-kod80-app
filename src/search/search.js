@@ -5,9 +5,9 @@ import filter_date from './search_functions/filter-date.js'
 
 const search = (database, searchValues) => {
   return database
-    .filter( filter_music )
-    .filter( filter_band )
-    .filter( filter_date )
+    .filter( filter_music(searchValues) )
+    //.filter( filter_band(searchValues) )
+    //.filter( filter_date(searchValues) )
 }
 
 export default search
