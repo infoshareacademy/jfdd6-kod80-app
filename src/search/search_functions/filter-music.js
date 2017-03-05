@@ -1,20 +1,20 @@
 
-//=odczytaj ze store warunki wyszukiwania
-
-//Sprawdz czy dany koncert
+// Funkcja, ktora zwraca funkcje, ktora sprawdza czy koncert
+// spełnia warunki
+// tutaj typ muzyki
+// @param - search values - warunki wyszukiwania
+// @ return - funkcja
+//        zwracana funkcja - sprawdza czy koncert spełnia warunke
+//        zwracana funkcja @param - koncert
+//        zwracana funkcja @return - Boolean - True jesli funkcja zwraca warunek, False jesli nie spełnia
 const filter_music= searchValues => concert => {
-  //if ( warunek(concert) ===  true)
-  //console.log(searchValues);
-  //console.log(concert);
-  //if ( warunek(concert) ===  true)
-  // np.: sTypeOfMusic
-  if( concert.TypeOfMusic === "Metal") {
-    console.log(concert);
-    return true
-  } else {
-    return false
-  }
+  return true
+  //if( concert.TypeOfMusic === "Metal") {
+  //  console.log(concert);
+  //  return true
+  //} else {
+  //  return false
+  //}
 }
-
 
 export default filter_music

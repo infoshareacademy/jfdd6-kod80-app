@@ -4,6 +4,7 @@ import SearchRowResult from './search-view-row-result'
 
 import database from '../data/data-testowa-baza-danych.json'
 
+//parametry do wyszukiwania koncertow
 let searchValues = {
   date: "",
   places: "",
@@ -11,16 +12,18 @@ let searchValues = {
   concert: ""
 }
 
-//Przekaz do store wyniku szukania search values
-
+//funkcja odpowiada za wyswietlanie wynikow wyszukiwania
 const SearchView = () => {
+  //przeszukaj baze danych dla odpowiednich wartosci
   var searchResult = search(database, searchValues);
+
+  //wyswietl wyniki wyszukiwania
   return (
     <div>
       <div>Tu bedzie wyszukiwarka</div>
       <div>Wyniki Wyszukania</div>
+      //  wyswietl pojedynczy wiersz z danymi
       <ul>
-
       {
         searchResult
           .map( concert => <SearchRowResult key={concert.id} concert={concert} /> )
