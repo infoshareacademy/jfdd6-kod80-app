@@ -1,6 +1,5 @@
 import React from 'react';
-import SearchView from './SearchView';
-
+import SearchView from './search-view';
 
 const Home = () => (
   <div>Strona Główna
