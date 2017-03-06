@@ -1,9 +1,9 @@
 import React from 'react';
 import Attractions from './attractions-view'
 
-const ConcertCard = () => (
+const ConcertCard = props => (
   <div>
-    <div>Concert Card</div>
+    <h1>props.</h1> {props.params.concertId}
 
     <Attractions />
   </div>
