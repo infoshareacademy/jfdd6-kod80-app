@@ -13,6 +13,7 @@ import UserCard from './components/user-card';
 import ConcertAttenders from './components/concert-attenders';
 import Home from './components/home';
 import ConcerdCard from './components/concert-card-view'
+import SearchView from './components/search-view'
 
 import './styles/index.css';
 
@@ -26,7 +27,7 @@ ReactDOM.render(
           <Route path="user-card" component={UserCard} />
           <Route path="concerts/:concertId" component={ConcerdCard} />
           <Route path="concert-attenders" component={ConcertAttenders} />
-          {/*deafult widok - wyszukiwarka*/}
+            <SearchView />
         </Route>
     </Router>
     </Provider>
