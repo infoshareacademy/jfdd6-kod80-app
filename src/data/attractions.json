@@ -1,0 +1,31 @@
+//http://vbest.com.pl/gps/?lat=54.4099607&lng=18.5604337&zom=17&mt=ROADMAP#przesun
+[
+  {
+    "id": 1,
+    "attraction": "Palmiarnia",
+    "latitude": "54.4099607",
+    "longitude": "18.5604337",
+    "address": "Opata Jacka Rybińskiego 12",
+    "hours": "09:00–17:00",
+    "website": "no website"
+  },
+  {
+    "id": 2,
+    "attraction": "ZOO",
+    "latitude": "54.413837",
+    "longitude": "18.5338211",
+    "address": "Karwieńska 3",
+    "hours": "09:00–15:00",
+    "website": "http://www.zoo.gda.pl/"
+  },
+  {
+    "id": 3,
+    "attraction": "Port Brzeźno Park Linowy",
+    "latitude": "54.4105792",
+    "longitude": "18.620838",
+    "address": "Ścieżka Alicji i Daniela Pelczarskich",
+    "hours": "08:00–18:00",
+    "website": "http://portbrzezno.pl/"
+  }
+
+]
