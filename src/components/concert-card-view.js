@@ -7,10 +7,14 @@ import database from '../data/data-testowa-baza-danych.json'
 
 const ConcertCard = props => {
   const concertId = props.params.concertId
+  const concert = database.filter( concert => concert.id == concertId)
 
   return (
-      <div>
-        <h1>Stronaaaaaaaaaaaaaaaaaa Koncertu Do Zrobienia</h1>
+      <div key={concertId}>
+
+        <h1 >concert</h1>
+        <h2> koncertId: {concertId} </h2>
+
       <Attractions />
     </div>
   )
