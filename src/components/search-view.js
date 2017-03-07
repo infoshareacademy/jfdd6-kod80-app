@@ -23,12 +23,32 @@ const SearchView = () => {
       <div>Tu bedzie wyszukiwarka</div>
       <div>Wyniki Wyszukania</div>
       //  wyswietl pojedynczy wiersz z danymi
-      <ul>
-      {
-        searchResult
-          .map( concert => <SearchRowResult key={concert.id} concert={concert} /> )
-      }
-      </ul>
+
+
+
+      <div>
+        {/*<Grid>*/}
+          {/*<Row className="show-grid">*/}
+
+            {/*<Col xs={12} md={8}>*/}
+              {/**/}
+              {/**/}
+              {/**/}
+            {/**/}
+      {/*{*/}
+        {/*searchResult*/}
+          {/*.map( concert => <SearchRowResult key={concert.id} concert={concert} /> )*/}
+      {/*}*/}
+
+            {/*</Col>*/}
+          {/*</Row>*/}
+        {/*</Grid>*/}
+
+        {/*dokończyć widok listy*/}
+
+
+      </div>
+
     </div>
   )
 }
@@ -36,3 +56,4 @@ const SearchView = () => {
 export default SearchView;
 
 
+//Poprawić odnośniki na Link
