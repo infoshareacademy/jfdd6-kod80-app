@@ -1,3 +1,5 @@
+//to co w counter-view.js
+
 import React from 'react';
 import search from '../search/search'
 import SearchRowResult from './search-view-row-result'
