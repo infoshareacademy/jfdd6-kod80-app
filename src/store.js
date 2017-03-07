@@ -1,6 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import persistState from 'redux-localstorage'
+// import thunk from 'redux-thunk'
+// import persistState from 'redux-localstorage'
 
 import searchReducer from './state/search-value'
 
@@ -13,8 +13,8 @@ const store = createStore(
   reducer,
   /* preloadedState, */
   composeEnhancers(
-    persistState(['counter']),
-    applyMiddleware(thunk)
+    // persistState(['counter']),
+    // applyMiddleware(thunk)
   )
 );
 export default store

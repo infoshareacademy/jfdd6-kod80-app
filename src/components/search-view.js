@@ -3,6 +3,7 @@
 import React from 'react';
 import search from '../search/search'
 import SearchRowResult from './search-view-row-result'
+import MainSearch from './search-input'
 
 import database from '../data/data-testowa-baza-danych.json'
 
@@ -22,7 +23,7 @@ const SearchView = () => {
   //wyswietl wyniki wyszukiwania
   return (
     <div>
-      <div>Tu bedzie wyszukiwarka</div>
+      <MainSearch/>
       <div>Wyniki Wyszukania</div>
       //  wyswietl pojedynczy wiersz z danymi
       <ul>

@@ -1,3 +1,5 @@
+
+import React from 'react'
 import {FormGroup, ControlLabel,FormControl } from 'react-bootstrap'
 
 
@@ -26,7 +28,7 @@ const MainSearch = React.createClass({
                     controlId="formBasicText"
                     validationState={this.getValidationState()}
                 >
-                    <ControlLabel>Working example with validation</ControlLabel>
+                    <ControlLabel>Główna wyszukiwarka</ControlLabel>
                     <FormControl
                         type="text"
                         value={this.state.value}
@@ -34,6 +36,26 @@ const MainSearch = React.createClass({
                         onChange={this.handleChange}
                     />
                     <FormControl.Feedback />
+                    <span>
+                    <ControlLabel>Nazwa koncertu</ControlLabel>
+                    <FormControl
+                        type="text"
+                        value={this.state.value}
+                        placeholder="Enter text"
+                        onChange={this.handleChange}
+                    />
+                    <FormControl.Feedback />
+                    </span>
+                    <span>
+                    <ControlLabel>Miejscowość</ControlLabel>
+                    <FormControl
+                        type="text"
+                        value={this.state.value}
+                        placeholder="Enter text"
+                        onChange={this.handleChange}
+                    />
+                    <FormControl.Feedback />
+                    </span>
                 </FormGroup>
             </form>
         );
