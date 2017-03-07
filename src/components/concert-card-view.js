@@ -18,7 +18,7 @@ const ConcertCard = props => {
 
         <h1 >{concert.Band}</h1>
         <h2> {concert.City} {concert.Date} </h2>
-          <LinkContainer to={{ pathname: '/kup-bilet' }}>
+          <LinkContainer to={{ pathname: '/buy-ticket/3' }}>
             <Button  bsStyle="danger" bsSize="large">Kup Bilet !</Button>
           </LinkContainer>
 
