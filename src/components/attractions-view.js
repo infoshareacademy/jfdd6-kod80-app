@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 // import {connect} from 'react-redux'
 import {Grid, Table, Button} from 'react-bootstrap'
 import attractions from '../data/attractions.json'
@@ -174,7 +175,18 @@ class AttractionsView extends React.Component {
   }
 }
 
-export default AttractionsView;
+export default connect (
+  state => (
+    {
+      distanceValue: state.distanceValue
+    }
+  ),
+  dispatch => (
+    {
+      changeDistance: (value) => dispatch(changeDistance(value))
+    }
+  )
+)(AttractionsView)
 
 
 
