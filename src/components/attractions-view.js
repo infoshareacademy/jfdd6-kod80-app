@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { Grid, Table } from 'react-bootstrap'
-import attractionsDb from '../data/data-attractions.json'
+import attractionsDb from '../../public/data/data-attractions.json'
 
 const Attractions = () => (
   <Grid>This is sooo much attractions

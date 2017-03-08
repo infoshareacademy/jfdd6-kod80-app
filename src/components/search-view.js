@@ -4,7 +4,6 @@ import React from 'react';
 import search from '../search/search'
 import SearchRowResult from './search-view-row-result'
 
-import database from '../data/data-testowa-baza-danych.json'
 
 //parametry do wyszukiwania koncertow
 let searchValues = {
@@ -14,27 +13,42 @@ let searchValues = {
   concert: ""
 }
 
-//funkcja odpowiada za wyswietlanie wynikow wyszukiwania
-const SearchView = () => {
-  //przeszukaj baze danych dla odpowiednich wartosci
-  var searchResult = search(database, searchValues);
+class SearchView extends React.Component {
 
-  //wyswietl wyniki wyszukiwania
-  return (
-    <div>
-      <div>Tu bedzie wyszukiwarka</div>
-      <div>Wyniki Wyszukania</div>
-      //  wyswietl pojedynczy wiersz z danymi
-      <ul>
-      {
-        searchResult
-          .map( concert => <SearchRowResult key={concert.id} concert={concert} /> )
-      }
-      </ul>
-    </div>
-  )
+  constructor(props) {
+    super(props)
+    this.state = {
+    concerts: null
+    }
+  }
+
+  componentWillMount() {
+    fetch(
+      process.env.PUBLIC_URL + '/data/data-testowa-baza-danych.json'
+    ).then(
+      response => response.json()
+    ).then(
+      concerts => this.setState({ concerts })
+    )
+  }
+
+  render() {
+    return (
+      <div>
+        <div>Tu bedzie wyszukiwarka</div>
+        <div>Wyniki Wyszukania</div>
+        <ul>
+          {
+            this.state.concerts ?this.state.concerts
+              .map(concert => <SearchRowResult key={concert.id} concert={concert} />
+              ) : <p>Czekamy na dane</p>
+          }
+        </ul>
+      </div>
+    )
+  }
 }
 
-export default SearchView;
+export default SearchView
 
 
