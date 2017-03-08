@@ -6,9 +6,21 @@ import hotels from '../data/hotels.json'
 import restaurants from '../data/restaurants.json'
 import taxis from '../data/taxis.json'
 
+const calculateDistance = (latA, lonA, latB, lonB) => {
+
+  return (Math.sqrt((Math.pow((parseFloat(latB) - parseFloat(latA)), 2)) + (Math.pow((Math.cos((parseFloat(latA) * Math.PI)/180)*(parseFloat(lonB)-parseFloat(lonA))), 2)))) * (40075.704/360)
+  // Klub B90 "latitude": "54.3641295", "longitude": "18.6478889"
+  // Gdański Teatr Szekspirowski "latitude": "54.3477652", "longitude": "18.6489656"
+  // Stadion energa Gdańsk "latitude": "54.3907065", "longitude": "18.6385357"
+  // Ergo Arena "latitude": "54.42559", "longitude": "18.5840682"
+
+}
+
 const AttractionsView = () => (
   <Grid>
     <h1>Explore Gdańsk</h1>
+
+
 
     <div className="row">
       <div className="col-xs-3" >
@@ -31,6 +43,7 @@ const AttractionsView = () => (
                       <li>{attraction.name}</li>
                       <li>{attraction.address}</li>
                       <li>{attraction.hours}</li>
+                      <li>{calculateDistance(attraction.latitude, attraction.longitude, "54.42559", "18.5840682").toFixed(2)} km</li>
                       <li>{attraction.website !== 'no website' ? <a href={attraction.website}>Website</a> : 'no website'}</li>
                     </ul>
                   </td>

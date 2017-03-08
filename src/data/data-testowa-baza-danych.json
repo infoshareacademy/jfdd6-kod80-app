@@ -74,7 +74,9 @@
     "Band": "Piotr Rubik",
     "TypeOfMusic": "Rock",
     "City": "Gdańsk",
-    "Date": "16/06/2017"
+    "Date": "16/06/2017",
+    "latitude": "54.3641295",
+    "longitude": "18.6478889"
   },
   {
     "id": 12,
@@ -88,7 +90,9 @@
     "Band": "Queen",
     "TypeOfMusic": "Pop",
     "City": "Gdańsk",
-    "Date": "06/12/2017"
+    "Date": "06/12/2017",
+    "latitude": "54.3477652",
+    "longitude": "18.6489656"
   },
   {
     "id": 14,
@@ -102,7 +106,9 @@
     "Band": "Pink Floyd",
     "TypeOfMusic": "Techno",
     "City": "Gdańsk",
-    "Date": "17/10/2017"
+    "Date": "17/10/2017",
+    "latitude": "54.3907065",
+    "longitude": "18.6385357"
   },
   {
     "id": 16,
@@ -151,7 +157,9 @@
     "Band": "Deep Purple",
     "TypeOfMusic": "Metal",
     "City": "Gdańsk",
-    "Date": "25/07/2017"
+    "Date": "25/07/2017",
+    "latitude": "54.42559",
+    "longitude": "18.5840682"
   },
   {
     "id": 23,
