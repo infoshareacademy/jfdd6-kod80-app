@@ -179,7 +179,7 @@ export default connect (
   state => (
     {
       distanceValue: state.distanceValue,
-      concerts: state.conserts
+      distanceVal: state.distanceReducer
     }
   ),
   dispatch => (
