@@ -26,7 +26,6 @@ const calculateDistance = (latA, lonA, latB, lonB) => {
 
 }
 
-
 class AttractionsView extends React.Component {
 
   render () {
@@ -51,6 +50,7 @@ class AttractionsView extends React.Component {
               </thead>
               <tbody>
               {
+
                 attractions.map(
                   attraction => (
                     <tr key={attraction.id}>
@@ -178,7 +178,8 @@ class AttractionsView extends React.Component {
 export default connect (
   state => (
     {
-      distanceValue: state.distanceValue
+      distanceValue: state.distanceValue,
+      concerts: state.conserts
     }
   ),
   dispatch => (
