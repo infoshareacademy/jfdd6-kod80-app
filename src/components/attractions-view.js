@@ -1,11 +1,13 @@
 import React from 'react';
 // import {connect} from 'react-redux'
-import {Grid, Table} from 'react-bootstrap'
+import {Grid, Table, Button} from 'react-bootstrap'
 import attractions from '../data/attractions.json'
 import hotels from '../data/hotels.json'
 import restaurants from '../data/restaurants.json'
 import taxis from '../data/taxis.json'
 // import concerts from '../data/concerts-gdansk.json'
+
+import {changeDistance} from '../state/distance-filter'
 
 const concertX = "54.3641295";
 const concertY = "18.6478889";
@@ -27,12 +29,15 @@ const calculateDistance = (latA, lonA, latB, lonB) => {
 class AttractionsView extends React.Component {
 
   render () {
-    // const ...
+    const {changeDistance} = this.props
 
     return (
       <Grid>
-
         <h1>Explore Gdańsk</h1>
+
+        <Button onClick={() => changeDistance(1)}>Increase limit</Button>
+        <Button onClick={() => changeDistance(-1)}>Decrease limit</Button>
+
         <div className="row">
           <div className="col-xs-3">
             <h1>Attractions</h1>

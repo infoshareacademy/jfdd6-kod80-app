@@ -1,25 +1,25 @@
 // ACTION TYPES (there may be more than one)
-const CHANGE = 'students/CHANGE'
+const CHANGEDISTANCE = 'students/CHANGEDISTANCE'
 
 // ACTION CREATORS (there may be more than one; one for each action type)
-export const change = (value) => ({
-  type: CHANGE,
+export const changeDistance = (value) => ({
+  type: CHANGEDISTANCE,
   value
 })
 
 // INITIAL VALUE
 const initialState = {
-  gradeQuantityLimit: 10
+  distanceValue: 1
 }
 
 // REDUCER
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     // Number of cases should be equal to number of action types
-    case CHANGE:
+    case CHANGEDISTANCE:
       return {
         ...state,
-        gradeQuantityLimit: state.gradeQuantityLimit + action.value
+        distanceValue: state.distanceValue + action.value
       }
     default:
       return state
