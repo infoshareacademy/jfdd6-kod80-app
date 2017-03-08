@@ -3,7 +3,7 @@
 import React from 'react';
 import search from '../search/search'
 import SearchRowResult from './search-view-row-result'
-
+import MainSearch from './search-input'
 
 //parametry do wyszukiwania koncertow
 let searchValues = {
