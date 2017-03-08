@@ -5,10 +5,17 @@ import attractions from '../data/attractions.json'
 import hotels from '../data/hotels.json'
 import restaurants from '../data/restaurants.json'
 import taxis from '../data/taxis.json'
+// import concerts from '../data/concerts-gdansk.json'
+
+const concertX = "54.3641295";
+const concertY = "18.6478889";
 
 const calculateDistance = (latA, lonA, latB, lonB) => {
 
-  return (Math.sqrt((Math.pow((parseFloat(latB) - parseFloat(latA)), 2)) + (Math.pow((Math.cos((parseFloat(latA) * Math.PI)/180)*(parseFloat(lonB)-parseFloat(lonA))), 2)))) * (40075.704/360)
+  return (Math.sqrt((Math.pow((parseFloat(latB) - parseFloat(latA)), 2))
+      + (Math.pow((Math.cos((parseFloat(latA) * Math.PI) / 180) * (parseFloat(lonB) - parseFloat(lonA))), 2))))
+    * (40075.704 / 360);
+  // http://vbest.com.pl/gps/?lat=54.4099607&lng=18.5604337&zom=17&mt=ROADMAP#przesun
   // Klub B90 "latitude": "54.3641295", "longitude": "18.6478889"
   // Gdański Teatr Szekspirowski "latitude": "54.3477652", "longitude": "18.6489656"
   // Stadion energa Gdańsk "latitude": "54.3907065", "longitude": "18.6385357"
@@ -18,12 +25,10 @@ const calculateDistance = (latA, lonA, latB, lonB) => {
 
 const AttractionsView = () => (
   <Grid>
+
     <h1>Explore Gdańsk</h1>
-
-
-
     <div className="row">
-      <div className="col-xs-3" >
+      <div className="col-xs-3">
         <h1>Attractions</h1>
         <Table striped>
           <thead>
@@ -43,8 +48,11 @@ const AttractionsView = () => (
                       <li>{attraction.name}</li>
                       <li>{attraction.address}</li>
                       <li>{attraction.hours}</li>
-                      <li>{calculateDistance(attraction.latitude, attraction.longitude, "54.42559", "18.5840682").toFixed(2)} km</li>
-                      <li>{attraction.website !== 'no website' ? <a href={attraction.website}>Website</a> : 'no website'}</li>
+                      <li>{attraction.website !== 'no website' ?
+                        <a href={attraction.website}>Website</a> : 'no website'}</li>
+                      <li>{calculateDistance(attraction.latitude, attraction.longitude, concertX, concertY).toFixed(2)}
+                        km
+                      </li>
                     </ul>
                   </td>
                 </tr>
@@ -76,7 +84,8 @@ const AttractionsView = () => (
                       <li>{restaurant.address}</li>
                       <li>{restaurant.hours}</li>
                       <li>{restaurant.phone}</li>
-                      <li>{restaurant.website !== 'no website' ? <a href={restaurant.website}>Website</a> : 'no website'}</li>
+                      <li>{restaurant.website !== 'no website' ?
+                        <a href={restaurant.website}>Website</a> : 'no website'}</li>
                     </ul>
                   </td>
                 </tr>
