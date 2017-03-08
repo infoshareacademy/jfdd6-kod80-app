@@ -1,9 +1,9 @@
 //to co w counter-view.js
 
 import React from 'react';
-import search from '../search/search'
 import SearchRowResult from './search-view-row-result'
-import MainSearch from './search-input'
+import { connect } from 'react-redux'
+
 
 //parametry do wyszukiwania koncertow
 let searchValues = {
@@ -15,22 +15,7 @@ let searchValues = {
 
 class SearchView extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-    concerts: null
-    }
-  }
 
-  componentWillMount() {
-    fetch(
-      process.env.PUBLIC_URL + '/data/data-testowa-baza-danych.json'
-    ).then(
-      response => response.json()
-    ).then(
-      concerts => this.setState({ concerts })
-    )
-  }
 
   render() {
     return (
@@ -39,7 +24,7 @@ class SearchView extends React.Component {
         <div>Wyniki Wyszukania</div>
         <ul>
           {
-            this.state.concerts ?this.state.concerts
+            this.props.concerts ?this.props.concerts
               .map(concert => <SearchRowResult key={concert.id} concert={concert} />
               ) : <p>Czekamy na dane</p>
           }
@@ -49,6 +34,12 @@ class SearchView extends React.Component {
   }
 }
 
-export default SearchView
+export default connect(
+  state => ({
+    concerts: state.concerts.concerts
+
+
+  })
+)(SearchView)
 
 
