@@ -1,10 +1,9 @@
 //to co w counter.js
 
+const GIVE_ME_CONCERTS = 'concerts/GIVE_ME_CONCERTS'
+
 const initialState = {
-  date: null,
-  places: null,
-  music: null,
-  concert: null
+  concerts: null
 }
 
 const reducer = ( state = initialState, action = {}) => {

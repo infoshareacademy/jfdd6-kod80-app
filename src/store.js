@@ -2,7 +2,7 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 // import thunk from 'redux-thunk'
 // import persistState from 'redux-localstorage'
 
-import searchReducer from './state/search-value'
+import searchReducer from './state/concerts'
 
 const reducer = combineReducers({
   search: searchReducer,
