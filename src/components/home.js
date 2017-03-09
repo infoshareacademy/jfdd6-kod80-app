@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchView from './search-view';
+// import SearchView from './search-view';
 import SearchRowResult from './search-view-row-result'
 
 const Home = () => (

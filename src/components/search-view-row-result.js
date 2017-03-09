@@ -1,9 +1,8 @@
 import React from 'react';
 import {Grid, Table} from 'react-bootstrap';
-
+import {Link} from 'react-router'
 
 import concerts_gdansk from '../data/concerts-gdansk.json'
-
 
 class SearchRowResult extends React.Component {
 
@@ -26,7 +25,10 @@ class SearchRowResult extends React.Component {
               concerts_gdansk.map(
                 concert_gdansk => (
                   <tr key={concert_gdansk.id}>
-                    <td>{concert_gdansk.id}</td>
+                    <td>
+                      <Link to="/concert-card">
+                        {concert_gdansk.id}
+                      </Link></td>
                     <td>{concert_gdansk.band}</td>
                     <td>{concert_gdansk.typeOfMusic}</td>
                     <td>{concert_gdansk.date}</td>
