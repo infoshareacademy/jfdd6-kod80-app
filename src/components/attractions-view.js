@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-// import {connect} from 'react-redux'
+
 import {Grid, Table, Button} from 'react-bootstrap'
 import attractions from '../data/attractions.json'
 import hotels from '../data/hotels.json'
@@ -49,9 +49,7 @@ class AttractionsView extends React.Component {
               </tr>
               </thead>
               <tbody>
-              {
-
-                attractions.map(
+              {attractions.map(
                   attraction => (
                     <tr key={attraction.id}>
                       <td>{attraction.id}</td>
@@ -167,8 +165,6 @@ class AttractionsView extends React.Component {
               </tbody>
             </Table>
           </div>
-
-
         </div>
       </Grid>
     )
