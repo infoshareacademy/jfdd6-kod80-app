@@ -12,6 +12,7 @@ import ConcertCard from './components/concert-card-view';
 import UserCard from './components/user-card';
 import ConcertAttenders from './components/concert-attenders';
 import Home from './components/home';
+import ViewConcert from './components/view-concert';
 
 import './styles/index.css';
 
@@ -23,6 +24,7 @@ ReactDOM.render(
           <IndexRoute component={Home} />
           <Route path="home" component={Home} />
           <Route path="concert-card" component={ConcertCard} />
+          <Route path="concert-card/:concert-cardId" component={ViewConcert}/>
           <Route path="user-card" component={UserCard} />
           <Route path="concert-attenders" component={ConcertAttenders} />
           {/*deafult widok - wyszukiwarka*/}
