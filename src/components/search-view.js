@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 import { fetchSuccess } from '../state/concerts'
 
 
+const concerts = null;
+
 class SearchView extends React.Component {
 
 
@@ -35,7 +37,7 @@ class SearchView extends React.Component {
 
 export default connect(
   state => ({
-    concerts: state.concerts.concerts
+    concerts: state.concerts
   }),
   dispatch => ({
     fetchConcerts: () => dispatch(fetchSuccess() )
