@@ -2,12 +2,12 @@ import { createStore, combineReducers } from 'redux'
 
 import searchReducer from './state/search-value'
 import distanceReducer from './state/distance-filter'
-import concertReducer from './state/concert-reducer'
+// import concertReducer from './state/concert-reducer'
 
 const reducer = combineReducers({
   searchValues: searchReducer,
   distanceVal: distanceReducer,
-  concerts: concertReducer
+  // concerts: concertReducer
 })
 
 const store = createStore(
