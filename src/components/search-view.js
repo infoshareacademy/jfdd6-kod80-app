@@ -3,10 +3,8 @@
 import React from 'react';
 import SearchRowResult from './search-view-row-result'
 import { connect } from 'react-redux'
-import { fetchSuccess } from '../state/concerts'
+import { fetchConcerts } from '../state/concerts'
 
-
-const concerts = null;
 
 class SearchView extends React.Component {
 
@@ -16,6 +14,12 @@ class SearchView extends React.Component {
   }
 
   render() {
+    const {
+      concerts
+    } = this.props
+
+    console.log( 'Props', this.props )
+
     return (
       <div>
         <div>Tu bedzie wyszukiwarka</div>
@@ -24,7 +28,7 @@ class SearchView extends React.Component {
 
         <ul>
           {
-            this.props.concerts ? this.props.concerts
+            concerts ? concerts
               .map(concert => <SearchRowResult key={concert.id} concert={concert} />
               ) : <p>Czekamy na dane</p>
           }
@@ -37,10 +41,10 @@ class SearchView extends React.Component {
 
 export default connect(
   state => ({
-    concerts: state.concerts
+    concerts: state.search.data
   }),
   dispatch => ({
-    fetchConcerts: () => dispatch(fetchSuccess() )
+    fetchConcerts: () => dispatch( fetchConcerts() )
   })
 )(SearchView)
 

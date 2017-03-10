@@ -4,8 +4,8 @@ const SearchRowResult = ({concert}) => {
   return (
     <li>
       <ul>
-        <li>{concert.Band}</li>
-        <li>{concert.Date}</li>
+        <li>{concert.band}</li>
+        <li>{concert.date}</li>
       </ul>
     </li>
   )
