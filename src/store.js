@@ -6,7 +6,7 @@ import distanceReducer from './state/distance-filter'
 
 const reducer = combineReducers({
   searchValues: searchReducer,
-  distanceVal: distanceReducer,
+  distanceValue: distanceReducer,
   // concerts: concertReducer
 })
 

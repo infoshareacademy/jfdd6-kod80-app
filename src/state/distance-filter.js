@@ -1,5 +1,5 @@
 // ACTION TYPES (there may be more than one)
-const CHANGEDISTANCE = 'students/CHANGEDISTANCE'
+const CHANGEDISTANCE = 'distance/CHANGEDISTANCE'
 
 // ACTION CREATORS (there may be more than one; one for each action type)
 export const changeDistance = (value) => ({

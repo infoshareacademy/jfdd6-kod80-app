@@ -174,8 +174,8 @@ class AttractionsView extends React.Component {
 export default connect (
   state => (
     {
-      distanceValue: state.distanceValue,
-      distanceVal: state.distanceReducer
+      // distanceValue: state.distanceValue,
+      // distanceVal: state.distanceReducer
     }
   ),
   dispatch => (
