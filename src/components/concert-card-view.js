@@ -7,7 +7,7 @@ import {Button, Grid} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
 
-import database from '../../public/data/data-testowa-baza-danych.json'
+import database from '../../public/data/concerts-gdansk.json'
 
 const ConcertCard = props => {
   const concertId = props.params.concertId

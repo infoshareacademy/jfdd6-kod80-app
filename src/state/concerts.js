@@ -10,7 +10,7 @@ const FETCH__FAIL = 'concerts/FETCH__FAILED'
 export const fetchConcerts = () => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
-    process.env.PUBLIC_URL + '/data/data-testowa-baza-danych.json'
+    process.env.PUBLIC_URL + '/data/concerts-gdansk.json'
   ).then(
     response => {
       if (response.ok) {
