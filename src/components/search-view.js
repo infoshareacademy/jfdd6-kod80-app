@@ -12,7 +12,7 @@ class SearchView extends React.Component {
 
   componentWillMount() {
     this.props.fetchConcerts()
-    this.props.filterTypeOfMusic()
+    this.props.filterTypeOfMusic('Techno')
   }
 
   render() {
@@ -50,7 +50,7 @@ export default connect(
   }),
   dispatch => ({
     fetchConcerts: () => dispatch( fetchConcerts() ),
-    filterTypeOfMusic: () => dispatch( setTypeOfMusicSearch() )
+    filterTypeOfMusic: (typeOfMusic) => dispatch( setTypeOfMusicSearch(typeOfMusic) )
   })
 )(SearchView)
 

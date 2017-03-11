@@ -7,9 +7,9 @@
 const SET_SEARCH_VALUE = 'concerts/SET_SEARCH_VALUE'
 const SET_TYPE_OF_MUSIC_SEARCH = 'concerts/SET_TYPE_OF_MUSIC_SEARCH'
 
-export const setTypeOfMusicSearch = (value, valueType) => ({
+export const setTypeOfMusicSearch = (typeOfMusic, valueType) => ({
   type: SET_TYPE_OF_MUSIC_SEARCH,
-  value
+  typeOfMusic
 })
 
 // ACTION CREATORS (there may be more than one; one for each action type)
@@ -39,7 +39,7 @@ export default (state = initialState, action = {}) => {
     case SET_TYPE_OF_MUSIC_SEARCH:
       return {
     ...state,
-      concertsSearchValues: {...state.concertsSearchValues, typeOfMusic: value }
+      concertsSearchValues: {...state.concertsSearchValues, typeOfMusic: action.typeOfMusic }
   }
     default:
       return state
