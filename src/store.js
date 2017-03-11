@@ -3,9 +3,11 @@ import thunk from 'redux-thunk'
 // import persistState from 'redux-localstorage'
 
 import concertReducer from './state/concerts'
+import concertFilterReducer from './state/concert-filter.js'
 
 const reducer = combineReducers({
-  concerts: concertReducer
+  concerts: concertReducer,
+  concert_filter: concertFilterReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
