@@ -14,7 +14,11 @@ export const setSearchValue = (value, valueType) => ({
 
 // INITIAL VALUE --> do przegadania
 const initialState = {
-  searchFilterNames: []
+  searchFilterNames: [],
+  concertId: null,
+  band: null,
+  typeOfMusic: null,
+  city: null
 }
 
 //REDUCER
