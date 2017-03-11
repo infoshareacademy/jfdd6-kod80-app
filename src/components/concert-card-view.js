@@ -1,17 +1,14 @@
 import React from 'react';
 import Attractions from './attractions-view'
-import search from '../search/search'
-import SearchRowResult from './search-view-row-result'
-
 import {Button, Grid} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
-import {Link} from 'react-router'
+
 
 import database from '../../public/data/concerts-gdansk.json'
 
 const ConcertCard = props => {
-  const concertId = props.params.concertId
-  const concert = database.filter( concert => concert.id == concertId)[0]
+  const concertId = props.params.concertId;
+  const concert = database.filter( concert => concert.id == concertId)[0];
 
   return (
       <Grid key={concertId}>
@@ -25,7 +22,7 @@ const ConcertCard = props => {
       <Attractions />
     </Grid>
   )
-}
+};
 
 export default ConcertCard;
 
