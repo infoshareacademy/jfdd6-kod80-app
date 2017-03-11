@@ -15,10 +15,12 @@ export const setSearchValue = (value, valueType) => ({
 // INITIAL VALUE --> do przegadania
 const initialState = {
   searchFilterNames: [],
-  concertId: null,
-  band: null,
-  typeOfMusic: null,
-  city: null
+  concertsSearchValues: {
+    concertId: null,
+    band: null,
+    typeOfMusic: null,
+    city: null
+  }
 }
 
 //REDUCER
