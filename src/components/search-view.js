@@ -41,7 +41,7 @@ class SearchView extends React.Component {
 
 export default connect(
   state => ({
-    concerts: state.search.data
+    concerts: state.concerts.data
   }),
   dispatch => ({
     fetchConcerts: () => dispatch( fetchConcerts() )

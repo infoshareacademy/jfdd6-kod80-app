@@ -2,10 +2,10 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 // import persistState from 'redux-localstorage'
 
-import searchReducer from './state/concerts'
+import concertReducer from './state/concerts'
 
 const reducer = combineReducers({
-  search: searchReducer,
+  concerts: concertReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
