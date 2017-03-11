@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router'
 import {Image} from 'react-bootstrap'
 
-import '../styles/search-view-row-result.css';
+
 
 const SearchRowResult = ({concert}) => {
     return (

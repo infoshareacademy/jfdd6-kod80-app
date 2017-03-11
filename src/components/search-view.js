@@ -28,10 +28,10 @@ class SearchView extends React.Component {
 
 
 
-        <div>
-          <h1>Wyniki Wyszukania</h1>
-
         <div className="search-result">
+          <h2>Wybierz koncert</h2>
+
+        <div>
 
             <div>
           {
