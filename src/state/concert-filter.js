@@ -39,7 +39,7 @@ export default (state = initialState, action = {}) => {
     case SET_TYPE_OF_MUSIC_SEARCH:
       return {
     ...state,
-      concertsSearchValues: {...state.concertsSearchValues, typeOfMusic: "Rock" }
+      concertsSearchValues: {...state.concertsSearchValues, typeOfMusic: value }
   }
     default:
       return state
