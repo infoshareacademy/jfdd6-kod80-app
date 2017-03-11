@@ -7,6 +7,7 @@ const SearchRowResult = ({concert}) => {
         <a href={"concerts/"+concert.id}>
           <li>{concert.band}</li>
           <li>{concert.date}</li>
+          <li>{concert.typeOfMusic}</li>
         </a>
       </ul>
     </li>

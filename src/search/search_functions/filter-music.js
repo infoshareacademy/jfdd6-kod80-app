@@ -8,14 +8,10 @@
 //        zwracana funkcja - @param - koncert
 //        zwracana funkcja - @return - Boolean - True jesli koncert spełnia warunek, False jesli nie spełnia
 const filter_music= searchValues => concert => {
-  return true
-  // if( concert.TypeOfMusic === "Metal") {
-  //  return true
-  // } else {
-  //  return false
-  // }
-  searchValues
-
+  if (searchValues.typeOfMusic === null) {
+    return true
+  }
+  return concert.typeOfMusic === searchValues.typeOfMusic ? true : false
 }
 
 export default filter_music
