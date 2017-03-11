@@ -5,6 +5,8 @@ import SearchRowResult from './search-view-row-result'
 import { connect } from 'react-redux'
 import { fetchConcerts } from '../state/concerts'
 
+import {Grid} from 'react-bootstrap'
+
 
 class SearchView extends React.Component {
 
@@ -24,15 +26,23 @@ class SearchView extends React.Component {
       <div>
         <div>Tu bedzie wyszukiwarka</div>
 
-        <div>Wyniki Wyszukania</div>
 
-        <ul>
+
+        <div>
+          <h1>Wyniki Wyszukania</h1>
+
+        <div className="search-result">
+
+            <div>
           {
             concerts ? concerts
               .map(concert => <SearchRowResult key={concert.id} concert={concert} />
               ) : <p>Czekamy na dane</p>
           }
-        </ul>
+            </div>
+        </div>
+
+        </div>
 
       </div>
     )

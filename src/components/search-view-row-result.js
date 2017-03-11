@@ -1,19 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router'
+import {Link} from 'react-router'
+import {Image} from 'react-bootstrap'
+
+import '../styles/search-view-row-result.css';
 
 const SearchRowResult = ({concert}) => {
-  return (
-    <li>
-      <ul>
-          <Link to={"concerts/"+concert.id}>
+    return (
+        <Link to={"concerts/" + concert.id}>
 
-          <li>{concert.band}</li>
-          <li>{concert.date}</li>
+            <div className="serch-view-result">
 
-          </Link>
-      </ul>
-    </li>
-  )
-}
+                <Image src={"data/images-database/" + concert.bandImages} thumbnail/>
+                <ul>
+                    <li>{concert.band}</li>
+                    <li>{concert.date}</li>
+                    <li>Cena: {concert.ticketPrice}</li>
+
+                </ul>
+
+            </div>
+        </Link>
+    )
+};
 
 export default SearchRowResult;
