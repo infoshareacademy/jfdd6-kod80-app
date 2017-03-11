@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router'
 
 const SearchRowResult = ({concert}) => {
   return (
     <li>
       <ul>
-        <a href={"concerts/"+concert.id}>
+          <Link to={"concerts/"+concert.id}>
+
           <li>{concert.band}</li>
           <li>{concert.date}</li>
-        </a>
+
+          </Link>
       </ul>
     </li>
   )
