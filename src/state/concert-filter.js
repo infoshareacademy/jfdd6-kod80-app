@@ -12,12 +12,6 @@ export const setTypeOfMusicSearch = (typeOfMusic, valueType) => ({
   typeOfMusic
 })
 
-// ACTION CREATORS (there may be more than one; one for each action type)
-export const setSearchValue = (value, valueType) => ({
-  type: SET_SEARCH_VALUE,
-  value
-})
-
 // INITIAL VALUE --> do przegadania
 const initialState = {
   searchFilterNames: [],
@@ -34,8 +28,6 @@ const initialState = {
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     // Number of cases should be equal to number of action types
-    case SET_SEARCH_VALUE:
-      return state
     case SET_TYPE_OF_MUSIC_SEARCH:
       return {
     ...state,
