@@ -4,10 +4,13 @@
 // searchFilterNames --> to bedzie nasz initial state
 
 // ACTION TYPES (there may be more than one)
-const SET_SEARCH_VALUE = 'search/SET_SEARCH_VALUE'
-const SET_TYPE_OF_MUSIC_SEARCH = 'search/SET_TYPE_OF_MUSIC_SEARCH'
+const SET_SEARCH_VALUE = 'concerts/SET_SEARCH_VALUE'
+const SET_TYPE_OF_MUSIC_SEARCH = 'concerts/SET_TYPE_OF_MUSIC_SEARCH'
 
-export const setSearch
+export const setTypeOfMusicSearch = (value, valueType) => ({
+  type: SET_TYPE_OF_MUSIC_SEARCH,
+  value
+})
 
 // ACTION CREATORS (there may be more than one; one for each action type)
 export const setSearchValue = (value, valueType) => ({

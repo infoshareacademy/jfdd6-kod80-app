@@ -4,6 +4,8 @@ import React from 'react';
 import SearchRowResult from './search-view-row-result'
 import { connect } from 'react-redux'
 import { fetchConcerts } from '../state/concerts'
+import {setTypeOfMusicSearch} from '../state/concert-filter.js'
+
 import filter_concert from '../search/concert-filter.js'
 
 class SearchView extends React.Component {
@@ -48,7 +50,7 @@ export default connect(
   }),
   dispatch => ({
     fetchConcerts: () => dispatch( fetchConcerts() ),
-    filterTypeOfMusic: () => dispatch( {type: 'SET_TYPE_OF_MUSIC_SEARCH'})
+    filterTypeOfMusic: () => dispatch( setTypeOfMusicSearch() )
   })
 )(SearchView)
 
