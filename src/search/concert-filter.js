@@ -8,6 +8,7 @@ const filter_concert = searchValues => concert => {
     .filter(filter_music(searchValues))
     .filter(filter_band(searchValues))
     .filter(filter_date(searchValues))
+    .length > 0
 }
 
 
