@@ -1,10 +1,4 @@
-
-// to samo co w student-filters
-// valueType - rodzaj szukanego słowa kluczowego - rodzaj muzyki, nazwa miejscowości
-// searchFilterNames --> to bedzie nasz initial state
-
 // ACTION TYPES (there may be more than one)
-const SET_SEARCH_VALUE = 'concerts/SET_SEARCH_VALUE'
 const SET_TYPE_OF_MUSIC_SEARCH = 'concerts/SET_TYPE_OF_MUSIC_SEARCH'
 
 export const setTypeOfMusicSearch = (typeOfMusic, valueType) => ({
@@ -12,9 +6,8 @@ export const setTypeOfMusicSearch = (typeOfMusic, valueType) => ({
   typeOfMusic
 })
 
-// INITIAL VALUE --> do przegadania
+// INITIAL VALUE
 const initialState = {
-  searchFilterNames: [],
   concertsSearchValues: {
     concertId: null,
     band: null,
@@ -24,7 +17,6 @@ const initialState = {
 }
 
 //REDUCER
-
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     // Number of cases should be equal to number of action types
