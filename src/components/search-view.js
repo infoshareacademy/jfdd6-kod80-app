@@ -8,11 +8,12 @@ import {setTypeOfMusicSearch} from '../state/concert-filter.js'
 
 import filter_concert from '../search/concert-filter.js'
 
+import {Button} from 'react-bootstrap'
+
 class SearchView extends React.Component {
 
   componentWillMount() {
     this.props.fetchConcerts()
-    this.props.filterTypeOfMusic('Techno')
   }
 
   render() {
@@ -27,8 +28,12 @@ class SearchView extends React.Component {
       <div>
         <div>Tu bedzie wyszukiwarka</div>
 
+        <Button onClick={ () => this.props.filterTypeOfMusic('Pop')}>Pop</Button>
+        <Button onClick={ () => this.props.filterTypeOfMusic('Techno')}>Techno</Button>
+        <Button onClick={ () => this.props.filterTypeOfMusic('Rock')}>Rock</Button>
+        <Button onClick={ () => this.props.filterTypeOfMusic('Classic')}>Classic</Button>
+        <Button onClick={ () => this.props.filterTypeOfMusic('Metal')}>Metal</Button>
         <div>Wyniki Wyszukania</div>
-      {JSON.stringify(concertsSearchValues)}
         <ul>
           {
             concerts ? concerts
