@@ -19,7 +19,8 @@ class SearchView extends React.Component {
   render() {
     const {
       concerts,
-      concertsSearchValues
+      concertsSearchValues,
+      filterTypeOfMusic
     } = this.props
 
     console.log( 'Props', this.props )
@@ -28,11 +29,11 @@ class SearchView extends React.Component {
       <div>
         <div>Tu bedzie wyszukiwarka</div>
 
-        <Button onClick={ () => this.props.filterTypeOfMusic('Pop')}>Pop</Button>
-        <Button onClick={ () => this.props.filterTypeOfMusic('Techno')}>Techno</Button>
-        <Button onClick={ () => this.props.filterTypeOfMusic('Rock')}>Rock</Button>
-        <Button onClick={ () => this.props.filterTypeOfMusic('Classic')}>Classic</Button>
-        <Button onClick={ () => this.props.filterTypeOfMusic('Metal')}>Metal</Button>
+        <Button onClick={ () => filterTypeOfMusic('Pop')}>Pop</Button>
+        <Button onClick={ () => filterTypeOfMusic('Techno')}>Techno</Button>
+        <Button onClick={ () => filterTypeOfMusic('Rock')}>Rock</Button>
+        <Button onClick={ () => filterTypeOfMusic('Classic')}>Classic</Button>
+        <Button onClick={ () => filterTypeOfMusic('Metal')}>Metal</Button>
         <div>Wyniki Wyszukania</div>
         <ul>
           {
