@@ -3,9 +3,12 @@ import React from 'react';
 import SearchRowResult from './search-view-row-result'
 import { connect } from 'react-redux'
 import { fetchConcerts } from '../state/concerts'
+import SearchInputCreator from './search-input'
 
 import {Grid} from 'react-bootstrap'
 import filter_concert from '../search/concert-filter.js'
+
+import {Button} from 'react-bootstrap'
 
 class SearchView extends React.Component {
 
@@ -33,7 +36,7 @@ class SearchView extends React.Component {
                     ) : <p>Czekamy na dane</p>
                 }
               </ul>
-        </div>
+          </div>
         </div>
       </div>
     )
