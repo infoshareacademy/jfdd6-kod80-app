@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+*{font-family:
+  'Lato', sans-serif;
+}
+
+
+
+//search-view-row-result.js =======================
+
+.serch-view-result {
+  border: 1px solid gray;
+  padding: 2% 5%;
+  Image {
+    display: inline-block;
+  }
+  ul {
+    display: inline-block;
+    list-style: none;
+    li {
+      color: #333333;
+      text-transform: uppercase;
+    }
+  }
+  &:hover {
+    background-color: #f8f8f8;
+  }
+}
+
+//search.view.js
+
+.search-result>h2 {
+  color: #333333;
+  text-transform: uppercase;
+  font-size: 2rem;
+  padding-left: 5%;
+
+}
