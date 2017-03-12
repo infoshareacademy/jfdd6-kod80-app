@@ -19,8 +19,8 @@ export default connect (
         constructor(props) {
             super(props)
             this.state = {
-                typeOfMusic: '',
-                band: ''
+                typeOfMusic: "",
+                band: ""
             }
         }
         render() {

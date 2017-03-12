@@ -8,7 +8,7 @@
 //        zwracana funkcja - @param - koncert
 //        zwracana funkcja - @return - Boolean - True jesli koncert spełnia warunek, False jesli nie spełnia
 const filter_music= searchValues => concert => {
-  if (searchValues.typeOfMusic === null) {
+  if (searchValues.typeOfMusic === null || searchValues.typeOfMusic === "") {
     return true
   }
   return concert.typeOfMusic === searchValues.typeOfMusic ? true : false
