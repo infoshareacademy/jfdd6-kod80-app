@@ -1,65 +1,50 @@
-
+//lookFor to nazwa dispatcha, ktory ma sprawdzać czy wpisana w inpucie fraza znajduje sie w bazie
 import React from 'react'
-import {FormGroup, ControlLabel,FormControl } from 'react-bootstrap'
+import {connect} from 'react-redux'
+
+const refreshTable = () => {
 
 
-const MainSearch = React.createClass({
-    getInitialState() {
-        return {
-            value: ''
-        };
-    },
+}
 
-    getValidationState() {
-        const length = this.state.value.length;
-        if (length > 2) return 'success';
-        else if (length >= 2) return 'warning';
-        else if (length > 0) return 'error';
-    },
+export default connect (
+    state => ({
+        concerts: state.search.data
+    }),
+    dispatch => ( {
+       lookFor:(typeOfMusic, band) => dispatch({type: 'LOOK_FOR', typeOfMusic, band})
+    })
+)(
+    class SearchInputCreator extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                typeOfMusic: '',
+                band: ''
+            }
+        }
+        render() {
+            return(
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    this.props.lookFor(this.state.typeOfMusic, this.state.band)
+                }
 
-    handleChange(e) {
-        this.setState({ value: e.target.value });
-    },
+                }>
+                    <input placeholder='Rodzaj muzyki' value={this.state.typeOfMusic}
+                           onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
+                    <input placeholder='Nazwa koncertu' value={this.state.band}
+                           onChange={(event) => this.setState({band: event.target.value})}/>
 
-    render() {
-        return (
-            <form>
-                <FormGroup
-                    controlId="formBasicText"
-                    validationState={this.getValidationState()}
-                >
-                    <ControlLabel>Główna wyszukiwarka</ControlLabel>
-                    <FormControl
-                        type="text"
-                        value={this.state.value}
-                        placeholder="Enter text"
-                        onChange={this.handleChange}
-                    />
-                    <FormControl.Feedback />
-                    <span>
-                    <ControlLabel>Nazwa koncertu</ControlLabel>
-                    <FormControl
-                        type="text"
-                        value={this.state.value}
-                        placeholder="Enter text"
-                        onChange={this.handleChange}
-                    />
-                    <FormControl.Feedback />
-                    </span>
-                    <span>
-                    <ControlLabel>Miejscowość</ControlLabel>
-                    <FormControl
-                        type="text"
-                        value={this.state.value}
-                        placeholder="Enter text"
-                        onChange={this.handleChange}
-                    />
-                    <FormControl.Feedback />
-                    </span>
-                </FormGroup>
-            </form>
-        );
+                    <button onClick={() => refreshTable()}>Szukaj</button>
+                </form> )
+
+
+        }
     }
-});
 
-export default MainSearch
+
+)
+
+
+

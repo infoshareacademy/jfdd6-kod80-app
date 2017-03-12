@@ -4,6 +4,7 @@ import React from 'react';
 import SearchRowResult from './search-view-row-result'
 import { connect } from 'react-redux'
 import { fetchConcerts } from '../state/concerts'
+import SearchInputCreator from './search-input'
 
 
 class SearchView extends React.Component {
@@ -22,6 +23,7 @@ class SearchView extends React.Component {
 
     return (
       <div>
+          <SearchInputCreator/>
         <div>Tu bedzie wyszukiwarka</div>
 
         <div>Wyniki Wyszukania</div>

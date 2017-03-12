@@ -5,11 +5,16 @@
 
 // ACTION TYPES (there may be more than one)
 const SET_SEARCH_VALUE = 'search/SET_SEARCH_VALUE'
+const LOOK_FOR = 'concert-filter/LOOK_FOR'
 
 // ACTION CREATORS (there may be more than one; one for each action type)
 export const setSearchValue = (value, valueType) => ({
   type: SET_SEARCH_VALUE,
   value
+})
+export const lookFor = (typeOfMusic, band) => ({
+  type: LOOK_FOR,
+    typeOfMusic, band
 })
 
 // INITIAL VALUE --> do przegadania
@@ -22,8 +27,13 @@ const initialState = {
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     // Number of cases should be equal to number of action types
-    case SET_SEARCH_VALUE:
+      case LOOK_FOR:
+        return {
+            ...state,
+            data: action.data
+        }
 
+      case SET_SEARCH_VALUE:
     default:
       return state
   }
