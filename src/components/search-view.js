@@ -5,6 +5,7 @@ import SearchRowResult from './search-view-row-result'
 import { connect } from 'react-redux'
 import { fetchConcerts } from '../state/concerts'
 import {setTypeOfMusicSearch} from '../state/concert-filter.js'
+import SearchInputCreator from './search-input'
 
 import filter_concert from '../search/concert-filter.js'
 
@@ -27,6 +28,7 @@ class SearchView extends React.Component {
 
     return (
       <div>
+          <SearchInputCreator/>
         <div>Tu bedzie wyszukiwarka</div>
 
         <Button onClick={ () => filterTypeOfMusic('Pop')}>Pop</Button>
