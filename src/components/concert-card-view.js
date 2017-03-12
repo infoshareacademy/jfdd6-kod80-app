@@ -8,13 +8,21 @@ import React from 'react';
 
 import database from "../../public/data/concerts-gdansk.json"
 import { connect } from 'react-redux'
+import {fetchSuccess} from '../state/concertCardViewReducer'
 
 export default connect (
     state => ({
         database: state.database
+    }),
+    dispatch => ({
+        fetchDatabase: () => dispatch(fetchSuccess())
     })
 )(
 class ConcertCard extends React.Component {
+
+    componentWillMount() {
+        this.props.fetchDatabase()
+    }
 
     render () {
         return(
