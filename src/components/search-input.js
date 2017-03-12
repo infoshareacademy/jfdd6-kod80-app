@@ -2,7 +2,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {setTypeOfMusicSearch} from '../state/concert-filter.js'
+import {setTypeOfMusicSearch, setBandNameSearch} from '../state/concert-filter.js'
 
 const refreshTable = () => {
 }
@@ -12,7 +12,8 @@ export default connect (
     }),
     dispatch => ( {
        //lookFor:(typeOfMusic, band) => dispatch({type: 'LOOK_FOR', typeOfMusic, band})
-        filterTypeOfMusic: (typeOfMusic) => dispatch( setTypeOfMusicSearch(typeOfMusic) )
+        filterTypeOfMusic: (typeOfMusic) => dispatch( setTypeOfMusicSearch(typeOfMusic) ),
+        setBandNameSearch: (band) => dispatch( setBandNameSearch(band) )
     })
 )(
     class SearchInputCreator extends React.Component {
@@ -25,13 +26,15 @@ export default connect (
         }
         render() {
             const {
-              filterTypeOfMusic
+              filterTypeOfMusic,
+              setBandNameSearch
               } = this.props
 
             return(
                 <form onSubmit={(event) => {
                     event.preventDefault()
                     filterTypeOfMusic(this.state.typeOfMusic)
+                    setBandNameSearch(this.state.band)
                 }
 
                 }>

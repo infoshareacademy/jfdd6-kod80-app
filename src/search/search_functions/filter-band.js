@@ -7,8 +7,11 @@
 //        zwracana funkcja - sprawdza czy koncert spełnia warunke
 //        zwracana funkcja - @param - koncert
 //        zwracana funkcja - @return - Boolean - True jesli koncert spełnia warunek, False jesli nie spełnia
-const filter_band= searchValues => concert => {
-  return true
+const filter_music= searchValues => concert => {
+  if (searchValues.band === null || searchValues.band === "") {
+    return true
+  }
+  return concert.band === searchValues.band ? true : false
 }
 
-export default filter_band
+export default filter_music
