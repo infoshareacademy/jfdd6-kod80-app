@@ -38,9 +38,9 @@ export default connect (
                 }
 
                 }>
-                    <input placeholder='Rodzaj muzyki' value={this.state.typeOfMusic}
+                    <input placeholder='Rodzaj muzyki np.: Rock' value={this.state.typeOfMusic}
                            onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
-                    <input placeholder='Nazwa koncertu' value={this.state.band}
+                    <input placeholder='Nazwa koncertu/zespołu' value={this.state.band}
                            onChange={(event) => this.setState({band: event.target.value})}/>
 
                     <button onClick={() => refreshTable()}>Szukaj</button>

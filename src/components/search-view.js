@@ -4,7 +4,6 @@ import React from 'react';
 import SearchRowResult from './search-view-row-result'
 import { connect } from 'react-redux'
 import { fetchConcerts } from '../state/concerts'
-import {setTypeOfMusicSearch} from '../state/concert-filter.js'
 import SearchInputCreator from './search-input'
 
 import filter_concert from '../search/concert-filter.js'
@@ -21,7 +20,6 @@ class SearchView extends React.Component {
     const {
       concerts,
       concertsSearchValues,
-      filterTypeOfMusic
     } = this.props
 
     console.log( 'Props', this.props )
@@ -29,14 +27,7 @@ class SearchView extends React.Component {
     return (
       <div>
           <SearchInputCreator/>
-        <div>Tu bedzie wyszukiwarka</div>
-
-        <Button onClick={ () => filterTypeOfMusic('Pop')}>Pop</Button>
-        <Button onClick={ () => filterTypeOfMusic('Techno')}>Techno</Button>
-        <Button onClick={ () => filterTypeOfMusic('Rock')}>Rock</Button>
-        <Button onClick={ () => filterTypeOfMusic('Classic')}>Classic</Button>
-        <Button onClick={ () => filterTypeOfMusic('Metal')}>Metal</Button>
-        <div>Wyniki Wyszukania</div>
+        <h2>Wyniki Wyszukiwania:</h2>
         <ul>
           {
             concerts ? concerts
@@ -58,7 +49,6 @@ export default connect(
   }),
   dispatch => ({
     fetchConcerts: () => dispatch( fetchConcerts() ),
-    filterTypeOfMusic: (typeOfMusic) => dispatch( setTypeOfMusicSearch(typeOfMusic) )
   })
 )(SearchView)
 
