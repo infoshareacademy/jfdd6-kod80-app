@@ -1,7 +1,6 @@
 import React from 'react';
 import Attractions from './attractions-view'
-import search from '../search/search'
-import SearchRowResult from './search-view-row-result'
+
 
 import {Button, Grid} from 'react-bootstrap'
 import {connect} from 'react-redux'
