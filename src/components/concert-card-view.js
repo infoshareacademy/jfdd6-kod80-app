@@ -25,9 +25,14 @@ export default connect(
                   <div>
                       <h1>karta wybranego koncertu</h1>
                       {
-                          this.props.database ? this.props.database.map(
+
+
+
+                          this.props.database.data !== null ? this.props.database.data.map(
                                   (concert, index) => <li key={index}>{concert.band}</li>
                               ) : <p>Wczytywanie bazy danych...</p>
+
+
                       }
                   </div>
                   <div>

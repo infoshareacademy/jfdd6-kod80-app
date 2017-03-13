@@ -7,7 +7,7 @@ import concertCardViewReducer from './state/concertCardViewReducer'
 
 const reducer = combineReducers({
     search: searchReducer,
-    concertCardView: concertCardViewReducer
+    database: concertCardViewReducer
 
 });
 
