@@ -1,65 +1,57 @@
-
+//lookFor to nazwa dispatcha, ktory ma sprawdzać czy wpisana w inpucie fraza znajduje sie w bazie
 import React from 'react'
-import {FormGroup, ControlLabel,FormControl } from 'react-bootstrap'
+import {connect} from 'react-redux'
+
+import {setTypeOfMusicSearch, setBandNameSearch} from '../state/concert-filter.js'
+
+const refreshTable = () => {
+}
+
+export default connect (
+    state => ({
+    }),
+    dispatch => ( {
+       //lookFor:(typeOfMusic, band) => dispatch({type: 'LOOK_FOR', typeOfMusic, band})
+        filterTypeOfMusic: (typeOfMusic) => dispatch( setTypeOfMusicSearch(typeOfMusic) ),
+        setBandNameSearch: (band) => dispatch( setBandNameSearch(band) )
+    })
+)(
+    class SearchInputCreator extends React.Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                typeOfMusic: "",
+                band: ""
+            }
+        }
+        render() {
+            const {
+              filterTypeOfMusic,
+              setBandNameSearch
+              } = this.props
+
+            return(
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    filterTypeOfMusic(this.state.typeOfMusic)
+                    setBandNameSearch(this.state.band)
+                }
+
+                }>
+                    <input placeholder='Rodzaj muzyki np.: Rock' value={this.state.typeOfMusic}
+                           onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
+                    <input placeholder='Nazwa koncertu/zespołu' value={this.state.band}
+                           onChange={(event) => this.setState({band: event.target.value})}/>
+
+                    <button onClick={() => refreshTable()}>Szukaj</button>
+                </form> )
 
 
-const MainSearch = React.createClass({
-    getInitialState() {
-        return {
-            value: ''
-        };
-    },
-
-    getValidationState() {
-        const length = this.state.value.length;
-        if (length > 2) return 'success';
-        else if (length >= 2) return 'warning';
-        else if (length > 0) return 'error';
-    },
-
-    handleChange(e) {
-        this.setState({ value: e.target.value });
-    },
-
-    render() {
-        return (
-            <form>
-                <FormGroup
-                    controlId="formBasicText"
-                    validationState={this.getValidationState()}
-                >
-                    <ControlLabel>Główna wyszukiwarka</ControlLabel>
-                    <FormControl
-                        type="text"
-                        value={this.state.value}
-                        placeholder="Enter text"
-                        onChange={this.handleChange}
-                    />
-                    <FormControl.Feedback />
-                    <span>
-                    <ControlLabel>Nazwa koncertu</ControlLabel>
-                    <FormControl
-                        type="text"
-                        value={this.state.value}
-                        placeholder="Enter text"
-                        onChange={this.handleChange}
-                    />
-                    <FormControl.Feedback />
-                    </span>
-                    <span>
-                    <ControlLabel>Miejscowość</ControlLabel>
-                    <FormControl
-                        type="text"
-                        value={this.state.value}
-                        placeholder="Enter text"
-                        onChange={this.handleChange}
-                    />
-                    <FormControl.Feedback />
-                    </span>
-                </FormGroup>
-            </form>
-        );
+        }
     }
-});
 
-export default MainSearch
+
+)
+
+
+

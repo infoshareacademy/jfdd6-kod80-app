@@ -4,10 +4,15 @@ import thunk from 'redux-thunk'
 
 import searchReducer from './state/concerts'
 import concertCardViewReducer from './state/concertCardViewReducer'
+import concertReducer from './state/concerts'
+import concertFilterReducer from './state/concert-filter.js'
+
 
 const reducer = combineReducers({
     search: searchReducer,
-    database: concertCardViewReducer
+    database: concertCardViewReducer,
+    concerts: concertReducer,
+    concert_filter: concertFilterReducer
 
 });
 
@@ -21,8 +26,3 @@ const store = createStore(
     )
 );
 export default store
-
-
-
-
-

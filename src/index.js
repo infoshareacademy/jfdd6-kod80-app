@@ -16,6 +16,7 @@ import ConcerdCard from './components/concert-card-view'
 import BuyTicketView from './components/buy-ticket-view'
 
 import './styles/index.css';
+import './styles/basic.css';
 
 ReactDOM.render(
   (

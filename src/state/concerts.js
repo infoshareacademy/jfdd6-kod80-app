@@ -1,11 +1,6 @@
-//to co w counter.js
-
-
 const FETCH__BEGIN = 'concerts/FETCH__BEGIN'
 const FETCH__SUCCESS = 'concerts/FETCH__SUCCESS'
 const FETCH__FAIL = 'concerts/FETCH__FAILED'
-
-
 
 export const fetchConcerts = () => dispatch => {
   dispatch({ type: FETCH__BEGIN })
@@ -36,42 +31,11 @@ export const fetchConcerts = () => dispatch => {
   )
 }
 
-
-const testConcerts = [
-  {
-    "id": 1,
-    "band": "Radiohead",
-    "type-of-music": "Pop",
-    "city": "Warszawa",
-    "date": "23/08/2017"
-  },
-  {
-    "id": 2,
-    "band": "Bon Jovi",
-    "type-of-music": "Metal",
-    "city": "Kraków",
-    "date": "05/08/2017"
-  }
-  ]
-
 const initialState = {
   data: null,
   fetching: false,
   error: null
 }
-
-// const reducer = ( state = initialState, action = {}) => {
-//   switch (action.type) {
-//     case 'FETCH_CONCERTS':
-//       return {
-//         ...state,
-//         concerts: testConcerts
-//       }
-//     default: return state
-//   }
-// }
-//
-// export default reducer
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
