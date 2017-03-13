@@ -7,6 +7,11 @@ import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
 
 import database from '../../public/data/concerts-gdansk.json'
+import attractions from '../data/attractions.json'
+import hotels from '../data/hotels.json'
+import restaurants from '../data/restaurants.json'
+import taxis from '../data/taxis.json'
+
 
 const ConcertCard = props => {
   const concertId = props.params.concertId
@@ -21,7 +26,9 @@ const ConcertCard = props => {
             <Button  bsStyle="danger" bsSize="large">Kup Bilet !</Button>
           </LinkContainer>
 
-      <Attractions />
+      <Attractions
+        concertId={concertId}
+      />
     </Grid>
   )
 }
