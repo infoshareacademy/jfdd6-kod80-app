@@ -17,7 +17,7 @@ import BuyTicketView from './components/buy-ticket-view'
 
 import './styles/index.css';
 import './styles/basic.css';
-
+//================ zaraz bedzie tu calkiem nowa warsja =======================
 ReactDOM.render(
   (
     <Provider store={store}>
