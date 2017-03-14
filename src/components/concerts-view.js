@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {Grid, Alert, Table} from 'react-bootstrap'
 
+import {filter_concert} from '../../search/concert-filter'
 
 export default connect(
   state => ({
@@ -12,6 +13,13 @@ export default connect(
   class Concerts extends React.Component {
     render() {
       const {concerts} = this.props
+
+      const concertsSearchValues = {
+        concertId: null,
+        band: null,
+        typeOfMusic: null,
+        city: null
+      }
 
       return (
         <Grid>
@@ -43,6 +51,7 @@ export default connect(
             {
               concerts.data ?
                 concerts.data
+                  .filter( filter_concert(concertsSearchValues) )
                   .map(
                   concert => (
                     <tr key={concert.id}>
