@@ -1,6 +1,4 @@
 // ACTION TYPES (there may be more than one)
-
-
 const SET_TYPE_OF_MUSIC_SEARCH = 'concerts/SET_TYPE_OF_MUSIC_SEARCH'
 const SET_NAME_OF_BAND_SEARCH = 'concerts/SET_NAME_OF_BAND_SEARCH'
 

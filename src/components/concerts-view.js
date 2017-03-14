@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {Grid, Alert, Table} from 'react-bootstrap'
+import SearchInputCreator from './search-input'
 
 import filter_concert from '../search/concert-filter'
 
@@ -20,6 +21,7 @@ export default connect(
 
       return (
         <Grid>
+          <SearchInputCreator/>
           <h1>Dostępne koncerty</h1>
           {
             concerts.fetching ?
