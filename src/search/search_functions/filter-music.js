@@ -11,7 +11,10 @@ const filter_music= searchValues => concert => {
   if (searchValues.typeOfMusic === null || searchValues.typeOfMusic === "") {
     return true
   }
-  return concert.typeOfMusic === searchValues.typeOfMusic ? true : false
+  const music_in_database = concert.typeOfMusic.toLowerCase()
+  const search_music = searchValues.typeOfMusic.toLowerCase()
+
+  return music_in_database.includes( search_music ) ? true : false
 }
 
 export default filter_music
