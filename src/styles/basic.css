@@ -1,10 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 
-/* $the-orange: #FE6557
-  $the-blue: #01A8B8
-  $the-grey: #C0C0C0
-  $the-black: #111111
-  $background: #F5F5F5 */
+/* $the-orange: #FE6557;
+  $the_unactive-orange: #FE6557
+  $the-blue: #01A8B8;
+  $the-grey: #C0C0C0;
+  $the-black: #111111;
+  $background: #F5F5F5;
+  */
+
+/*or*/
+/*$the-dark-green: #1F3038;*/
+/*$the-green: #03C290;*/
+
 * {
   font-family: 'Lato', sans-serif; }
 
