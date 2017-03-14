@@ -42,7 +42,8 @@ export default connect(
             <tbody>
             {
               concerts.data ?
-                concerts.data.map(
+                concerts.data
+                  .map(
                   concert => (
                     <tr key={concert.id}>
                       <td>{concert.id}</td>
