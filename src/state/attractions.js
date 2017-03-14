@@ -1,15 +1,13 @@
 // ACTION TYPES (there may be more than one)
-const FETCH__BEGIN = 'concerts/FETCH__BEGIN'
-const FETCH__SUCCESS = 'concerts/FETCH__SUCCESS'
-const FETCH__FAIL = 'concerts/FETCH__FAILED'
-
-// const SAVE_STUDENT = 'concerts/SAVE_STUDENT'
+const FETCH__BEGIN = 'attractions/FETCH__BEGIN'
+const FETCH__SUCCESS = 'attractions/FETCH__SUCCESS'
+const FETCH__FAIL = 'attractions/FETCH__FAILED'
 
 // ACTION CREATOR - in this file it is a THUNK
-export const fetchConcerts = () => dispatch => {
+export const fetchAttractions = () => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
-    process.env.PUBLIC_URL + '/data/concerts.json'
+    process.env.PUBLIC_URL + '/data/attractions.json'
   ).then(
     response => {
       if (response.ok) {
@@ -21,11 +19,11 @@ export const fetchConcerts = () => dispatch => {
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
-            error: 'Malformed JSON response CONCERTS'
+            error: 'Malformed JSON response ATTRACTIONS'
           })
         )
       }
-      throw new Error('Connection error CONCERTS')
+      throw new Error('Connection error ATTRACTIONS')
     }
   ).catch(
     error => dispatch({
@@ -34,11 +32,6 @@ export const fetchConcerts = () => dispatch => {
     })
   )
 }
-
-// export const saveStudent = (name, surname) => ({
-//   type: SAVE_STUDENT,
-//   name, surname
-// })
 
 // INITIAL VALUE
 const initialState = {
