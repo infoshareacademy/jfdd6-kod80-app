@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Park Oliwski",
+    "latitude": "54.4099607",
+    "longitude": "18.5604337",
+    "address": "Opata Jacka Rybińskiego 12",
+    "city": "Gdańsk",
+    "hours": "09:00–17:00",
+    "website": "no website"
+  },
+  {
+    "id": 2,
+    "name": "ZOO",
+    "latitude": "54.413837",
+    "longitude": "18.5338211",
+    "address": "Karwieńska 3",
+    "city": "Gdańsk",
+    "hours": "09:00–15:00",
+    "website": "http://www.zoo.gda.pl/"
+  },
+  {
+    "id": 3,
+    "name": "Port Brzeźno Park Linowy",
+    "latitude": "54.4105792",
+    "longitude": "18.620838",
+    "address": "Ścieżka Alicji i Daniela Pelczarskich",
+    "city": "Gdańsk",
+    "hours": "08:00–18:00",
+    "website": "http://portbrzezno.pl/"
+  },
+  {
+    "id": 4,
+    "name": "Westerplatte",
+    "latitude": "54.4071589",
+    "longitude": "18.6674879",
+    "address": "Majora Henryka Sucharskiego 1",
+    "city": "Gdańsk",
+    "hours": "24h",
+    "website": "no website"
+  },
+  {
+    "id": 5,
+    "name": "Góra Gradowa",
+    "latitude": "54.35678722",
+    "longitude": "18.64039841",
+    "address": "Gradowa 10",
+    "city": "Gdańsk",
+    "hours": "24h",
+    "website": "no website"
+  },
+  {
+    "id": 6,
+    "name": "Brama Wyżynna",
+    "latitude": "54.34994362",
+    "longitude": "18.64654302",
+    "address": "Wały Jagiellońskie 2A",
+    "city": "Gdańsk",
+    "hours": "24h",
+    "website": "no website"
+  },
+  {
+    "id": 7,
+    "name": "Bazylika Mariacka",
+    "latitude": "54.34981856",
+    "longitude": "18.65328073",
+    "address": "Podkramarska 5",
+    "city": "Gdańsk",
+    "hours": "8:30 – 18:30",
+    "website": "http://bazylikamariacka.gdansk.pl/"
+  },
+  {
+    "id": 8,
+    "name": "Europejskie Centrum Solidarności",
+    "latitude": "54.36143838",
+    "longitude": "18.64930033",
+    "address": "pl. Solidarności 1",
+    "city": "Gdańsk",
+    "hours": "10:00 – 18:00",
+    "website": "http://www.ecs.gda.pl/"
+  },
+  {
+    "id": 9,
+    "name": "Galeria Bałtycka",
+    "latitude": "54.38276252",
+    "longitude": "18.59915375",
+    "address": "al. Grunwaldzka 141",
+    "city": "Gdańsk",
+    "hours": "9:00 – 21:00",
+    "website": "http://www.galeriabaltycka.pl/"
+  },
+  {
+    "id": 10,
+    "name": "Rezerwat Ptasi Raj",
+    "latitude": "54.35826256",
+    "longitude": "18.79615664",
+    "address": "Nadwiślańska 141",
+    "city": "Gdańsk",
+    "hours": "24h",
+    "website": "http://sobieszewska.wyspa.pl/przyroda/ptasi_raj.html"
+  },
+  {
+    "id": 11,
+    "name": "Papugarnia",
+    "latitude": "54.35925972",
+    "longitude": "18.60606313",
+    "address": "Franciszka Schuberta 1A/3",
+    "city": "Gdańsk",
+    "hours": "10:30-18:00",
+    "website": "https://m.facebook.com/papugarniagdansk/"
+  }
+]

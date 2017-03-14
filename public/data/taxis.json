@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Hallo TAXI Gdańsk",
+    "phone": "58 301 59 59",
+    "city": "Gdańsk"
+  },
+  {
+    "id": 2,
+    "name": "City Drivers Taxi Gdańsk",
+    "phone": "881 344 886",
+    "city": "Gdańsk"
+  },
+  {
+    "id": 3,
+    "name": "Airport Taxi Gdańsk",
+    "phone": "734 134 059",
+    "city": "Gdańsk"
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "id": 1,
+    "name": "Bar Karmazyn",
+    "latitude": "54.42657597",
+    "longitude": "18.59524846",
+    "address": "Jantarowa 4",
+    "city": "Gdańsk",
+    "hours": "11:00-22:00",
+    "phone": "58 558 44 00",
+    "website": "http://www.barkarmazyn.pl/"
+  },
+  {
+    "id": 2,
+    "name": "Kmar Bar Mleczny",
+    "latitude": "54.41908554",
+    "longitude": "18.58181596",
+    "address": "Pomorska 84",
+    "city": "Gdańsk",
+    "hours": "07:00-23:00",
+    "phone": "58 556 34 69",
+    "website": "http://www.kmar.pl/"
+  },
+  {
+    "id": 3,
+    "name": "Restauracja McDonald's",
+    "latitude": "54.41145014",
+    "longitude": "18.56707454",
+    "address": "al. Grunwaldzka 527",
+    "city": "Gdańsk",
+    "hours": "07:00-00:00",
+    "phone": "694 495 914",
+    "website": "http://mcdonalds.pl/"
+  },
+  {
+    "id": 5,
+    "name": "Pierogarnia Mandu Gdańsk Oliwa",
+    "latitude": "54.40912115",
+    "longitude": "18.56696725",
+    "address": "Kaprów 19D",
+    "city": "Gdańsk",
+    "hours": "11:00-21:00",
+    "phone": "58 340 55 44",
+    "website": "http://www.pierogarnia-mandu.pl/"
+  },
+  {
+    "id": 6,
+    "name": "MANEKIN",
+    "latitude": "54.39795515",
+    "longitude": "18.57471347",
+    "address": "al. Grunwaldzka 270",
+    "city": "Gdańsk",
+    "hours": "10:00-22:00",
+    "phone": "58 554 32 59",
+    "website": "http://manekin.pl/"
+  },
+  {
+    "id": 7,
+    "name": "Przystanek Kawa",
+    "latitude": "54.40759443",
+    "longitude": "18.63824963",
+    "address": "Zdrojowa 2",
+    "city": "Gdańsk",
+    "hours": "10:00-18:00",
+    "phone": "501 390 355",
+    "website": "https://www.facebook.com/PrzystanekKawa"
+  },
+  {
+    "id": 8,
+    "name": "SurfBurger",
+    "latitude": "54.35973485",
+    "longitude": "18.58829617",
+    "address": "Jaśkowa Dolina 101",
+    "city": "Gdańsk",
+    "hours": "11:00-22:00",
+    "phone": "536 700 662",
+    "website": "http://surfburger.pl/"
+  },
+  {
+    "id": 9,
+    "name": "Kawiarnia Retro",
+    "latitude": "54.35029692",
+    "longitude": "18.65009695",
+    "address": "Piwna 5/6",
+    "city": "Gdańsk",
+    "hours": "10:00-23:00",
+    "phone": "665 217 965",
+    "website": "https://www.facebook.com/RetroGdansk"
+  },
+  {
+    "id": 10,
+    "name": "Anima Cafe",
+    "latitude": "54.35131929",
+    "longitude": "18.64976436",
+    "address": "Świętego Ducha 11/13/17",
+    "city": "Gdańsk",
+    "hours": "09:00-21:00",
+    "phone": "501 172 665",
+    "website": "http://animacafe.pl/"
+  },
+  {
+    "id": 11,
+    "name": "Pizza Bar",
+    "latitude": "54.32507056",
+    "longitude": "18.61297518",
+    "address": "Platynowa 6E/4",
+    "city": "Gdańsk",
+    "hours": "12:00-22:00",
+    "phone": "58 322 77 41",
+    "website": "http://pizzabar.pl/"
+  },
+  {
+    "id": 12,
+    "name": "Kirkor",
+    "latitude": "54.37947587",
+    "longitude": "18.58447939",
+    "address": "Juliusza Słowackiego 48",
+    "city": "Gdańsk",
+    "hours": "12:00-19:00",
+    "phone": "58 342 50 36",
+    "website": "http://www.kirkorgdansk.pl/"
+  }
+]

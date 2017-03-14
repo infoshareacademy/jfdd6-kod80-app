@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "Novotel Gdańsk Marina",
+    "latitude": "54.42873546",
+    "longitude": "18.59027028",
+    "address": "Jelitkowska 20",
+    "city": "Gdańsk",
+    "phone": "58 558 91 00",
+    "website": "http://www.accorhotels.com/pl/hotel-3375-novotel-gdansk-marina/index.shtml"
+  },
+  {
+    "id": 2,
+    "name": "Amber House",
+    "latitude": "54.40826569",
+    "longitude": "18.63638282",
+    "address": "Południowa 8",
+    "city": "Gdańsk",
+    "phone": "503 185 578",
+    "website": "http://amberhs.pl/"
+  },
+  {
+    "id": 3,
+    "name": "Villa Pallas",
+    "latitude": "54.35667143",
+    "longitude": "18.59855294",
+    "address": "Franciszka Schuberta 57",
+    "city": "Gdańsk",
+    "phone": "731 667 335",
+    "website": "http://www.villapallas.eu/"
+  },
+  {
+    "id": 4,
+    "name": "Hostel4u",
+    "latitude": "54.34593831",
+    "longitude": "18.64795387",
+    "address": "Rzeźnicka 2",
+    "city": "Gdańsk",
+    "phone": "693 126 006",
+    "website": "http://hostel4u.eu/"
+  },
+  {
+    "id": 5,
+    "name": "Five Point Hostel",
+    "latitude": "54.35209464",
+    "longitude": "18.65046173",
+    "address": "Podmurze 2",
+    "city": "Gdańsk",
+    "phone": "882 703 070",
+    "website": "http://5point.pl/"
+  },
+  {
+    "id": 6,
+    "name": "Hotel Fahrenheit",
+    "latitude": "54.35397669",
+    "longitude": "18.65841716",
+    "address": "Grodzka 19",
+    "city": "Gdańsk",
+    "phone": "58 324 74 00",
+    "website": "http://www.fahrenheit.pl/"
+  },
+  {
+    "id": 7,
+    "name": "BEST WESTERN Bonum Hotel",
+    "latitude": "54.35566171",
+    "longitude": "18.65613729",
+    "address": "Sieroca 3",
+    "city": "Gdańsk",
+    "phone": "58 304 78 10",
+    "website": "http://www.hotelbonum.pl/"
+  },
+  {
+    "id": 8,
+    "name": "HOTEL GNIECKI",
+    "latitude": "54.32368777",
+    "longitude": "18.74698907",
+    "address": "Kasztanowa 2",
+    "city": "Gdańsk",
+    "phone": "58 302 02 02",
+    "website": "http://www.hotelgnieckigdansk.pl/"
+  },
+  {
+    "id": 9,
+    "name": "Hotel Zatoka",
+    "latitude": "54.32133502",
+    "longitude": "18.63116056",
+    "address": "Trakt Św. Wojciecha 149",
+    "city": "Gdańsk",
+    "phone": "58 728 44 10",
+    "website": "http://hotel-zatoka.pl/"
+  },
+  {
+    "id": 10,
+    "name": "Pokoje Gościnne Gdańsk",
+    "latitude": "54.39060317",
+    "longitude": "18.63212615",
+    "address": "Sebastiana Klonowicza 77",
+    "city": "Gdańsk",
+    "phone": "58 344 42 48",
+    "website": "http://www.pokojegoscinnegdansk.pl/"
+  }
+]
