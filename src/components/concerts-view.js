@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {Grid, Alert, Table} from 'react-bootstrap'
 
-import {filter_concert} from '../../search/concert-filter'
+import filter_concert from '../search/concert-filter'
 
 export default connect(
   state => ({
