@@ -1,5 +1,5 @@
 {
-  "name": "jfdd6-kod80-app",
+  "name": "mkapphome",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,13 +15,15 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "react-scripts": "0.9.3",
-    "redux-devtools": "^3.3.2"
+    "react-scripts": "0.9.2",
+    "@kadira/storybook": "^2.21.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   }
 }
