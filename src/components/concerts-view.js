@@ -7,19 +7,16 @@ import filter_concert from '../search/concert-filter'
 
 export default connect(
   state => ({
-    concerts: state.concerts
+    concerts: state.concerts,
+    concertsSearchValues: state.concert_filter.concertsSearchValues
   })
 )(
   class Concerts extends React.Component {
     render() {
-      const {concerts} = this.props
-
-      const concertsSearchValues = {
-        concertId: null,
-        band: null,
-        typeOfMusic: null,
-        city: null
-      }
+      const {
+        concerts,
+        concertsSearchValues
+        } = this.props
 
       return (
         <Grid>
