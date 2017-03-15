@@ -45,6 +45,11 @@ class App extends React.Component {
                 <NavItem href="#">Atrakcje</NavItem>
               </LinkContainer>
             </Nav>
+            <Nav pullRight>
+            <LinkContainer to="/moje-konto">
+              <NavItem href="#">Moje konto</NavItem>
+            </LinkContainer>
+              </Nav>
           </Navbar.Collapse>
         </Navbar>
         { children }
