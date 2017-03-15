@@ -2,19 +2,26 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {Grid, Alert, Table} from 'react-bootstrap'
+import SearchInputCreator from './search-input'
 
+import filter_concert from '../search/concert-filter'
 
 export default connect(
   state => ({
-    concerts: state.concerts
+    concerts: state.concerts,
+    concertsSearchValues: state.concert_filter.concertsSearchValues
   })
 )(
   class Concerts extends React.Component {
     render() {
-      const {concerts} = this.props
+      const {
+        concerts,
+        concertsSearchValues
+        } = this.props
 
       return (
         <Grid>
+          <SearchInputCreator/>
           <h1>Dostępne koncerty</h1>
           {
             concerts.fetching ?
@@ -42,7 +49,9 @@ export default connect(
             <tbody>
             {
               concerts.data ?
-                concerts.data.map(
+                concerts.data
+                  .filter( filter_concert(concertsSearchValues) )
+                  .map(
                   concert => (
                     <tr key={concert.id}>
                       <td>{concert.id}</td>
