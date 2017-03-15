@@ -1,6 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import {FormGroup, FormControl, ControlLabel, Button, Grid} from 'react-bootstrap'
+
 import {setTypeOfMusicSearch, setBandNameSearch} from '../state/concert-filter.js'
 
 export default connect (
@@ -26,20 +28,35 @@ export default connect (
               } = this.props
 
             return(
-                <form onSubmit={(event) => {
-                    event.preventDefault()
-                    filterTypeOfMusic(this.state.typeOfMusic)
-                    setBandNameSearch(this.state.band)
-                }
+            <form  onSubmit={(event) => {
+              event.preventDefault()
+              filterTypeOfMusic(this.state.typeOfMusic)
+              setBandNameSearch(this.state.band)
+            }
 
-                }>
-                    <input placeholder='Rodzaj muzyki np.: Rock' value={this.state.typeOfMusic}
-                           onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
-                    <input placeholder='Nazwa koncertu/zespołu' value={this.state.band}
-                           onChange={(event) => this.setState({band: event.target.value})}/>
-                    <button
-                    >Szukaj</button>
-                </form> )
+            }>
+                <Grid>
+                  <FormGroup className="col-sm-5 col-md-3">
+                    <ControlLabel>Rodzaj muzyki</ControlLabel>
+                      <FormControl
+                        placeholder='Rodzaj muzyki np.: Rock'
+                        value={this.state.typeOfMusic}
+                        bsSize="lg"
+                        onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
+                    </FormGroup>
+                  <FormGroup className="col-sm-5 col-md-3">
+                    <ControlLabel>Szukaj zespołu</ControlLabel>
+                      <FormControl placeholder='Nazwa koncertu/zespołu'
+
+                                   value={this.state.band}
+                                   onChange={(event) => this.setState({band: event.target.value})}/>
+                    </FormGroup>
+                  <FormGroup className="col-sm-2 col-md-3">
+                    <button >Szukaj</button>
+                </FormGroup>
+                </Grid>
+              </form>
+              )
 
 
         }
