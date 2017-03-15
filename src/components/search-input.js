@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import {FormGroup, FormControl, ControlLabel, Button, Grid} from 'react-bootstrap'
+import styles from '../styles/search-input.css'
 
 import {setTypeOfMusicSearch, setBandNameSearch} from '../state/concert-filter.js'
 
@@ -45,14 +46,14 @@ export default connect (
                         onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
                     </FormGroup>
                   <FormGroup className="col-sm-5 col-md-3">
-                    <ControlLabel>Szukaj zespołu</ControlLabel>
+                    <ControlLabel>nazwa zespołu/koncertu</ControlLabel>
                       <FormControl placeholder='Nazwa koncertu/zespołu'
 
                                    value={this.state.band}
                                    onChange={(event) => this.setState({band: event.target.value})}/>
                     </FormGroup>
                   <FormGroup className="col-sm-2 col-md-3">
-                    <button >Szukaj</button>
+                    <button className="szukaj-button">Szukaj</button>
                 </FormGroup>
                 </Grid>
               </form>
