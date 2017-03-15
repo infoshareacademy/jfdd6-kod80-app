@@ -25,7 +25,7 @@ class App extends React.Component {
 
     const {children} = this.props
 
-    return (
+    return false ? (
       <div>
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
@@ -49,7 +49,7 @@ class App extends React.Component {
         </Navbar>
         { children }
       </div>
-    );
+    ) : <form><input /></form>
   }
 }
 
