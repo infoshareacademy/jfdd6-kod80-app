@@ -9,6 +9,7 @@ import restaurantsReducer from './state/restaurants'
 import taxisReducer from './state/taxis'
 import distanceReducer from './state/distance-changer'
 import concertFilterReducer from './state/concert-filter.js'
+import formLoginReducer from './state/form-login'
 
 const allReducers = combineReducers({
   concerts: concertsReducer,
@@ -17,7 +18,8 @@ const allReducers = combineReducers({
   restaurants: restaurantsReducer,
   taxis: taxisReducer,
   distanceChanger: distanceReducer,
-  concert_filter: concertFilterReducer
+  concert_filter: concertFilterReducer,
+  form_login: formLoginReducer
 })
 
 

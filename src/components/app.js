@@ -1,8 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import {Navbar, Nav, NavItem,      Form, FormGroup, ControlLabel, FormControl, Button} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
+
+// import {FormLogin} from './form-login'
 
 import {fetchConcerts} from '../state/concerts'
 import {fetchAttractions} from '../state/attractions'
@@ -49,7 +51,30 @@ class App extends React.Component {
         </Navbar>
         { children }
       </div>
-    ) : <form><input /></form>
+    ) :
+
+
+      <Form inline>
+        <FormGroup controlId="formInlineName">
+          <ControlLabel>Login</ControlLabel>
+          {' '}
+          <FormControl type="text" />
+        </FormGroup>
+        {' '}
+        <FormGroup controlId="formInlineEmail">
+          <ControlLabel>Email</ControlLabel>
+          {' '}
+          <FormControl type="email"  />
+        </FormGroup>
+        {' '}
+        <Button type="submit">
+          Zaloguj się
+        </Button>
+      </Form>
+
+
+
+
   }
 }
 
