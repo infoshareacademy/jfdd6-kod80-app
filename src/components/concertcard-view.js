@@ -171,6 +171,8 @@ export default connect(
                       console.log(attraction, distanceFromGoal)
                       return attraction.distance < distanceFromGoal
                     }
+                  ).sort(
+                    (attraction1, attraction2) => attraction1.distance - attraction2.distance
                   ).map(
                     attraction => (
                       <tr key={attraction.id}>
@@ -230,6 +232,8 @@ export default connect(
                       console.log(restaurant, distanceFromGoal)
                       return restaurant.distance  < distanceFromGoal
                     }
+                  ).sort(
+                    (restaurant1, restaurant2) => restaurant1.distance - restaurant2.distance
                   ).map(
                     restaurant => (
                       <tr key={restaurant.id}>
@@ -289,6 +293,8 @@ export default connect(
                       console.log(hotel.distanceFromGoal)
                       return hotel.distance < distanceFromGoal
                     }
+                  ).sort(
+                    (hotel1, hotel2) => hotel1.distance - hotel2.distance
                   ).map(
                     hotel => (
                       <tr key={hotel.id}>
