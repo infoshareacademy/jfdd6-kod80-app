@@ -136,7 +136,7 @@ export default connect(
         <Button onClick={() => props.changeDistance(1)}>Zwiększ odległość</Button>
 
         <div className="row">
-          <div className="col-xs-3">
+          <div className="col-xs-12 col-sm-3">
             <h2>Atrakcje</h2>
             <Table striped>
               <tbody>
@@ -197,7 +197,7 @@ export default connect(
             </Table>
           </div>
 
-          <div className="col-xs-3">
+          <div className="col-xs-12 col-sm-3">
             <h2>Restauracje</h2>
             <Table striped>
               <tbody>
@@ -259,7 +259,7 @@ export default connect(
             </Table>
           </div>
 
-          <div className="col-xs-3">
+          <div className="col-xs-12 col-sm-3">
             <h2>Hotele</h2>
             <Table striped>
               <tbody>
@@ -319,7 +319,7 @@ export default connect(
             </Table>
           </div>
 
-          <div className="col-xs-3">
+          <div className="col-xs-12 col-sm-3">
             <h2>Komunikacja</h2>
             <Table striped>
               <tbody>
