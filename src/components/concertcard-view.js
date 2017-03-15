@@ -4,6 +4,8 @@ import {Grid, Table, Alert, Button, ProgressBar} from 'react-bootstrap'
 
 import {changeDistance, resetDistance} from '../state/distance-changer'
 
+
+
 //============== wzór na obliczenie odległości od punktu do punktu po współrzędnych ============================
 const calculateDistance = (latA, lonA, latB, lonB) => {
   return (Math.sqrt((Math.pow((parseFloat(latB) - parseFloat(latA)), 2))
@@ -72,6 +74,7 @@ export default connect(
           </tbody>
         </Table>
         <hr/>
+
 
         <div>
           {

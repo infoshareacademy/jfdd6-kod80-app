@@ -8,7 +8,7 @@ class UsersView extends React.Component {
   render() {
 
     const {users}= this.props
-
+console.log('sdf');
     return (
       <Grid>
 
@@ -34,8 +34,7 @@ class UsersView extends React.Component {
               <tbody>
               {
                 users.data ?
-                  users.data.sort(
-                  ).map(
+                  users.data.map(
                     user => (
                       <tr key={user.id}>
                         <td>
