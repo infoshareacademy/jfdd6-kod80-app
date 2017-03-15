@@ -185,7 +185,7 @@ export default connect(
                             <dd>{attraction.address}</dd>
                             <dd>{attraction.hours}</dd>
                             <dd>{attraction.website !== 'no website' ?
-                              <a href={attraction.website}>Strona WWW</a> : 'Brak strony WWW'}
+                              <a href={attraction.website} target="_blank">Strona WWW</a> : 'Brak strony WWW'}
                             </dd>
                             <dd key={attraction.id}>odległość: {attraction.distance}
                               km
@@ -247,7 +247,7 @@ export default connect(
                             <dd>{restaurant.hours}</dd>
                             <dd>{restaurant.phone}</dd>
                             <dd>{restaurant.website !== 'no website' ?
-                              <a href={restaurant.website}>Strona WWW</a> : 'Brak strony WWW'}
+                              <a href={restaurant.website} target="_blank">Strona WWW</a> : 'Brak strony WWW'}
                             </dd>
                             <dd key={restaurant.id}>odległość: {restaurant.distance}
                               km
@@ -307,7 +307,7 @@ export default connect(
                             <dd>{hotel.address}</dd>
                             <dd>{hotel.phone}</dd>
                             <dd>{hotel.website !== 'no website' ?
-                              <a href={hotel.website}>Strona WWW</a> : 'Brak strony WWW'}
+                              <a href={hotel.website} target="_blank">Strona WWW</a> : 'Brak strony WWW'}
                             </dd>
                             <dd key={hotel.id}>odległość: {hotel.distance}
                               km
