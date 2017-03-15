@@ -12,6 +12,33 @@ export default connect(
   class UsercardView extends React.Component {
     render() {
       const {concerts} = this.props
+      const firstTab = (
+      <Table striped>
+        <thead>
+        <tr>
+          <th>Zespół</th>
+          <th>Typ muzyki</th>
+          <th>Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        {
+          concerts.data ?
+            concerts.data.map(
+              concert => (
+                <tr key={concert.id}>
+                  <td>
+                    <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
+                  </td>
+                  <td>{concert.typeOfMusic}</td>
+                  <td>{concert.date}</td>
+                </tr>
+              )
+            ) : null
+        }
+        </tbody>
+      </Table>
+      )
 
       return (
         <Grid>
@@ -29,37 +56,13 @@ export default connect(
               </Alert> : null
           }
 
-          <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
-            <Tab eventKey={1} title="Moje koncerty">Tab 1 content</Tab>
+          <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+            <Tab eventKey={1} title="Moje koncerty"> {firstTab}</Tab>
             <Tab eventKey={2} title="Tab 2">Tab 2 content</Tab>
             <Tab eventKey={3} title="Tab 3" >Tab 3 content</Tab>
           </Tabs>
 
-          <Table striped>
-            <thead>
-            <tr>
-              <th>Zespół</th>
-              <th>Typ muzyki</th>
-              <th>Data</th>
-            </tr>
-            </thead>
-            <tbody>
-            {
-              concerts.data ?
-                concerts.data.map(
-                  concert => (
-                    <tr key={concert.id}>
-                      <td>
-                        <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
-                      </td>
-                      <td>{concert.typeOfMusic}</td>
-                      <td>{concert.date}</td>
-                    </tr>
-                  )
-                ) : null
-            }
-            </tbody>
-          </Table>
+
         </Grid>
       )
     }
