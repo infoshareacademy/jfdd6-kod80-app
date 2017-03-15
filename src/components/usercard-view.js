@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Tabs, Tab, Grid, Alert, Table} from 'react-bootstrap'
+import {Media, Tabs, Tab, Grid, Alert, Table} from 'react-bootstrap'
 
 
 export default connect(
@@ -11,13 +11,13 @@ export default connect(
 )(
   class UsercardView extends React.Component {
     render() {
-      const {concerts} = this.props
-      const firstTab = (
+      const {concerts} = this.props;
+      const myConcertsTab = (
       <Table striped>
         <thead>
         <tr>
           <th>Zespół</th>
-          <th>Typ muzyki</th>
+          <th>Miejscowość</th>
           <th>Data</th>
         </tr>
         </thead>
@@ -30,7 +30,7 @@ export default connect(
                   <td>
                     <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
                   </td>
-                  <td>{concert.typeOfMusic}</td>
+                  <td>{concert.city}</td>
                   <td>{concert.date}</td>
                 </tr>
               )
@@ -38,11 +38,22 @@ export default connect(
         }
         </tbody>
       </Table>
-      )
+      );
+
+      const myAccountTab = (  <div>
+        <Media>
+          <Media.Left>
+            <img width={64} height={64} src="/assets/thumbnail.png" alt="Image"/>
+          </Media.Left>
+          <Media.Body>
+            <Media.Heading>Media Heading</Media.Heading>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+          </Media.Body>
+        </Media>
+      </div>);
 
       return (
         <Grid>
-          <h1>Dostępne koncerty</h1>
           {
             concerts.fetching ?
               <Alert bsStyle="warning">
@@ -57,8 +68,8 @@ export default connect(
           }
 
           <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-            <Tab eventKey={1} title="Moje koncerty"> {firstTab}</Tab>
-            <Tab eventKey={2} title="Tab 2">Tab 2 content</Tab>
+            <Tab eventKey={1} title="Moje koncerty"> {myConcertsTab}</Tab>
+            <Tab eventKey={2} title="Moje dane">{myAccountTab}</Tab>
             <Tab eventKey={3} title="Tab 3" >Tab 3 content</Tab>
           </Tabs>
 
