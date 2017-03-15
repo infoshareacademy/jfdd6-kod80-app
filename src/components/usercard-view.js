@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Media, Tabs, Tab, Grid, Alert, Table} from 'react-bootstrap'
+import {ListGroup, ListGroupItem, Media, Tabs, Tab, Grid, Alert, Table} from 'react-bootstrap'
 
 
 export default connect(
@@ -43,12 +43,15 @@ export default connect(
       const myAccountTab = (  <div>
         <Media>
           <Media.Left>
-            <img width={64} height={64} src="/assets/thumbnail.png" alt="Image"/>
+            <img width={210} height={190} src= {require('../graphics/user.jpg')} alt="soundtrip-user"/>
           </Media.Left>
           <Media.Body>
-            <Media.Heading>Media Heading</Media.Heading>
-            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-          </Media.Body>
+            <ListGroup>
+              <ListGroupItem header="Imię i nazwisko">Anna Muza</ListGroupItem>
+              <ListGroupItem header="Login">MyMamaDontLikeYou</ListGroupItem>
+              <ListGroupItem header="E-mail">4ever@sound.trip</ListGroupItem>
+
+            </ListGroup>          </Media.Body>
         </Media>
       </div>);
 
@@ -67,13 +70,11 @@ export default connect(
               </Alert> : null
           }
 
-          <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+          <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
             <Tab eventKey={1} title="Moje koncerty"> {myConcertsTab}</Tab>
             <Tab eventKey={2} title="Moje dane">{myAccountTab}</Tab>
             <Tab eventKey={3} title="Tab 3" >Tab 3 content</Tab>
           </Tabs>
-
-
         </Grid>
       )
     }
