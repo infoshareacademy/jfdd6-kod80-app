@@ -70,10 +70,10 @@ export default connect(
               </Alert> : null
           }
 
-          <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+          <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
             <Tab eventKey={1} title="Moje koncerty"> {myConcertsTab}</Tab>
             <Tab eventKey={2} title="Moje dane">{myAccountTab}</Tab>
-            <Tab eventKey={3} title="Tab 3" >Tab 3 content</Tab>
+            <Tab eventKey={3} title="Historia">{myConcertsTab}</Tab>
           </Tabs>
         </Grid>
       )
