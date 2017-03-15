@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Arkadiusz",
+    "login": "Arek",
+    "email": "arek@wp.pl"
+  },
+  {
+    "id": 2,
+    "name": "Barbara",
+    "login": "Basia",
+    "email": "basia@wp.pl"
+  },
+  {
+    "id": 3,
+    "name": "Cezary",
+    "login": "Czarek",
+    "email": "czarek@wp.pl"
+  },
+  {
+    "id": 4,
+    "name": "Dariusz",
+    "login": "Darek",
+    "email": "daga@wp.pl"
+  },
+  {
+    "id": 5,
+    "name": "Edward",
+    "login": "Edek",
+    "email": "edek@wp.pl"
+  },
+  {
+    "id": 6,
+    "name": "Felicja",
+    "login": "Felcia",
+    "email": "felcia@wp.pl"
+  }
+]

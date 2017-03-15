@@ -9,6 +9,7 @@ import {fetchAttractions} from '../state/attractions'
 import {fetchHotels} from '../state/hotels'
 import {fetchRestaurants} from '../state/restaurants'
 import {fetchTaxis} from '../state/taxis'
+import {fetchUsers} from '../state/users'
 
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
     this.props.fetchHotels()
     this.props.fetchRestaurants()
     this.props.fetchTaxis()
+    this.props.fetchUsers()
   }
 
   render() {
@@ -41,9 +43,6 @@ class App extends React.Component {
               <LinkContainer to="/koncerty">
                 <NavItem href="#">Koncerty</NavItem>
               </LinkContainer>
-              <LinkContainer to="/atrakcje">
-                <NavItem href="#">Atrakcje</NavItem>
-              </LinkContainer>
             </Nav>
             <Nav pullRight>
             <LinkContainer to="/moje-konto">
@@ -65,6 +64,7 @@ export default connect(
     fetchAttractions: () => dispatch(fetchAttractions()),
     fetchHotels: () => dispatch(fetchHotels()),
     fetchRestaurants: () => dispatch(fetchRestaurants()),
-    fetchTaxis: () => dispatch(fetchTaxis())
+    fetchTaxis: () => dispatch(fetchTaxis()),
+    fetchUsers: () => dispatch(fetchUsers())
   })
 )(App)
