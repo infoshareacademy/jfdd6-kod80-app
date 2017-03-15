@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, Alert, Table} from 'react-bootstrap'
+import {Tabs, Tab, Grid, Alert, Table} from 'react-bootstrap'
 
 
 export default connect(
@@ -28,6 +28,12 @@ export default connect(
                 <strong>{concerts.error}</strong>
               </Alert> : null
           }
+
+          <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
+            <Tab eventKey={1} title="Moje koncerty">Tab 1 content</Tab>
+            <Tab eventKey={2} title="Tab 2">Tab 2 content</Tab>
+            <Tab eventKey={3} title="Tab 3" >Tab 3 content</Tab>
+          </Tabs>
 
           <Table striped>
             <thead>
