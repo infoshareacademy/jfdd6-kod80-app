@@ -136,7 +136,7 @@ export default connect(
         <Button onClick={() => props.changeDistance(1)}>Zwiększ odległość</Button>
 
         <div className="row">
-          <div className="col-xs-3">
+          <div className="col-xs-12 col-sm-3">
             <h2>Atrakcje</h2>
             <Table striped>
               <tbody>
@@ -171,21 +171,23 @@ export default connect(
                       console.log(attraction, distanceFromGoal)
                       return attraction.distance < distanceFromGoal
                     }
+                  ).sort(
+                    (attraction1, attraction2) => attraction1.distance - attraction2.distance
                   ).map(
                     attraction => (
                       <tr key={attraction.id}>
                         <td>
-                          <ul>
-                            <li><strong>{attraction.name}</strong></li>
-                            <li>{attraction.address}</li>
-                            <li>{attraction.hours}</li>
-                            <li>{attraction.website !== 'no website' ?
+                          <dl>
+                            <dd><strong>{attraction.name}</strong></dd>
+                            <dd>{attraction.address}</dd>
+                            <dd>{attraction.hours}</dd>
+                            <dd>{attraction.website !== 'no website' ?
                               <a href={attraction.website}>Strona WWW</a> : 'Brak strony WWW'}
-                            </li>
-                            <li key={attraction.id}>odległość: {attraction.distance}
+                            </dd>
+                            <dd key={attraction.id}>odległość: {attraction.distance}
                               km
-                            </li>
-                          </ul>
+                            </dd>
+                          </dl>
                         </td>
                       </tr>
                     )
@@ -195,7 +197,7 @@ export default connect(
             </Table>
           </div>
 
-          <div className="col-xs-3">
+          <div className="col-xs-12 col-sm-3">
             <h2>Restauracje</h2>
             <Table striped>
               <tbody>
@@ -230,22 +232,24 @@ export default connect(
                       console.log(restaurant, distanceFromGoal)
                       return restaurant.distance  < distanceFromGoal
                     }
+                  ).sort(
+                    (restaurant1, restaurant2) => restaurant1.distance - restaurant2.distance
                   ).map(
                     restaurant => (
                       <tr key={restaurant.id}>
                         <td>
-                          <ul>
-                            <li><strong>{restaurant.name}</strong></li>
-                            <li>{restaurant.address}</li>
-                            <li>{restaurant.hours}</li>
-                            <li>{restaurant.phone}</li>
-                            <li>{restaurant.website !== 'no website' ?
+                          <dl>
+                            <dd><strong>{restaurant.name}</strong></dd>
+                            <dd>{restaurant.address}</dd>
+                            <dd>{restaurant.hours}</dd>
+                            <dd>{restaurant.phone}</dd>
+                            <dd>{restaurant.website !== 'no website' ?
                               <a href={restaurant.website}>Strona WWW</a> : 'Brak strony WWW'}
-                            </li>
-                            <li key={restaurant.id}>odległość: {restaurant.distance}
+                            </dd>
+                            <dd key={restaurant.id}>odległość: {restaurant.distance}
                               km
-                            </li>
-                          </ul>
+                            </dd>
+                          </dl>
                         </td>
                       </tr>
                     )
@@ -255,7 +259,7 @@ export default connect(
             </Table>
           </div>
 
-          <div className="col-xs-3">
+          <div className="col-xs-12 col-sm-3">
             <h2>Hotele</h2>
             <Table striped>
               <tbody>
@@ -289,21 +293,23 @@ export default connect(
                       console.log(hotel.distanceFromGoal)
                       return hotel.distance < distanceFromGoal
                     }
+                  ).sort(
+                    (hotel1, hotel2) => hotel1.distance - hotel2.distance
                   ).map(
                     hotel => (
                       <tr key={hotel.id}>
                         <td>
-                          <ul>
-                            <li><strong>{hotel.name}</strong></li>
-                            <li>{hotel.address}</li>
-                            <li>{hotel.phone}</li>
-                            <li>{hotel.website !== 'no website' ?
+                          <dl>
+                            <dd><strong>{hotel.name}</strong></dd>
+                            <dd>{hotel.address}</dd>
+                            <dd>{hotel.phone}</dd>
+                            <dd>{hotel.website !== 'no website' ?
                               <a href={hotel.website}>Strona WWW</a> : 'Brak strony WWW'}
-                            </li>
-                            <li key={hotel.id}>odległość: {hotel.distance}
+                            </dd>
+                            <dd key={hotel.id}>odległość: {hotel.distance}
                               km
-                            </li>
-                          </ul>
+                            </dd>
+                          </dl>
                         </td>
                       </tr>
                     )
@@ -313,7 +319,7 @@ export default connect(
             </Table>
           </div>
 
-          <div className="col-xs-3">
+          <div className="col-xs-12 col-sm-3">
             <h2>Komunikacja</h2>
             <Table striped>
               <tbody>
@@ -323,10 +329,10 @@ export default connect(
                     taxi => (
                       <tr key={taxi.id}>
                         <td>
-                          <ul>
-                            <li><strong>{taxi.name}</strong></li>
-                            <li>{taxi.phone}</li>
-                          </ul>
+                          <dl>
+                            <dd><strong>{taxi.name}</strong></dd>
+                            <dd>{taxi.phone}</dd>
+                          </dl>
                         </td>
                       </tr>
                     )

@@ -41,9 +41,6 @@ class App extends React.Component {
               <LinkContainer to="/koncerty">
                 <NavItem href="#">Koncerty</NavItem>
               </LinkContainer>
-              <LinkContainer to="/atrakcje">
-                <NavItem href="#">Atrakcje</NavItem>
-              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
