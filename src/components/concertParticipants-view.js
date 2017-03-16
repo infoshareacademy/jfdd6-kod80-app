@@ -43,7 +43,7 @@ export default connect(
                     user => (
                       <tr key={user.id}>
                         <td>
-                          <img width={64} height={64} src= {user.avatar} />
+                          <img width={64} height={64} src= {user.avatar} alt={user.name}/>
                           <strong>{user.name}</strong>
                         </td>
                       </tr>
