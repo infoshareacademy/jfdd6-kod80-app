@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {Grid, Table, Alert, Button, ProgressBar} from 'react-bootstrap'
+import {ReactBootstrapSlider} from 'react-bootstrap-slider'
 
 import {changeDistance, resetDistance} from '../state/distance-changer'
-
 
 
 //============== wzór na obliczenie odległości od punktu do punktu po współrzędnych ============================
@@ -38,11 +38,26 @@ export default connect(
 )(
   function ConcertCard(props) {
 
-    const { attractions, hotels, restaurants, taxis, distanceFromGoal } = props
+    const { attractions, hotels, restaurants, taxis, distanceFromGoal, maxValue, minValue } = props
+//https://www.npmjs.com/package/react-bootstrap-slider
 
     return (
       <Grid>
         <h1>Koncert {props.params.koncertId}</h1>
+
+        <ReactBootstrapSlider
+          value={distanceFromGoal}
+          step={changeDistance}
+          max={maxValue}
+          min={minValue}/>
+
+        <input
+          type="range"
+          value={distanceFromGoal}
+          min={minValue}
+          max={maxValue}
+          onInput={this.props.handleChange}
+          step={1} />
 
         <Table striped>
           <thead>
