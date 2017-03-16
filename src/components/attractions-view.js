@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {Grid, Table, Alert} from 'react-bootstrap'
 
-
 //============== wzór na obliczenie odległości od punktu do punktu po współrzędnych ============================
 const calculateDistance = (latA, lonA, latB, lonB) => {
   return (Math.sqrt((Math.pow((parseFloat(latB) - parseFloat(latA)), 2))
@@ -296,3 +295,8 @@ export default connect(
     )
   }
 )
+
+
+
+
+
