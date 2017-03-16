@@ -21,8 +21,9 @@ class App extends React.Component {
   }
   render() {
     const {children} = this.props;
-    return
-    false ? (
+    return    (
+      <div>
+        {false ?
       <div>
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
@@ -46,7 +47,15 @@ class App extends React.Component {
         </Navbar>
         { children }
       </div>
-    ) : <FormLogin/>
+       : <FormLogin/>}
+
+  </div>
+
+    )
+
+
+
+
   }
 }
 export default connect(
