@@ -20,7 +20,6 @@ export const setBandNameSearch = (band, valueType) => ({
 
 // INITIAL VALUE
 const initialState = {
-  concertsSearchValues: {
     concertId: null,
     band: null,
     typeOfMusic: null,
@@ -28,7 +27,7 @@ const initialState = {
     dateSince: null,
     dateTo: null
   }
-}
+
 
 //REDUCER
 export default (state = initialState, action = {}) => {

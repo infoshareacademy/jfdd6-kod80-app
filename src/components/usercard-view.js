@@ -3,6 +3,18 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {ListGroup, ListGroupItem, Media, Tabs, Tab, Grid, Alert, Table} from 'react-bootstrap'
 
+import filter_concert from '../search/concert-filter'
+import sortConcertByDate from '../date/sort-concert-by-date'
+
+
+const concertsSearchValues = {
+  concertId: null,
+  band: null,
+  typeOfMusic: null,
+  city: null,
+  dateSince: null,
+  dateTo: Date()
+}
 
 export default connect(
   state => ({
@@ -51,8 +63,11 @@ export default connect(
           </thead>
           <tbody>
           {
+
             concerts.data ?
-              concerts.data.map(
+              concerts.data
+                .sort( sortConcertByDate )
+                .map(
                 concert => (
                   <tr key={concert.id}>
                     <td>
@@ -101,7 +116,7 @@ export default connect(
           <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
             <Tab eventKey={1} title="Moje koncerty"> {myConcertsTab}</Tab>
             <Tab eventKey={2} title="Moje dane">{myAccountTab}</Tab>
-            <Tab eventKey={3} title="Historia">{myConcertsTab}</Tab>
+            <Tab eventKey={3} title="Historia">{pastConcerts}</Tab>
           </Tabs>
         </Grid>
       )
