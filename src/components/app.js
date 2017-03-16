@@ -23,6 +23,9 @@ class App extends React.Component {
     const {children} = this.props;
     return    (
       <div>
+
+
+
         {false ?
       <div>
         <Navbar inverse collapseOnSelect>
@@ -47,7 +50,18 @@ class App extends React.Component {
         </Navbar>
         { children }
       </div>
-       : <FormLogin/>}
+       : (<div className='page-with-form-login'>
+
+          <p>Witaj na stronie SoundTrip</p>
+
+
+
+          <FormLogin/>
+
+          </div>
+          )}
+
+
 
   </div>
 
