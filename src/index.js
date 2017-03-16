@@ -19,7 +19,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="koncerty" component={Concerts}/>
-        <Route path="koncerty/:koncertId" component={ConcertCard}/>
+        <Route path="koncerty/:concertId" component={ConcertCard}/>
       </Route>
     </Router>
   </Provider>

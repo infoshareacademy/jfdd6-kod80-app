@@ -29,7 +29,7 @@ export default connect(
 )(
   function AttractionView(props) {
 
-    const { attractions, hotels, restaurants, taxis, distanceFromGoal } = props
+    const { attractions, hotels, restaurants, taxis, distanceFromGoal, concertId } = props
 
     return (
       <Grid>
@@ -101,7 +101,7 @@ export default connect(
                         props.concerts.data ?
                           props.concerts.data.filter(
                             concert =>
-                            concert.id === parseInt(props.params.koncertId, 10)
+                            concert.id === parseInt(concertId, 10)
                           ).map(
                             concert => concert.latitude
                           )
@@ -109,7 +109,7 @@ export default connect(
                         props.concerts.data ?
                           props.concerts.data.filter(
                             concert =>
-                            concert.id === parseInt(props.params.koncertId, 10)
+                            concert.id === parseInt(concertId, 10)
                           ).map(
                             concert => concert.longitude
                           )
@@ -162,7 +162,7 @@ export default connect(
                         props.concerts.data ?
                           props.concerts.data.filter(
                             concert =>
-                            concert.id === parseInt(props.params.koncertId, 10)
+                            concert.id === parseInt(concertId, 10)
                           ).map(
                             concert => concert.latitude
                           )
@@ -170,7 +170,7 @@ export default connect(
                         props.concerts.data ?
                           props.concerts.data.filter(
                             concert =>
-                            concert.id === parseInt(props.params.koncertId, 10)
+                            concert.id === parseInt(concertId, 10)
                           ).map(
                             concert => concert.longitude
                           )
@@ -224,7 +224,7 @@ export default connect(
                         props.concerts.data ?
                           props.concerts.data.filter(
                             concert =>
-                            concert.id === parseInt(props.params.koncertId, 10)
+                            concert.id === parseInt(concertId, 10)
                           ).map(
                             concert => concert.latitude
                           )
@@ -232,7 +232,7 @@ export default connect(
                         props.concerts.data ?
                           props.concerts.data.filter(
                             concert =>
-                            concert.id === parseInt(props.params.koncertId, 10)
+                            concert.id === parseInt(concertId, 10)
                           ).map(
                             concert => concert.longitude
                           )

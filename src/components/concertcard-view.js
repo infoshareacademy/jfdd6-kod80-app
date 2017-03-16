@@ -24,7 +24,7 @@ export default connect(
 
     return (
       <Grid>
-        <h1>Koncert {props.params.koncertId}</h1>
+        <h1>Koncert {props.params.concertId}</h1>
 
         <Table striped>
           <thead>
@@ -40,7 +40,7 @@ export default connect(
             props.concerts.data ?
               props.concerts.data.filter(
                 concert =>
-                concert.id === parseInt(props.params.koncertId, 10)
+                concert.id === parseInt(props.params.concertId, 10)
               ).map(
                 concert => (
                   <tr key={concert.id}>
@@ -68,7 +68,7 @@ export default connect(
         <Button onClick={() => props.resetDistance()}>Wróć na początek</Button>
         <Button onClick={() => props.changeDistance(1)}>Zwiększ odległość</Button>
 
-        <AttractionsView/>
+        <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
       </Grid>
     )
   }
