@@ -1,63 +1,84 @@
 import React from 'react';
 import {connect} from 'react-redux'
-
 import {Grid, Table, Alert} from 'react-bootstrap'
 
-class AttractionsView extends React.Component {
 
-  render() {
+//============== wzór na obliczenie odległości od punktu do punktu po współrzędnych ============================
+const calculateDistance = (latA, lonA, latB, lonB) => {
+  return (Math.sqrt((Math.pow((parseFloat(latB) - parseFloat(latA)), 2))
+      + (Math.pow((Math.cos((parseFloat(latA) * Math.PI) / 180) * (parseFloat(lonB) - parseFloat(lonA))), 2))))
+    * (40075.704 / 360);
+}
+// http://vbest.com.pl/gps/?lat=54.4099607&lng=18.5604337&zom=17&mt=ROADMAP#przesun
+// Klub B90 "latitude": "54.3641295", "longitude": "18.6478889"
+// Gdański Teatr Szekspirowski "latitude": "54.3477652", "longitude": "18.6489656"
+// Stadion ENERGA Gdańsk "latitude": "54.3907065", "longitude": "18.6385357"
+// Ergo Arena "latitude": "54.42559", "longitude": "18.5840682"
+//============== wzór na obliczenie odległości od punktu do punktu po współrzędnych ============================
 
-    const {attractions, hotels, restaurants, taxis}= this.props
-// ============= WIDOK TAK NAPRWDE DO USUNIECIA WIEC NIE ZMIENIALEM NA POLSKI JEZYK ========================
+
+export default connect(
+  state => ({
+    concerts: state.concerts,
+    attractions: state.attractions,
+    hotels: state.hotels,
+    restaurants: state.restaurants,
+    taxis: state.taxis,
+    distanceFromGoal: state.distanceChanger.distanceFromGoal
+  })
+)(
+  function AttractionView(props) {
+
+    const { attractions, hotels, restaurants, taxis, distanceFromGoal, concertId } = props
+
     return (
       <Grid>
-        <h1>Atrakcje w Gdańsku</h1>
 
         <div>
           {
-            attractions.fetching ?
+            props.attractions.fetching ?
               <Alert bsStyle="warning">
                 <strong>Fetching attractions!</strong>
               </Alert> : null
           }
           {
-            attractions.error ?
+            props.attractions.error ?
               <Alert bsStyle="danger">
                 <strong>{attractions.error}</strong>
               </Alert> : null
           }
           {
-            restaurants.fetching ?
+            props.restaurants.fetching ?
               <Alert bsStyle="warning">
                 <strong>Fetching restaurants!</strong>
               </Alert> : null
           }
           {
-            restaurants.error ?
+            props.restaurants.error ?
               <Alert bsStyle="danger">
                 <strong>{restaurants.error}</strong>
               </Alert> : null
           }
           {
-            hotels.fetching ?
+            props.hotels.fetching ?
               <Alert bsStyle="warning">
                 <strong>Fetching hotels!</strong>
               </Alert> : null
           }
           {
-            hotels.error ?
+            props.hotels.error ?
               <Alert bsStyle="danger">
                 <strong>{hotels.error}</strong>
               </Alert> : null
           }
           {
-            taxis.fetching ?
+            props.taxis.fetching ?
               <Alert bsStyle="warning">
                 <strong>Fetching taxis!</strong>
               </Alert> : null
           }
           {
-            taxis.error ?
+            props.taxis.error ?
               <Alert bsStyle="danger">
                 <strong>{taxis.error}</strong>
               </Alert> : null
@@ -65,31 +86,58 @@ class AttractionsView extends React.Component {
         </div>
 
         <div className="row">
-          <div className="col-xs-3">
-            <h2>Attractions</h2>
+          <div className="col-xs-12 col-sm-3">
+            <h2>Atrakcje</h2>
             <Table striped>
-              <thead>
-              <tr>
-                <th>Id</th>
-                <th>Attraction</th>
-              </tr>
-              </thead>
               <tbody>
               {
-                attractions.data ?
-                  attractions.data.map(
+                props.attractions.data ?
+                  props.attractions.data.map(
+                    attraction => ({
+                      ...attraction,
+                      distance: parseFloat(calculateDistance(
+                        attraction.latitude,
+                        attraction.longitude,
+                        props.concerts.data ?
+                          props.concerts.data.filter(
+                            concert =>
+                            concert.id === parseInt(concertId, 10)
+                          ).map(
+                            concert => concert.latitude
+                          )
+                          : 'problem z szerokością geograficzną koncertu',
+                        props.concerts.data ?
+                          props.concerts.data.filter(
+                            concert =>
+                            concert.id === parseInt(concertId, 10)
+                          ).map(
+                            concert => concert.longitude
+                          )
+                          : 'problem z długością geograficzną koncertu'
+                      ).toFixed(2))
+                    })
+                  ).filter(
+                    attraction => {
+                      console.log(attraction, distanceFromGoal)
+                      return attraction.distance < distanceFromGoal
+                    }
+                  ).sort(
+                    (attraction1, attraction2) => attraction1.distance - attraction2.distance
+                  ).map(
                     attraction => (
                       <tr key={attraction.id}>
-                        <td>{attraction.id}</td>
                         <td>
-                          <ul>
-                            <li>{attraction.name}</li>
-                            <li>{attraction.address}</li>
-                            <li>{attraction.hours}</li>
-                            <li>{attraction.website !== 'no website' ?
-                              <a href={attraction.website}>Website</a> : 'no website'}
-                            </li>
-                          </ul>
+                          <dl>
+                            <dd><strong>{attraction.name}</strong></dd>
+                            <dd>{attraction.address}</dd>
+                            <dd>{attraction.hours}</dd>
+                            <dd>{attraction.website !== 'no website' ?
+                              <a href={attraction.website} target="_blank">Strona WWW</a> : 'Brak strony WWW'}
+                            </dd>
+                            <dd key={attraction.id}>odległość: {attraction.distance}
+                              km
+                            </dd>
+                          </dl>
                         </td>
                       </tr>
                     )
@@ -99,32 +147,59 @@ class AttractionsView extends React.Component {
             </Table>
           </div>
 
-          <div className="col-xs-3">
-            <h2>Restaurants</h2>
+          <div className="col-xs-12 col-sm-3">
+            <h2>Restauracje</h2>
             <Table striped>
-              <thead>
-              <tr>
-                <th>Id</th>
-                <th>Restaurant</th>
-              </tr>
-              </thead>
               <tbody>
               {
-                restaurants.data ?
-                  restaurants.data.map(
+                props.restaurants.data ?
+                  props.restaurants.data.map(
+                    restaurant => ({
+                      ...restaurant,
+                      distance: parseFloat(calculateDistance(
+                        restaurant.latitude,
+                        restaurant.longitude,
+                        props.concerts.data ?
+                          props.concerts.data.filter(
+                            concert =>
+                            concert.id === parseInt(concertId, 10)
+                          ).map(
+                            concert => concert.latitude
+                          )
+                          : 'problem z szerokością geograficzną restauracji',
+                        props.concerts.data ?
+                          props.concerts.data.filter(
+                            concert =>
+                            concert.id === parseInt(concertId, 10)
+                          ).map(
+                            concert => concert.longitude
+                          )
+                          : 'problem z długością geograficzną restauracji'
+                      ).toFixed(2))
+                    })
+                  ).filter(
+                    restaurant => {
+                      console.log(restaurant, distanceFromGoal)
+                      return restaurant.distance  < distanceFromGoal
+                    }
+                  ).sort(
+                    (restaurant1, restaurant2) => restaurant1.distance - restaurant2.distance
+                  ).map(
                     restaurant => (
                       <tr key={restaurant.id}>
-                        <td>{restaurant.id}</td>
                         <td>
-                          <ul>
-                            <li>{restaurant.name}</li>
-                            <li>{restaurant.address}</li>
-                            <li>{restaurant.hours}</li>
-                            <li>{restaurant.phone}</li>
-                            <li>{restaurant.website !== 'no website' ?
-                              <a href={restaurant.website}>Website</a> : 'no website'}
-                            </li>
-                          </ul>
+                          <dl>
+                            <dd><strong>{restaurant.name}</strong></dd>
+                            <dd>{restaurant.address}</dd>
+                            <dd>{restaurant.hours}</dd>
+                            <dd>{restaurant.phone}</dd>
+                            <dd>{restaurant.website !== 'no website' ?
+                              <a href={restaurant.website} target="_blank">Strona WWW</a> : 'Brak strony WWW'}
+                            </dd>
+                            <dd key={restaurant.id}>odległość: {restaurant.distance}
+                              km
+                            </dd>
+                          </dl>
                         </td>
                       </tr>
                     )
@@ -134,31 +209,57 @@ class AttractionsView extends React.Component {
             </Table>
           </div>
 
-          <div className="col-xs-3">
-            <h2>Hotels</h2>
+          <div className="col-xs-12 col-sm-3">
+            <h2>Hotele</h2>
             <Table striped>
-              <thead>
-              <tr>
-                <th>Id</th>
-                <th>Hotel</th>
-              </tr>
-              </thead>
               <tbody>
               {
-                hotels.data ?
-                  hotels.data.map(
+                props.hotels.data ?
+                  props.hotels.data.map(
+                    hotel => ({
+                      ...hotel,
+                      distance: parseFloat(calculateDistance(
+                        hotel.latitude,
+                        hotel.longitude,
+                        props.concerts.data ?
+                          props.concerts.data.filter(
+                            concert =>
+                            concert.id === parseInt(concertId, 10)
+                          ).map(
+                            concert => concert.latitude
+                          )
+                          : 0,
+                        props.concerts.data ?
+                          props.concerts.data.filter(
+                            concert =>
+                            concert.id === parseInt(concertId, 10)
+                          ).map(
+                            concert => concert.longitude
+                          )
+                          : 0,).toFixed(2))
+                    })
+                  ).filter(
+                    hotel => {
+                      console.log(hotel.distanceFromGoal)
+                      return hotel.distance < distanceFromGoal
+                    }
+                  ).sort(
+                    (hotel1, hotel2) => hotel1.distance - hotel2.distance
+                  ).map(
                     hotel => (
                       <tr key={hotel.id}>
-                        <td>{hotel.id}</td>
                         <td>
-                          <ul>
-                            <li>{hotel.name}</li>
-                            <li>{hotel.address}</li>
-                            <li>{hotel.phone}</li>
-                            <li>{hotel.website !== 'no website' ?
-                              <a href={hotel.website}>Website</a> : 'no website'}
-                            </li>
-                          </ul>
+                          <dl>
+                            <dd><strong>{hotel.name}</strong></dd>
+                            <dd>{hotel.address}</dd>
+                            <dd>{hotel.phone}</dd>
+                            <dd>{hotel.website !== 'no website' ?
+                              <a href={hotel.website} target="_blank">Strona WWW</a> : 'Brak strony WWW'}
+                            </dd>
+                            <dd key={hotel.id}>odległość: {hotel.distance}
+                              km
+                            </dd>
+                          </dl>
                         </td>
                       </tr>
                     )
@@ -168,27 +269,20 @@ class AttractionsView extends React.Component {
             </Table>
           </div>
 
-          <div className="col-xs-3">
-            <h2>Taxis</h2>
+          <div className="col-xs-12 col-sm-3">
+            <h2>Komunikacja</h2>
             <Table striped>
-              <thead>
-              <tr>
-                <th>Id</th>
-                <th>Taxi</th>
-              </tr>
-              </thead>
               <tbody>
               {
-                taxis.data ?
-                  taxis.data.map(
+                props.taxis.data ?
+                  props.taxis.data.map(
                     taxi => (
                       <tr key={taxi.id}>
-                        <td>{taxi.id}</td>
                         <td>
-                          <ul>
-                            <li>{taxi.name}</li>
-                            <li>{taxi.phone}</li>
-                          </ul>
+                          <dl>
+                            <dd><strong>{taxi.name}</strong></dd>
+                            <dd>{taxi.phone}</dd>
+                          </dl>
                         </td>
                       </tr>
                     )
@@ -201,14 +295,4 @@ class AttractionsView extends React.Component {
       </Grid>
     )
   }
-}
-
-export default connect(
-  state => ({
-    attractions: state.attractions,
-    hotels: state.hotels,
-    restaurants: state.restaurants,
-    taxis: state.taxis
-  })
-)(AttractionsView)
-
+)
