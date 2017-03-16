@@ -29,11 +29,11 @@ export default connect (
               } = this.props
 
             return(
-            <form  onSubmit={(event) => {
-              event.preventDefault()
-              filterTypeOfMusic(this.state.typeOfMusic)
-              setBandNameSearch(this.state.band)
-            }
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    filterTypeOfMusic(this.state.typeOfMusic)
+                    setBandNameSearch(this.state.band)
+                }
 
             }>
                 <Grid>
