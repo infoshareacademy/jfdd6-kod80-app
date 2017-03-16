@@ -5,6 +5,7 @@ import {Grid, Alert, Table} from 'react-bootstrap'
 import SearchInputCreator from './search-input'
 
 import filter_concert from '../search/concert-filter'
+import sortConcertByDate from '../date/sort-concert-by-date'
 
 export default connect(
   state => ({
@@ -51,6 +52,7 @@ export default connect(
               concerts.data ?
                 concerts.data
                   .filter( filter_concert(concertsSearchValues) )
+                  .sort( sortConcertByDate )
                   .map(
                   concert => (
                     <tr key={concert.id}>
