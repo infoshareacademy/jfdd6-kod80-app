@@ -40,6 +40,34 @@ export default connect(
       </Table>
       );
 
+      const pastConcerts = (
+        <Table striped>
+          <thead>
+          <tr>
+            <th>Zespół</th>
+            <th>Miejscowość</th>
+            <th>Data</th>
+          </tr>
+          </thead>
+          <tbody>
+          {
+            concerts.data ?
+              concerts.data.map(
+                concert => (
+                  <tr key={concert.id}>
+                    <td>
+                      <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
+                    </td>
+                    <td>{concert.city}</td>
+                    <td>{concert.date}</td>
+                  </tr>
+                )
+              ) : null
+          }
+          </tbody>
+        </Table>
+      );
+
       const myAccountTab = (  <div>
         <Media>
           <Media.Left>
