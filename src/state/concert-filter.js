@@ -24,7 +24,9 @@ const initialState = {
     concertId: null,
     band: null,
     typeOfMusic: null,
-    city: null
+    city: null,
+    dateSince: null,
+    dateTo: null
   }
 }
 
