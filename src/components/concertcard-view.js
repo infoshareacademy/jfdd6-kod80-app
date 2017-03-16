@@ -4,6 +4,7 @@ import {Grid, Table, Button, ProgressBar} from 'react-bootstrap'
 
 import {changeDistance, resetDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
+import ConcertParticipantsView from './concertParticipants-view'
 
 
 export default connect(
@@ -68,6 +69,7 @@ export default connect(
         <Button onClick={() => props.resetDistance()}>Wróć na początek</Button>
         <Button onClick={() => props.changeDistance(1)}>Zwiększ odległość</Button>
 
+        <ConcertParticipantsView/>
         <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
       </Grid>
     )

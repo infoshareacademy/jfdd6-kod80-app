@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Grid, Table, Alert} from 'react-bootstrap'
+import {Grid, Table, Alert, Image} from 'react-bootstrap'
 
 
 export default connect(
@@ -43,10 +43,8 @@ export default connect(
                     user => (
                       <tr key={user.id}>
                         <td>
-                          <dl>
-                            <dd><strong>{user.name}</strong></dd>
-                            <dd>{user.email}</dd>
-                          </dl>
+                          <img width={64} height={64} src= {user.avatar} />
+                          <strong>{user.name}</strong>
                         </td>
                       </tr>
                     )
