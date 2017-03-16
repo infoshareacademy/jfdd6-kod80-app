@@ -66,6 +66,7 @@ export default connect(
 
             concerts.data ?
               concerts.data
+                .filter( filter_concert(concertsSearchValues) )
                 .sort( sortConcertByDate )
                 .map(
                 concert => (
