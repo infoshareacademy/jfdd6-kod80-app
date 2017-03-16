@@ -40,7 +40,7 @@ export default connect(
           <Table striped>
             <thead>
             <tr>
-              <th>Id</th>
+              <th>Lp.</th>
               <th>Zespół</th>
               <th>Typ muzyki</th>
               <th>Miasto</th>
@@ -54,9 +54,9 @@ export default connect(
                   .filter( filter_concert(concertsSearchValues) )
                   .sort( sortConcertByDate )
                   .map(
-                  concert => (
+                    (concert, index) => (
                     <tr key={concert.id}>
-                      <td>{concert.id}</td>
+                      <td>{index+1}</td>
                       <td>
                         <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
                       </td>
