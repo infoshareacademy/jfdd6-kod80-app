@@ -1,0 +1,44 @@
+[
+{
+  "id": 1,
+  "name": "Arkadiusz",
+  "login": "Arek",
+  "email": "arek@wp.pl",
+  "password": "tralala"
+},
+{
+"id": 2,
+"name": "Barbara",
+"login": "Basia",
+"email": "basia@wp.pl",
+"password": "sialala"
+},
+{
+"id": 3,
+"name": "Cezary",
+"login": "Czarek",
+"email": "czarek@wp.pl",
+"password": "srututu"
+},
+{
+"id": 4,
+"name": "Dariusz",
+"login": "Darek",
+"email": "daga@wp.pl",
+"password": "tajne"
+},
+{
+"id": 5,
+"name": "Edward",
+"login": "Edek",
+"email": "edek@wp.pl",
+"password": "haslo"
+},
+{
+"id": 6,
+"name": "Felicja",
+"login": "Felcia",
+"email": "felcia@wp.pl",
+"password": "okno"
+}
+]

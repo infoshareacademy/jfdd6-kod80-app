@@ -1,33 +1,28 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Navbar, Nav, NavItem,      Form, FormGroup, ControlLabel, FormControl, Button} from 'react-bootstrap'
+import {Navbar, Nav, NavItem,} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
-
-// import {FormLogin} from './form-login'
-
+import FormLogin from './form-login-view'
 import {fetchConcerts} from '../state/concerts'
 import {fetchAttractions} from '../state/attractions'
 import {fetchHotels} from '../state/hotels'
 import {fetchRestaurants} from '../state/restaurants'
 import {fetchTaxis} from '../state/taxis'
-
-
+import {fetchUser} from '../state/form-login'
 class App extends React.Component {
-
   componentWillMount() {
-    this.props.fetchConcerts()
-    this.props.fetchAttractions()
-    this.props.fetchHotels()
-    this.props.fetchRestaurants()
-    this.props.fetchTaxis()
+    this.props.fetchConcerts();
+    this.props.fetchAttractions();
+    this.props.fetchHotels();
+    this.props.fetchRestaurants();
+    this.props.fetchTaxis();
+    this.props.fetchUser()
   }
-
   render() {
-
-    const {children} = this.props
-
-    return false ? (
+    const {children} = this.props;
+    return
+    false ? (
       <div>
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
@@ -51,33 +46,9 @@ class App extends React.Component {
         </Navbar>
         { children }
       </div>
-    ) :
-
-
-      <Form inline>
-        <FormGroup controlId="formInlineName">
-          <ControlLabel>Login</ControlLabel>
-          {' '}
-          <FormControl type="text" />
-        </FormGroup>
-        {' '}
-        <FormGroup controlId="formInlineEmail">
-          <ControlLabel>Email</ControlLabel>
-          {' '}
-          <FormControl type="email"  />
-        </FormGroup>
-        {' '}
-        <Button type="submit">
-          Zaloguj się
-        </Button>
-      </Form>
-
-
-
-
+    ) : <FormLogin/>
   }
 }
-
 export default connect(
   state => ({}),
   dispatch => ({
@@ -85,6 +56,7 @@ export default connect(
     fetchAttractions: () => dispatch(fetchAttractions()),
     fetchHotels: () => dispatch(fetchHotels()),
     fetchRestaurants: () => dispatch(fetchRestaurants()),
-    fetchTaxis: () => dispatch(fetchTaxis())
+    fetchTaxis: () => dispatch(fetchTaxis()),
+    fetchUser: () => dispatch(fetchUser())
   })
 )(App)

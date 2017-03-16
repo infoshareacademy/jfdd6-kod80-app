@@ -1,15 +1,11 @@
-const FETCH__BEGIN = 'form_login/FETCH__BEGIN';
-const FETCH__SUCCESS = 'form_login/FETCH__SUCCESS';
-const FETCH__FAIL = 'form_login/FETCH__FAILED';
-
-
-// zmienić bazę danych po zmergowaniu się z developem
-
-
-export const fetchSuccess = () => dispatch => {
+const FETCH__BEGIN = 'checkUser/FETCH__BEGIN';
+const FETCH__SUCCESS = 'checkUser/FETCH__SUCCESS';
+const FETCH__FAIL = 'checkUser/FETCH__FAILED';
+const CHECK_USER = 'users/CHECK_USER';
+export const fetchUser = () => dispatch => {
   dispatch({type: FETCH__BEGIN});
   return fetch(
-    process.env.PUBLIC_URL + '/data/concerts-gdansk.json'
+    process.env.PUBLIC_URL + '/data/users.json'
   ).then(
     response => {
       if (response.ok) {
@@ -34,29 +30,15 @@ export const fetchSuccess = () => dispatch => {
     })
   )
 };
-
-
-
-
-export const saveUsers = (login, password) => ({
-  type: SAVE_USERS,
+export const checkUsers = (login, password) => ({
+  type: CHECK_USER,
   login, password
-})
-
-
-
-
-
-
+});
 const initialState = {
   data: null,
   fetching: false,
   error: null
 };
-
-
-
-
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH__BEGIN:
@@ -77,22 +59,18 @@ export default (state = initialState, action = {}) => {
         fetching: false,
         error: action.error
       };
-    case SAVE_USERS:
+    case CHECK_USER:
       return {
         ...state,
-
-
-
-        data: state.data.
-
-
-
-
+        data: state.data.concat({
+          id: state.data.map(user => user.id).reduce((prev,next) => prev > next ? prev : next, -Infinity) +1,
+          name: 'unknown',
+          login: action.login,
+          email: 'unknown',
+          password: action.password
         })
       };
     default:
       return state
   }
 }
-
-
