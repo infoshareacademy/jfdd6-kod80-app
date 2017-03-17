@@ -39,16 +39,14 @@ class App extends React.Component {
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <Nav>
+            <Nav pullRight>
               <LinkContainer to="/koncerty">
                 <NavItem href="#">Koncerty</NavItem>
               </LinkContainer>
+              <LinkContainer to="/moje-konto">
+                <NavItem href="#">Moje konto</NavItem>
+              </LinkContainer>
             </Nav>
-            <Nav pullRight>
-            <LinkContainer to="/moje-konto">
-              <NavItem href="#">Moje konto</NavItem>
-            </LinkContainer>
-              </Nav>
           </Navbar.Collapse>
         </Navbar>
         { children }

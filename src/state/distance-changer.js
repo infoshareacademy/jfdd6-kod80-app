@@ -1,6 +1,5 @@
 // ACTION TYPES (there may be more than one)
 const CHANGE = 'distance/CHANGE'
-const RESET = 'distance/RESET'
 
 // ACTION CREATORS (there may be more than one; one for each action type)
 export const changeDistance = (value) => ({
@@ -8,15 +7,12 @@ export const changeDistance = (value) => ({
   value
 })
 
-export const resetDistance = () => ({
-  type: RESET
-})
 
 // INITIAL VALUE
 const initialState = {
-  distanceFromGoal: 0,
+  distanceFromGoal: 1,
   maxValue: 15,
-  minValue: 0
+  minValue: 1
 }
 
 // REDUCER
@@ -26,14 +22,9 @@ export default (state = initialState, action = {}) => {
     case CHANGE:
       return {
         ...state,
-        distanceFromGoal: state.distanceFromGoal < state.maxValue ?
-          state.distanceFromGoal + action.value :
-          state.maxValue
-      }
-    case RESET:
-      return {
-        ...state,
-        distanceFromGoal: state.minValue
+        distanceFromGoal: action.value > 1 ?
+          Math.min(state.distanceFromGoal + action.value, state.maxValue) :
+          Math.max(state.distanceFromGoal + action.value, state.minValue)
       }
     default:
       return state
