@@ -14,8 +14,7 @@ export default connect(
     minValue: state.distanceChanger.minValue
   }),
   dispatch => ({
-    changeDistance: (value) => dispatch(changeDistance(value)),
-    resetDistance: (value) => dispatch(resetDistance(value))
+    changeDistance: (value) => dispatch(changeDistance(value))
   })
 )(
   function ConcertCard(props) {
