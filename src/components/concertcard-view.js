@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {Grid, Table, Alert, Button, ProgressBar} from 'react-bootstrap'
+import Slider from 'react-rangeslider'
 
 import {changeDistance, resetDistance} from '../state/distance-changer'
 
@@ -134,6 +135,8 @@ export default connect(
           max={props.maxValue}
           min={props.minValue}
         />
+
+        <Slider> </Slider>
 
         <Button onClick={() => props.resetDistance()}>Wróć na początek</Button>
         <Button onClick={() => props.changeDistance(1)}>Zwiększ odległość</Button>
