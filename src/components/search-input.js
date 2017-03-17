@@ -52,6 +52,10 @@ export default connect (
                                    value={this.state.band}
                                    onChange={(event) => this.setState({band: event.target.value})}/>
                     </FormGroup>
+                  <FormGroup className="col-sm-5 col-md-3">
+                    <ControlLabel>Data Koncertu</ControlLabel>
+                    <DatePicker />
+                  </FormGroup>
                   <FormGroup className="col-sm-2 col-md-3">
                     <button className="szukaj-button">Szukaj</button>
                 </FormGroup>

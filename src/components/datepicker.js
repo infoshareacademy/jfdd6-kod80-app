@@ -7,24 +7,44 @@ require('react-datepicker/dist/react-datepicker.css');
 // CSS Modules, react-datepicker-cssmodules.css
 // require('react-datepicker/dist/react-datepicker-cssmodules.css');
 
-var Example = React.createClass({
+const datePicker = React.createClass({
   displayName: 'Example',
 
   getInitialState: function() {
     return {
-      startDate: moment()
+      startDate: moment(),
+      endDate: moment()
     };
   },
 
-  handleChange: function(date) {
+  handleChangeStart: function(date) {
     this.setState({
-      startDate: date
+      startDate: date,
+    });
+  },
+
+  handleChangeEnd: function(date) {
+    this.setState({
+      endDate: date,
     });
   },
 
   render: function() {
-    return <DatePicker
-      selected={this.state.startDate}
-      onChange={this.handleChange} />;
+    return (
+      <div>
+          <DatePicker
+            selected={this.state.startDate}
+            selectsStart  startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            onChange={this.handleChangeStart} />
+          <DatePicker
+            selected={this.state.endDate}
+            selectsEnd  startDate={this.state.startDate}
+            endDate={this.state.endDate}
+            onChange={this.handleChangeEnd} />
+        </div>
+    )
   }
 });
+
+export default datePicker
