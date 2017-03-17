@@ -65,8 +65,9 @@ export default connect(
           min={props.minValue}
         />
 
-        <Button onClick={() => props.resetDistance()}>Wróć na początek</Button>
-        <Button onClick={() => props.changeDistance(1)}>Zwiększ odległość</Button>
+        <Button onClick={() => props.changeDistance(1)}>Zwiększ dystans</Button>
+        <Button onClick={() => props.changeDistance(-1)}>Zmniejsz dystans</Button>
+
 
         <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
       </Grid>
