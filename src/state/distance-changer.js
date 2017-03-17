@@ -10,7 +10,7 @@ export const changeDistance = (value) => ({
 
 // INITIAL VALUE
 const initialState = {
-  distanceFromGoal: 0,
+  distanceFromGoal: 1,
   maxValue: 15,
   minValue: 1
 }
@@ -22,7 +22,7 @@ export default (state = initialState, action = {}) => {
     case CHANGE:
       return {
         ...state,
-        distanceFromGoal: action.value > 0 ?
+        distanceFromGoal: action.value > 1 ?
           Math.min(state.distanceFromGoal + action.value, state.maxValue) :
           Math.max(state.distanceFromGoal + action.value, state.minValue)
       }
