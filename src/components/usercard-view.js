@@ -7,8 +7,8 @@ import filter_concert from '../search/concert-filter'
 import sortConcertByDate from '../date/sort-concert-by-date'
 
 
-const dat1 = new Date('2000', '06', '16')
-const dat2 =  new Date('2017', '06', '16')
+const dat1 = new Date('2000', '06', '16');
+const dat2 =  new Date()
 
 const concertsSearchValues = {
   concertId: null,

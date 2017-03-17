@@ -12,11 +12,6 @@ const filter_date= searchValues => concert => {
   if (searchValues.dateSince === null || searchValues.dateTo === null) {
     return true
   }
-
-  console.log( searchValues.dateSince )
-  console.log( searchValues.dateTo )
-  console.log('convert Date ', convertDate(concert.date) )
-
   const convertedDate = convertDate(concert.date)
 
   if( searchValues.dateSince < convertedDate && convertedDate < searchValues.dateTo ) {

@@ -262,5 +262,17 @@
     "longitude": "18.6489656",
     "ticketPrice": "200 złotych",
     "bandImages": "bruno-mars.jpg"
+  },
+  {
+    "id": 23,
+    "band": "Mettalica",
+    "typeOfMusic": "Classic",
+    "city": "Gdańsk",
+    "place": "Gdański Teatr Szekspirowski",
+    "date": "03/03/2017",
+    "latitude": "54.3477652",
+    "longitude": "18.6489656",
+    "ticketPrice": "200 złotych",
+    "bandImages": "bruno-mars.jpg"
   }
 ]
