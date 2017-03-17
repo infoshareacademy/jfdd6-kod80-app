@@ -8,7 +8,10 @@ import restaurantsReducer from './state/restaurants'
 import taxisReducer from './state/taxis'
 import distanceReducer from './state/distance-changer'
 import concertFilterReducer from './state/concert-filter.js'
-import formLoginReducer from './state/form-login'
+import sessionReducer from './state/session'
+import userReducer from './state/user'
+
+
 const allReducers = combineReducers({
   concerts: concertsReducer,
   attractions: attractionsReducer,
@@ -17,8 +20,11 @@ const allReducers = combineReducers({
   taxis: taxisReducer,
   distanceChanger: distanceReducer,
   concert_filter: concertFilterReducer,
-  form_login: formLoginReducer
+  session: sessionReducer,
+  user: userReducer
 });
+
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   allReducers,

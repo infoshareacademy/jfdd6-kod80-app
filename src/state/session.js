@@ -1,19 +1,36 @@
-const FETCH__BEGIN = 'checkUser/FETCH__BEGIN';
-const FETCH__SUCCESS = 'checkUser/FETCH__SUCCESS';
-const FETCH__FAIL = 'checkUser/FETCH__FAILED';
-const CHECK_USER = 'users/CHECK_USER';
-export const fetchUser = () => dispatch => {
+const FETCH__BEGIN = 'session/FETCH__BEGIN';
+const FETCH__SUCCESS = 'session/FETCH__SUCCESS';
+const FETCH__FAIL = 'session/FETCH__FAILED';
+
+import { fetchUser } from './user'
+
+export const fetchSession = (username, password) => dispatch => {
   dispatch({type: FETCH__BEGIN});
   return fetch(
-    process.env.PUBLIC_URL + '/data/users.json'
+    'https://tranquil-ocean-17204.herokuapp.com/api/users/login', {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+    username: username,
+    password: password,
+    })
+    }
   ).then(
     response => {
       if (response.ok) {
         return response.json().then(
-          data => dispatch({
+          data => {
+
+          dispatch({
             type: FETCH__SUCCESS,
             data
-          })
+          });
+
+          dispatch(fetchUser(data.id, data.userId))
+        }
+
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
@@ -30,15 +47,15 @@ export const fetchUser = () => dispatch => {
     })
   )
 };
-export const checkUsers = (login, password) => ({
-  type: CHECK_USER,
-  login, password
-});
+
+
+
 const initialState = {
   data: null,
   fetching: false,
   error: null
 };
+
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH__BEGIN:
@@ -59,17 +76,7 @@ export default (state = initialState, action = {}) => {
         fetching: false,
         error: action.error
       };
-    case CHECK_USER:
-      return {
-        ...state,
-        data: state.data.concat({
-          id: state.data.map(user => user.id).reduce((prev,next) => prev > next ? prev : next, -Infinity) +1,
-          name: 'unknown',
-          login: action.login,
-          email: 'unknown',
-          password: action.password
-        })
-      };
+
     default:
       return state
   }
