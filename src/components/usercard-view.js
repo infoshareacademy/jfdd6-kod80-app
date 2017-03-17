@@ -39,7 +39,9 @@ export default connect(
         <tbody>
         {
           concerts.data ?
-            concerts.data.map(
+            concerts.data
+              .sort( sortConcertByDate )
+              .map(
               concert => (
                 <tr key={concert.id}>
                   <td>
