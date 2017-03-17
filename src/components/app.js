@@ -16,7 +16,7 @@ import {fetchSession} from '../state/session'
 class App extends React.Component {
 
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       username: '',
@@ -30,7 +30,7 @@ class App extends React.Component {
     this.props.fetchHotels();
     this.props.fetchRestaurants();
     this.props.fetchTaxis();
-    this.props.fetchSessionHelper()
+    this.props.fetchSessionLogin()
 
   }
   render() {
@@ -38,7 +38,7 @@ class App extends React.Component {
     return (this.props.session.data === null ?
       <form onSubmit={(event) => {
         event.preventDefault();
-        this.props.fetchSessionHelper(this.state.username, this.state.password)
+        this.props.fetchSessionLogin(this.state.username, this.state.password)
       }}>
         <input
           type="text"
@@ -93,50 +93,6 @@ export default connect(
     fetchHotels: () => dispatch(fetchHotels()),
     fetchRestaurants: () => dispatch(fetchRestaurants()),
     fetchTaxis: () => dispatch(fetchTaxis()),
-    fetchSessionHelper: (username, password) => dispatch(fetchSession(username, password)),
+    fetchSessionLogin: (username, password) => dispatch(fetchSession(username, password)),
   })
 )(App)
-
-
-
-
-//
-// <div>
-// {false ?
-//   <div>
-//     <Navbar inverse collapseOnSelect>
-//       <Navbar.Header>
-//         <Navbar.Brand>
-//           <Link to="/">
-//             SOUNDTRIP
-//           </Link>
-//         </Navbar.Brand>
-//         <Navbar.Toggle />
-//       </Navbar.Header>
-//       <Navbar.Collapse>
-//         <Nav>
-//           <LinkContainer to="/koncerty">
-//             <NavItem href="#">Koncerty</NavItem>
-//           </LinkContainer>
-//           <LinkContainer to="/atrakcje">
-//             <NavItem href="#">Atrakcje</NavItem>
-//           </LinkContainer>
-//         </Nav>
-//       </Navbar.Collapse>
-//     </Navbar>
-//     { children }
-//   </div>
-//   : (<div className='page-with-form-login'>
-//
-//     <p>Witaj na stronie SoundTrip</p>
-//
-//
-//
-//     <FormLogin/>
-//
-//   </div>
-// )}
-//
-//
-//
-// </div>
