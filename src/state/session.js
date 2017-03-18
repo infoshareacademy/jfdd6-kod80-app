@@ -19,6 +19,9 @@ export const fetchSession = (username, password) => dispatch => {
     }
   ).then(
     response => {
+
+        console.log(response)
+
       if (response.ok) {
         return response.json().then(
           data => {
@@ -38,6 +41,28 @@ export const fetchSession = (username, password) => dispatch => {
           })
         )
       }
+
+      if (!response.ok) {
+        return response.json().then(
+          data => {
+
+            dispatch({
+              type: FETCH__FAIL,
+              error: (response.status !== 401) ? null : 'Problem z danymi uzytkownika'
+            });
+
+            dispatch(fetchUser(data.id, data.userId))
+            }
+
+        ).catch(
+            error => dispatch({
+                type: FETCH__FAIL,
+                error: 'Malformed JSON response'
+            })
+        )
+      }
+
+      //console.log(response);
       throw new Error('Connection error')
     }
   ).catch(
@@ -74,7 +99,7 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         fetching: false,
-        error: action.error
+        error: null
       };
 
     default:

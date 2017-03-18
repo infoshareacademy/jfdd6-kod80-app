@@ -29,15 +29,12 @@ class App extends React.Component {
         this.props.fetchHotels();
         this.props.fetchRestaurants();
         this.props.fetchTaxis();
-        this.props.fetchSessionLogin()
+        // this.props.fetchSessionLogin()
 
     }
 
     render() {
         const {children} = this.props;
-
-        console.log(this.props.error)
-
 
         return (this.props.session.data === null ?
             (
@@ -54,26 +51,23 @@ class App extends React.Component {
 
                     <form onSubmit={(event) => {
                         event.preventDefault();
-                        this.props.fetchSessionLogin(this.state.username, this.state.password)
-
+                        this.props.fetchSessionLogin(this.refs.username.value, this.refs.password.value);
                     }}>
                         <input
                             type="text"
                             placeholder="nazwa użytkownika"
-                            value={this.state.username}
-                            onChange={(event) => this.setState({username: event.target.value})}
+                            ref="username"
                         />
                         <input
                             type="password"
                             placeholder="hasło"
-                            value={this.state.password}
-                            onChange={(event) => this.setState({password: event.target.value})}
+                            ref="password"
                         />
-                        <button type="submit">Zaloguj się</button>
+                        <input type="submit" value="Zaloguj się" />
                     </form>
 
 
-                    <p> { this.props.session.error == null ? this.props.session.error : 'zle haslo'}  </p>
+                    <p> { this.props.session.error === null ? '' : this.props.session.error }  </p>
 
 
                 </div>
