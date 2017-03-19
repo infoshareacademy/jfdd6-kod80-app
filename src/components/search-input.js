@@ -43,7 +43,6 @@ export default connect (
                       <FormControl
                         placeholder='Rodzaj muzyki np.: Rock'
                         value={this.state.typeOfMusic}
-                        bsSize="lg"
                         onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
                     </FormGroup>
                   <FormGroup className="col-md-5 col-lg-3">
