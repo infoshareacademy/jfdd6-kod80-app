@@ -40,7 +40,7 @@ export default connect (
                     event.preventDefault()
                     filterTypeOfMusic(this.state.typeOfMusic)
                     setBandNameSearch(this.state.band)
-                    setDateSinceSearch(new Date('2017','03', '10'))
+                    setDateSinceSearch(this.state.dateSince)
                     setDateToSearch(new Date('2017','10', '10'))
                 }
 
@@ -61,7 +61,7 @@ export default connect (
                     </FormGroup>
                   <FormGroup className="col-md-2 col-lg-3">
                     <ControlLabel>Data Koncertu</ControlLabel>
-                    <DatePicker  />
+                    <DatePicker  setDateSinceSearch={(date) => this.setState({dateSince: date})  }/>
                   </FormGroup>
                   <FormGroup className="col-md-2 col-lg-3">
                     <button className="szukaj-button">Szukaj</button>
