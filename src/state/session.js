@@ -20,8 +20,6 @@ export const fetchSession = (username, password) => dispatch => {
   ).then(
     response => {
 
-        console.log(response)
-
       if (response.ok) {
         return response.json().then(
           data => {
@@ -48,11 +46,11 @@ export const fetchSession = (username, password) => dispatch => {
 
             dispatch({
               type: FETCH__FAIL,
-              error: (response.status !== 401) ? null : 'Problem z danymi uzytkownika'
+              error: (response.status !== 401) ? null : 'Podałeś niepoprawne dane'
             });
 
             dispatch(fetchUser(data.id, data.userId))
-            }
+          }
 
         ).catch(
             error => dispatch({
@@ -72,8 +70,6 @@ export const fetchSession = (username, password) => dispatch => {
     })
   )
 };
-
-
 
 const initialState = {
   data: null,
@@ -99,7 +95,7 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         fetching: false,
-        error: null
+        error: action.error
       };
 
     default:
