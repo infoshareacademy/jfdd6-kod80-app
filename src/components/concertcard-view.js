@@ -30,8 +30,8 @@ export default connect(
           min={props.minValue}
         />
 
-        <Button onClick={() => props.changeDistance(1)}>Zwiększ dystans</Button>
         <Button onClick={() => props.changeDistance(-1)}>Zmniejsz dystans</Button>
+        <Button onClick={() => props.changeDistance(1)}>Zwiększ dystans</Button>
 
         <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
       </div>

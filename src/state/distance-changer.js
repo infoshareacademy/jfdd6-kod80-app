@@ -10,7 +10,7 @@ export const changeDistance = (value) => ({
 
 // INITIAL VALUE
 const initialState = {
-  distanceFromGoal: 0,
+  distanceFromGoal: 1,
   maxValue: 15,
   minValue: 1
 }
