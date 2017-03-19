@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import {FormGroup, FormControl, ControlLabel, Grid} from 'react-bootstrap'
-import styles from '../styles/search-input.css'
+// import styles from '../styles/search-input.css'
 
 import {setTypeOfMusicSearch, setBandNameSearch} from '../state/concert-filter.js'
 

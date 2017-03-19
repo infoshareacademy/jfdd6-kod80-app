@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Grid, Table, Button, ProgressBar} from 'react-bootstrap'
+import {Grid, Table, Button, ProgressBar, Tabs, Tab} from 'react-bootstrap'
 
-import {changeDistance, resetDistance} from '../state/distance-changer'
+import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
-
+import UsersView from './users-view'
 
 export default connect(
   state => ({
@@ -20,6 +20,26 @@ export default connect(
   function ConcertCard(props) {
 
     // const { distanceFromGoal } = props
+    const concertAttractionsTab = (
+      <div>
+        <h2>W promieniu {props.distanceFromGoal} km możesz znaleźć...</h2>
+
+        <ProgressBar
+          now={props.distanceFromGoal}
+          max={props.maxValue}
+          min={props.minValue}
+        />
+
+        <Button onClick={() => props.changeDistance(1)}>Zwiększ dystans</Button>
+        <Button onClick={() => props.changeDistance(-1)}>Zmniejsz dystans</Button>
+
+        <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
+      </div>
+    )
+
+    const  concertUsersTab = (
+      <UsersView />
+    )
 
     return (
       <Grid>
@@ -56,19 +76,13 @@ export default connect(
         </Table>
         <hr/>
 
-        <h2>W promieniu {props.distanceFromGoal} km możesz znaleźć...</h2>
 
-        <ProgressBar
-          now={props.distanceFromGoal}
-          max={props.maxValue}
-          min={props.minValue}
-        />
-
-        <Button onClick={() => props.changeDistance(1)}>Zwiększ dystans</Button>
-        <Button onClick={() => props.changeDistance(-1)}>Zmniejsz dystans</Button>
+        <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+          <Tab eventKey={1} title="Atrakcje koncertu"> {concertAttractionsTab}</Tab>
+          <Tab eventKey={2} title="Uczestnicy koncertu">{concertUsersTab}</Tab>
+        </Tabs>
 
 
-        <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
       </Grid>
     )
   }
