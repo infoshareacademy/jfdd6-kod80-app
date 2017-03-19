@@ -5,6 +5,7 @@ import {Grid, Table, Button, ProgressBar, Tabs, Tab, Image} from 'react-bootstra
 import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
 import ConcertUsersView from './concertUsers-view'
+import {attendConcert, leaveConcert} from '../state/attend-concert'
 
 export default connect(
   state => ({
@@ -14,12 +15,12 @@ export default connect(
     minValue: state.distanceChanger.minValue
   }),
   dispatch => ({
-    changeDistance: (value) => dispatch(changeDistance(value))
+    changeDistance: (value) => dispatch(changeDistance(value)),
+    attendConcert: (concertId) => dispatch(attendConcert(concertId)),
+    leaveConcert: (concertId) => dispatch(leaveConcert(concertId))
   })
 )(
   function ConcertCard(props) {
-
-    // const { distanceFromGoal } = props
     const concertAttractionsTab = (
       <div>
         <h2>W promieniu {props.distanceFromGoal} km możesz znaleźć...</h2>

@@ -24,7 +24,7 @@ export default (state = initialState, action = {}) => {
           concertId => concertId !== action.concertId
         ).concat(action.concertId)
       }
-    case UNFAV_GROUP:
+    case LEAVE_CONCERT:
       return {
         ...state,
         attendConcertIds: state.attendConcertIds.filter(
