@@ -1,3 +1,6 @@
-.szukaj-button {
-  margin-top: 27px;
+@media screen and (min-width: 991px) {
+  .szukaj-button {
+    margin-top: 27px;
+    margin-left: -70px
+  }
 }

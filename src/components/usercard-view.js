@@ -3,6 +3,21 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {ListGroup, ListGroupItem, Media, Tabs, Tab, Grid, Alert, Table} from 'react-bootstrap'
 
+import filter_concert from '../search/concert-filter'
+import sortConcertByDate from '../date/sort-concert-by-date'
+
+
+const dat1 = new Date('2000', '06', '16');
+const dat2 =  new Date()
+
+const concertsSearchValues = {
+  concertId: null,
+  band: null,
+  typeOfMusic: null,
+  city: null,
+  dateSince: dat1,
+  dateTo: dat2
+}
 
 export default connect(
   state => ({
@@ -24,7 +39,9 @@ export default connect(
         <tbody>
         {
           concerts.data ?
-            concerts.data.map(
+            concerts.data
+              .sort( sortConcertByDate )
+              .map(
               concert => (
                 <tr key={concert.id}>
                   <td>
@@ -51,8 +68,12 @@ export default connect(
           </thead>
           <tbody>
           {
+
             concerts.data ?
-              concerts.data.map(
+              concerts.data
+                .filter( filter_concert(concertsSearchValues) )
+                .sort( sortConcertByDate )
+                .map(
                 concert => (
                   <tr key={concert.id}>
                     <td>
@@ -71,7 +92,7 @@ export default connect(
       const myAccountTab = (  <div>
         <Media>
           <Media.Left>
-            <img width={210} height={190} src= {require('../graphics/user.jpg')} alt="soundtrip-user"/>
+            <img width={210} height={190} src={require('../graphics/user.jpg')} alt="soundtrip-user"/>
           </Media.Left>
           <Media.Body>
             <ListGroup>
@@ -101,7 +122,7 @@ export default connect(
           <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
             <Tab eventKey={1} title="Moje koncerty"> {myConcertsTab}</Tab>
             <Tab eventKey={2} title="Moje dane">{myAccountTab}</Tab>
-            <Tab eventKey={3} title="Historia">{myConcertsTab}</Tab>
+            <Tab eventKey={3} title="Historia">{pastConcerts}</Tab>
           </Tabs>
         </Grid>
       )

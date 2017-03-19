@@ -1,12 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
-// import {Grid, Table, Button, ProgressBar} from 'react-bootstrap'
-import {Grid, Table, Alert, Button, ProgressBar} from 'react-bootstrap'
-import Slider from 'react-rangeslider'
+import {Grid, Table, Button, ProgressBar, Tabs, Tab, Image} from 'react-bootstrap'
 
-import {changeDistance, resetDistance} from '../state/distance-changer'
+import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
-
+import ConcertUsersView from './concertUsers-view'
 
 export default connect(
   state => ({
@@ -22,42 +20,8 @@ export default connect(
   function ConcertCard(props) {
 
     // const { distanceFromGoal } = props
-
-    return (
-      <Grid>
-        <h1>Koncert {props.params.concertId}</h1>
-
-        <Table striped>
-          <thead>
-          <tr>
-            <th>Zespół</th>
-            <th>Typ muzyki</th>
-            <th>Miejsce</th>
-            <th>Data</th>
-          </tr>
-          </thead>
-          <tbody>
-          {
-            props.concerts.data ?
-              props.concerts.data.filter(
-                concert =>
-                concert.id === parseInt(props.params.concertId, 10)
-              ).map(
-                concert => (
-                  <tr key={concert.id}>
-                    <td>{concert.band}</td>
-                    <td>{concert.typeOfMusic}</td>
-                    <td>{concert.place}</td>
-                    <td>{concert.date}</td>
-                  </tr>
-                )
-              )
-              : null
-          }
-          </tbody>
-        </Table>
-        <hr/>
-
+    const concertAttractionsTab = (
+      <div>
         <h2>W promieniu {props.distanceFromGoal} km możesz znaleźć...</h2>
 
         <ProgressBar
@@ -66,11 +30,71 @@ export default connect(
           min={props.minValue}
         />
 
-        <Button onClick={() => props.changeDistance(1)}>Zwiększ dystans</Button>
         <Button onClick={() => props.changeDistance(-1)}>Zmniejsz dystans</Button>
-
+        <Button onClick={() => props.changeDistance(1)}>Zwiększ dystans</Button>
 
         <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
+      </div>
+    )
+
+    const concertUsersTab = (
+      <ConcertUsersView />
+    )
+
+    return (
+      <Grid>
+        <div className="row">
+          {
+            props.concerts.data ?
+              props.concerts.data.filter(
+                concert =>
+                concert.id === parseInt(props.params.concertId, 10)
+              ).map(
+                concert => (
+                  <div>
+                    <h1>Koncert: {concert.band}</h1>
+                    <div className="col-xs-12 col-md-4">
+                      <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
+                      <div>
+                        <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
+                        <Button className="btn-success" style={{margin: '3px'}}>Idę na koncert</Button>
+                      </div>
+                    </div>
+                    <div className="col-xs-12 col-md-8">
+                      <Table striped>
+                        <thead>
+                        <tr>
+                          <th>Typ muzyki</th>
+                          <th>Miejsce</th>
+                          <th>Data</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr key={concert.id}>
+                          <td>{concert.typeOfMusic}</td>
+                          <td>{concert.place}</td>
+                          <td>{concert.date}</td>
+                        </tr>
+                        </tbody>
+                      </Table>
+                    </div>
+                  </div>
+                )
+              )
+              : null
+          }
+
+        </div>
+
+        <hr/>
+
+        <div className="row">
+          <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+            <Tab eventKey={1} title="Atrakcje koncertu"> {concertAttractionsTab}</Tab>
+            <Tab eventKey={2} title="Uczestnicy koncertu">{concertUsersTab}</Tab>
+          </Tabs>
+        </div>
+
       </Grid>
     )
   }
