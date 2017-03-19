@@ -44,41 +44,46 @@ export default connect(
     return (
       <Grid>
         <div className="row">
-        {
-          props.concerts.data ?
-            props.concerts.data.filter(
-              concert =>
-              concert.id === parseInt(props.params.concertId, 10)
-            ).map(
-              concert => (
-                <div>
-                  <h1>Koncert: {concert.band}</h1>
-                  <div className="col-xs-12 col-md-4">
-                    <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
+          {
+            props.concerts.data ?
+              props.concerts.data.filter(
+                concert =>
+                concert.id === parseInt(props.params.concertId, 10)
+              ).map(
+                concert => (
+                  <div>
+                    <h1>Koncert: {concert.band}</h1>
+                    <div className="col-xs-12 col-md-4">
+                      <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
+                      <div>
+                        <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
+                        <Button className="btn-success" style={{margin: '3px'}}>Idę na koncert</Button>
+                      </div>
+                    </div>
+                    <div className="col-xs-12 col-md-8">
+                      <Table striped>
+                        <thead>
+                        <tr>
+                          <th>Typ muzyki</th>
+                          <th>Miejsce</th>
+                          <th>Data</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr key={concert.id}>
+                          <td>{concert.typeOfMusic}</td>
+                          <td>{concert.place}</td>
+                          <td>{concert.date}</td>
+                        </tr>
+                        </tbody>
+                      </Table>
+                    </div>
                   </div>
-                  <div className="col-xs-12 col-md-8">
-                    <Table striped>
-                      <thead>
-                      <tr>
-                        <th>Typ muzyki</th>
-                        <th>Miejsce</th>
-                        <th>Data</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr key={concert.id}>
-                        <td>{concert.typeOfMusic}</td>
-                        <td>{concert.place}</td>
-                        <td>{concert.date}</td>
-                      </tr>
-                      </tbody>
-                    </Table>
-                  </div>
-                </div>
+                )
               )
-            )
-            : null
-        }
+              : null
+          }
+
         </div>
 
         <hr/>
