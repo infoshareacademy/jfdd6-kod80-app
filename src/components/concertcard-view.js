@@ -12,7 +12,8 @@ export default connect(
     concerts: state.concerts,
     distanceFromGoal: state.distanceChanger.distanceFromGoal,
     maxValue: state.distanceChanger.maxValue,
-    minValue: state.distanceChanger.minValue
+    minValue: state.distanceChanger.minValue,
+    attendConcertIds: state.attendConcert.attendConcertIds
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
@@ -21,6 +22,10 @@ export default connect(
   })
 )(
   function ConcertCard(props) {
+
+    // const attendConcertIds = (attendConcert.attendConcertIds) - bez tego wyskakuje blad, ze nie zdefiniowano
+    // zmiennej, a jak to jest to nie wyswietla sie cala gora strony
+
     const concertAttractionsTab = (
       <div>
         <h2>W promieniu {props.distanceFromGoal} km możesz znaleźć...</h2>
@@ -37,7 +42,6 @@ export default connect(
         <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
       </div>
     )
-
     const concertUsersTab = (
       <ConcertUsersView />
     )
@@ -58,7 +62,24 @@ export default connect(
                       <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
                       <div>
                         <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
-                        <Button className="btn-success" style={{margin: '3px'}}>Idę na koncert</Button>
+
+
+                        {
+                          attendConcertIds.includes(concert.id) ?
+                            <Button
+                              bsStyle="success"
+                              bsSize="xsmall"
+                              onClick={() => attendConcert(concert.id)}>
+                              Idę na koncert
+                            </Button> :
+                            <Button
+                              bsStyle="default"
+                              bsSize="xsmall"
+                              onClick={() => leaveConcert(concert.id)}>
+                              Idę na koncert
+                            </Button>
+                        }
+
                       </div>
                     </div>
                     <div className="col-xs-12 col-md-8">
