@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  font-family: 'Lato', sans-serif; }
+
+.section-with-form-login {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  height: 100vh;
+  background-image: url("../images/concert-crowd.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center; }
+  .section-with-form-login > h1 {
+    margin: 5% 0;
+    color: #ff6a43;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #e3e3e3; }
+  .section-with-form-login > p {
+    padding: 0 2%;
+    font-size: 22px; }
+  .section-with-form-login .form-login {
+    margin-top: 5%;
+    display: inline-block;
+    padding: 40px 100px;
+    border-radius: 3px;
+    background-color: rgba(193, 193, 193, 0.42);
+    box-shadow: 0 0 6px #a7a7a7; }
+    .section-with-form-login .form-login input {
+      box-sizing: border-box;
+      box-shadow: 0 0 6px #c0c0c0;
+      height: 50px;
+      margin: 2px;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      text-align: center;
+      transition: all 1s;
+      border-bottom: 2px solid transparent; }
+      .section-with-form-login .form-login input:focus {
+        border-bottom: 2px solid black;
+        padding: 0;
+        text-align: center; }
+      .section-with-form-login .form-login input:hover {
+        padding: 0;
+        border-bottom: 2px solid black; }
+    .section-with-form-login .form-login button {
+      background-color: #f6f6f6;
+      margin: 2px;
+      height: 50px;
+      transition: all 0.5s linear;
+      border: 0;
+      outline: 0;
+      box-sizing: border-box;
+      box-shadow: 0 0 6px #c0c0c0; }
+      .section-with-form-login .form-login button:hover {
+        background-color: black;
+        color: #fafafa; }
+      .section-with-form-login .form-login button:focus {
+        border: 1px solid #cdcdcd; }
+
+@media screen and (max-width: 620px) {
+  .section-with-form-login .form-login {
+    padding: 5%; }
+  .section-with-form-login form {
+    display: flex;
+    flex-direction: column; } }
+@media screen and (max-height: 590px) {
+  .section-with-form-login h1 {
+    font-size: 28px; }
+  .section-with-form-login p {
+    color: #fafafa;
+    background-color: rgba(137, 137, 137, 0.42);
+    font-size: 20px; } }
+
+/*# sourceMappingURL=style-form-login-view.css.map */

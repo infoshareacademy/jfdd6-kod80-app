@@ -92,7 +92,7 @@ export default connect(
       const myAccountTab = (  <div>
         <Media>
           <Media.Left>
-            <img width={210} height={190} src= {require('../graphics/user.jpg')} alt="soundtrip-user"/>
+            <img width={210} height={190} src={require('../graphics/user.jpg')} alt="soundtrip-user"/>
           </Media.Left>
           <Media.Body>
             <ListGroup>

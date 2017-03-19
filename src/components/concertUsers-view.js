@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 
-import {Grid, Table, Alert} from 'react-bootstrap'
+import {Grid, Table, Alert, Image} from 'react-bootstrap'
 
 class UsersView extends React.Component {
 
@@ -39,8 +39,8 @@ console.log('sdf');
                       <tr key={user.id}>
                         <td>
                           <dl>
+                            <dd><Image src={user.avatar} circle alt={user.band}/></dd>
                             <dd>{user.name}</dd>
-                            <dd>{user.email}</dd>
                           </dl>
                         </td>
                       </tr>
