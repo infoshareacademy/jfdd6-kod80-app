@@ -4,7 +4,7 @@ import {Grid, Table, Button, ProgressBar, Tabs, Tab, Image} from 'react-bootstra
 
 import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
-import UsersView from './concertUsers-view'
+import ConcertUsersView from './concertUsers-view'
 
 export default connect(
   state => ({
@@ -38,12 +38,12 @@ export default connect(
     )
 
     const concertUsersTab = (
-      <UsersView />
+      <ConcertUsersView />
     )
 
     return (
       <Grid>
-
+        <div className="row">
         {
           props.concerts.data ?
             props.concerts.data.filter(
@@ -52,41 +52,43 @@ export default connect(
             ).map(
               concert => (
                 <div>
-                  <h1>Koncert {concert.band}</h1>
-                  <Image src={concert.bandImages} rounded />
-                  <Table striped>
-                    <thead>
-                    <tr>
-                      <th>Zespół</th>
-                      <th>Typ muzyki</th>
-                      <th>Miejsce</th>
-                      <th>Data</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr key={concert.id}>
-                      <td>{concert.bandImages}</td>
-                      <td>{concert.band}</td>
-                      <td>{concert.typeOfMusic}</td>
-                      <td>{concert.place}</td>
-                      <td>{concert.date}</td>
-                    </tr>
-                    </tbody>
-                  </Table>
+                  <h1>Koncert: {concert.band}</h1>
+                  <div className="col-xs-12 col-md-4">
+                    <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
+                  </div>
+                  <div className="col-xs-12 col-md-8">
+                    <Table striped>
+                      <thead>
+                      <tr>
+                        <th>Typ muzyki</th>
+                        <th>Miejsce</th>
+                        <th>Data</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr key={concert.id}>
+                        <td>{concert.typeOfMusic}</td>
+                        <td>{concert.place}</td>
+                        <td>{concert.date}</td>
+                      </tr>
+                      </tbody>
+                    </Table>
+                  </div>
                 </div>
               )
             )
             : null
         }
+        </div>
 
         <hr/>
 
-
-        <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-          <Tab eventKey={1} title="Atrakcje koncertu"> {concertAttractionsTab}</Tab>
-          <Tab eventKey={2} title="Uczestnicy koncertu">{concertUsersTab}</Tab>
-        </Tabs>
-
+        <div className="row">
+          <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+            <Tab eventKey={1} title="Atrakcje koncertu"> {concertAttractionsTab}</Tab>
+            <Tab eventKey={2} title="Uczestnicy koncertu">{concertUsersTab}</Tab>
+          </Tabs>
+        </div>
 
       </Grid>
     )
