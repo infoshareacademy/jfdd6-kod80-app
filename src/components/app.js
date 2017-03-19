@@ -56,7 +56,10 @@ class App extends React.Component {
                            ref="password"
                     />
 
-                    <input type="submit" value="Zaloguj się" className="button"/>
+                    <input type="submit"
+                           value="Zaloguj się"
+                           className="button"
+                    />
                 </form>
 
                 <span> { this.props.session.error === null ? '' : this.props.session.error }  </span>
