@@ -35,14 +35,18 @@ const datePicker = React.createClass({
 
     const {
       setDateSinceSearch,
+      setDateToSearch
       } = this.props
 
-    const onChange = (momentJSdate) => {
+    const onChangeStart = (momentJSdate) => {
       this.handleChangeStart(momentJSdate)
       setDateSinceSearch(momentJSdate.toDate())
     }
 
-
+    const onChangeEnd= (momentJSdate) => {
+      this.handleChangeEnd(momentJSdate)
+      setDateToSearch(momentJSdate.toDate())
+    }
 
     return (
       <div>
@@ -50,12 +54,12 @@ const datePicker = React.createClass({
             selected={this.state.startDate}
             selectsStart  startDate={this.state.startDate}
             endDate={this.state.endDate}
-            onChange= {onChange} />
+            onChange= {onChangeStart} />
           <DatePicker
             selected={this.state.endDate}
             selectsEnd  startDate={this.state.startDate}
             endDate={this.state.endDate}
-            onChange={this.handleChangeEnd} />
+            onChange={onChangeEnd} />
         </div>
     )
   }
