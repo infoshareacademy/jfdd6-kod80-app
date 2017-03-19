@@ -12,7 +12,7 @@ export const leaveConcert = concertId => ({
 })
 
 const initialState = {
-  attendConcertIds: []
+  attendConcertId: []
 }
 
 export default (state = initialState, action = {}) => {
@@ -20,14 +20,14 @@ export default (state = initialState, action = {}) => {
     case ATTEND_CONCERT:
       return {
         ...state,
-        attendConcertIds: state.attendConcertIds.filter(
+        attendConcertId: state.attendConcertId.filter(
           concertId => concertId !== action.concertId
         ).concat(action.concertId)
       }
     case LEAVE_CONCERT:
       return {
         ...state,
-        attendConcertIds: state.attendConcertIds.filter(
+        attendConcertId: state.attendConcertId.filter(
           concertId => concertId !== action.concertId
         )
       }

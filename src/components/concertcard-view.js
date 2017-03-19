@@ -13,7 +13,7 @@ export default connect(
     distanceFromGoal: state.distanceChanger.distanceFromGoal,
     maxValue: state.distanceChanger.maxValue,
     minValue: state.distanceChanger.minValue,
-    attendConcertIds: state.attendConcert.attendConcertIds
+    attendConcertId: state.attendConcert.concerts
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
@@ -23,8 +23,6 @@ export default connect(
 )(
   function ConcertCard(props) {
 
-    // const attendConcertIds = (attendConcert.attendConcertIds) - bez tego wyskakuje blad, ze nie zdefiniowano
-    // zmiennej, a jak to jest to nie wyswietla sie cala gora strony
 
     const concertAttractionsTab = (
       <div>
@@ -63,9 +61,8 @@ export default connect(
                       <div>
                         <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
 
-
                         {
-                          attendConcertIds.includes(concert.id) ?
+                          (concert.id) ?
                             <Button
                               bsStyle="success"
                               bsSize="xsmall"
