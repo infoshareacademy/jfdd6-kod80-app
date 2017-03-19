@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Grid, Table, Button, ProgressBar, Tabs, Tab} from 'react-bootstrap'
+import {Grid, Table, Button, ProgressBar, Tabs, Tab, Image} from 'react-bootstrap'
 
 import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
-import UsersView from './users-view'
+import UsersView from './concertUsers-view'
 
 export default connect(
   state => ({
@@ -37,43 +37,48 @@ export default connect(
       </div>
     )
 
-    const  concertUsersTab = (
+    const concertUsersTab = (
       <UsersView />
     )
 
     return (
       <Grid>
-        <h1>Koncert {props.params.concertId}</h1>
 
-        <Table striped>
-          <thead>
-          <tr>
-            <th>Zespół</th>
-            <th>Typ muzyki</th>
-            <th>Miejsce</th>
-            <th>Data</th>
-          </tr>
-          </thead>
-          <tbody>
-          {
-            props.concerts.data ?
-              props.concerts.data.filter(
-                concert =>
-                concert.id === parseInt(props.params.concertId, 10)
-              ).map(
-                concert => (
-                  <tr key={concert.id}>
-                    <td>{concert.band}</td>
-                    <td>{concert.typeOfMusic}</td>
-                    <td>{concert.place}</td>
-                    <td>{concert.date}</td>
-                  </tr>
-                )
+        {
+          props.concerts.data ?
+            props.concerts.data.filter(
+              concert =>
+              concert.id === parseInt(props.params.concertId, 10)
+            ).map(
+              concert => (
+                <div>
+                  <h1>Koncert {concert.band}</h1>
+                  <Image src={concert.bandImages} rounded />
+                  <Table striped>
+                    <thead>
+                    <tr>
+                      <th>Zespół</th>
+                      <th>Typ muzyki</th>
+                      <th>Miejsce</th>
+                      <th>Data</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr key={concert.id}>
+                      <td>{concert.bandImages}</td>
+                      <td>{concert.band}</td>
+                      <td>{concert.typeOfMusic}</td>
+                      <td>{concert.place}</td>
+                      <td>{concert.date}</td>
+                    </tr>
+                    </tbody>
+                  </Table>
+                </div>
               )
-              : null
-          }
-          </tbody>
-        </Table>
+            )
+            : null
+        }
+
         <hr/>
 
 
