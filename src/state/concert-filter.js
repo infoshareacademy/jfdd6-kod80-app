@@ -1,6 +1,9 @@
 // ACTION TYPES (there may be more than one)
 const SET_TYPE_OF_MUSIC_SEARCH = 'concerts/SET_TYPE_OF_MUSIC_SEARCH'
 const SET_NAME_OF_BAND_SEARCH = 'concerts/SET_NAME_OF_BAND_SEARCH'
+const SET_DATE_SINCE_SEARCH = 'concerts/SET_DATE_SINCE_SEARCH'
+const SET_DATE_TO_SEARCH = 'concerts/SET_DATE_TO_SEARCH'
+
 
 //setTypeOfMusicSearch np.: setTypeOfMusicSearch('Pop')
 //setDateSearch np.: setDateSearch(date)
@@ -16,6 +19,16 @@ export const setTypeOfMusicSearch = (typeOfMusic, valueType) => ({
 export const setBandNameSearch = (band, valueType) => ({
   type: SET_NAME_OF_BAND_SEARCH,
   band
+})
+
+export const setDateSinceSearch = (dateSince, valueType) => ({
+  type: SET_DATE_SINCE_SEARCH,
+  dateSince
+})
+
+export const setDateToSearch = (dateTo, valueType) => ({
+  type: SET_DATE_TO_SEARCH,
+  dateTo
 })
 
 // INITIAL VALUE
@@ -44,6 +57,16 @@ export default (state = initialState, action = {}) => {
   return {
   ...state,
     concertsSearchValues: {...state.concertsSearchValues, band: action.band }
+  }
+  case SET_DATE_SINCE_SEARCH:
+    return {
+  ...state,
+    concertsSearchValues: {...state.concertsSearchValues, dateSince: action.dateSince }
+  }
+  case SET_DATE_TO_SEARCH:
+    return {
+  ...state,
+    concertsSearchValues: {...state.concertsSearchValues, dateTo: action.dateTo }
   }
     default:
       return state

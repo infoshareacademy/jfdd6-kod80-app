@@ -29,7 +29,15 @@ const datePicker = React.createClass({
     });
   },
 
+
+
   render: function() {
+
+    const {
+      setStartDate,
+      } = this.props
+
+
     return (
       <div>
           <DatePicker
