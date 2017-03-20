@@ -11,7 +11,6 @@ import {fetchRestaurants} from '../state/restaurants'
 import {fetchTaxis} from '../state/taxis'
 import {fetchUsers} from '../state/users'
 
-
 class App extends React.Component {
 
   componentWillMount() {

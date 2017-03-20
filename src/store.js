@@ -11,6 +11,8 @@ import usersReducer from './state/users'
 import distanceReducer from './state/distance-changer'
 import concertFilterReducer from './state/concert-filter.js'
 import attendConcertReducer from './state/attend-concert'
+import favoriteConcertsReducer from './state/favorite-concerts'
+
 
 const allReducers = combineReducers({
   concerts: concertsReducer,
@@ -21,7 +23,8 @@ const allReducers = combineReducers({
   users: usersReducer,
   distanceChanger: distanceReducer,
   concert_filter: concertFilterReducer,
-  attendConcert: attendConcertReducer
+  attendConcert: attendConcertReducer,
+  favoriteConcerts: favoriteConcertsReducer
 })
 
 

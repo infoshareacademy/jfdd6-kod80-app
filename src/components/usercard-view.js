@@ -5,7 +5,7 @@ import {ListGroup, ListGroupItem, Media, Tabs, Tab, Grid, Alert, Table} from 're
 
 import filter_concert from '../search/concert-filter'
 import sortConcertByDate from '../date/sort-concert-by-date'
-
+import {fetchFavoriteConcerts} from '../state/favorite-concerts'
 
 const dat1 = new Date('2000', '06', '16');
 const dat2 =  new Date()
@@ -21,12 +21,29 @@ const concertsSearchValues = {
 
 export default connect(
   state => ({
-    concerts: state.concerts
+    concerts: state.concerts,
+    favoriteConcerts: state.favoriteConcerts
+  }),
+  dispatch => ({
+    fetchFavoriteConcerts: () => dispatch(fetchFavoriteConcerts() )
+
   })
 )(
   class UsercardView extends React.Component {
+
+    componentWillMount() {
+      this.props.fetchFavoriteConcerts()
+    }
+
+
     render() {
-      const {concerts} = this.props;
+      const {
+        concerts,
+        favoriteConcerts
+      } = this.props;
+
+      const favoriteConcertsIds =  favoriteConcerts.data ? favoriteConcerts.data.map(item => item.itemId) : []
+
       const myConcertsTab = (
       <Table striped>
         <thead>
@@ -41,6 +58,7 @@ export default connect(
           concerts.data ?
             concerts.data
               .sort( sortConcertByDate )
+              .filter( concert => favoriteConcertsIds.data ? favoriteConcertsIds.data.includes(concert.id) : null )
               .map(
               concert => (
                 <tr key={concert.id}>
