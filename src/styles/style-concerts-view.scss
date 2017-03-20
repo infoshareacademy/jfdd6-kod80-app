@@ -1,0 +1,30 @@
+.concerts-view {
+
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  //background-color: rgba(193, 193, 193, 0.42);
+  background-color: rgba(188, 188, 188, 0.25);
+  padding: 10px;
+  margin: 15px 0;
+  box-shadow:  0 0 6px 1px #777;
+}
+
+.about-concert {
+  text-align: right;
+  h1 {
+    color: #ff6a43;
+  }
+  span {
+    color: #333333;
+    &::before {
+      content: '(rodzaj muzyki) ';
+      font-size: smaller;
+      font-style: italic;
+    }
+  }
+  p {
+    color: #333333;
+  }
+}

@@ -1,11 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, Alert, Table} from 'react-bootstrap'
+import {Grid, Alert, Image} from 'react-bootstrap'
 import SearchInputCreator from './search-input'
 
 import filter_concert from '../search/concert-filter'
 import sortConcertByDate from '../date/sort-concert-by-date'
+
+import '../styles/style-concerts-view.css'
 
 export default connect(
   state => ({
@@ -24,6 +26,8 @@ export default connect(
         <Grid>
           <SearchInputCreator/>
           <h1>Dostępne koncerty</h1>
+
+
           {
             concerts.fetching ?
               <Alert bsStyle="warning">
@@ -37,17 +41,11 @@ export default connect(
               </Alert> : null
           }
 
-          <Table striped>
-            <thead>
-            <tr>
-              <th>Lp.</th>
-              <th>Zespół</th>
-              <th>Typ muzyki</th>
-              <th>Miasto</th>
-              <th>Data</th>
-            </tr>
-            </thead>
-            <tbody>
+
+
+
+          <div>
+
             {
               concerts.data ?
                 concerts.data
@@ -55,22 +53,94 @@ export default connect(
                   .sort( sortConcertByDate )
                   .map(
                     (concert, index) => (
-                    <tr key={concert.id}>
-                      <td>{index+1}</td>
-                      <td>
-                        <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
-                      </td>
-                      <td>{concert.typeOfMusic}</td>
-                      <td>{concert.city}</td>
-                      <td>{concert.date}</td>
-                    </tr>
+
+                  <div className="concerts-view"
+                       key={concert.id}>
+
+                      <div>
+                          <Image src={"data/images/" + concert.bandImages}
+                                 alt="zdjęcie zespołu"
+                          />
+
+                      </div>
+
+                      <div className="about-concert">
+                          <h1> {concert.band} </h1>
+                          <span>{concert.typeOfMusic}</span>
+                          <p>{concert.date} </p>
+                          <p>{concert.place}{'/'}{concert.city}</p>
+
+
+
+                      </div>
+
+
+
+
+                   </div>
                   )
                 ) : null
             }
-            </tbody>
-          </Table>
+
+          </div>
+
+
+
         </Grid>
       )
     }
   }
 )
+
+
+
+// <ul key={concert.id}>
+//
+//
+// <li>{index+1} aaa</li>
+// <li>
+// <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
+// </li>
+// <li>{concert.typeOfMusic}</li>
+// <li>{concert.city}</li>
+// <li>{concert.date} </li>
+//
+//
+// </ul>
+
+
+
+
+
+// <Table striped>
+// <thead>
+// <tr>
+// <th>Lp.</th>
+// <th>Zespół</th>
+// <th>Typ muzyki</th>
+// <th>Miasto</th>
+// <th>Data</th>
+// </tr>
+// </thead>
+// <tbody>
+// {
+//     concerts.data ?
+//     concerts.data
+//         .filter( filter_concert(concertsSearchValues) )
+//         .sort( sortConcertByDate )
+//         .map(
+//             (concert, index) => (
+//                 <tr key={concert.id}>
+//                     <td>{index+1}</td>
+//                     <td>
+//                         <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
+//                     </td>
+//                     <td>{concert.typeOfMusic}</td>
+//                     <td>{concert.city}</td>
+//                     <td>{concert.date} </td>
+//                 </tr>
+//             )
+//         ) : null
+// }
+// </tbody>
+// </Table>
