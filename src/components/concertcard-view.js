@@ -23,6 +23,7 @@ export default connect(
 )(
   function ConcertCard(props) {
 
+    const {attendConcert, leaveConcert} = props
 
     const concertAttractionsTab = (
       <div>
