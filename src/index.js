@@ -11,7 +11,7 @@ import App from './components/app';
 import Home from './components/home-view'
 import Concerts from './components/concerts-view'
 import ConcertCard from './components/concertcard-view'
-import Attractions from './components/attractions-view'
+import UsercardView from './components/usercard-view'
 
 
 ReactDOM.render(
@@ -20,8 +20,8 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="koncerty" component={Concerts}/>
-        <Route path="koncerty/:koncertId" component={ConcertCard}/>
-        <Route path="atrakcje" component={Attractions}/>
+        <Route path="moje-konto" component={UsercardView}/>
+        <Route path="koncerty/:concertId" component={ConcertCard}/>
       </Route>
     </Router>
   </Provider>

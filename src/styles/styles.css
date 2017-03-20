@@ -18,16 +18,16 @@
 .serch-view-result {
   border: 1px solid gray;
   padding: 2% 5%; }
-  .serch-view-result Image {
-    display: inline-block; }
-  .serch-view-result ul {
-    display: inline-block;
-    list-style: none; }
-    .serch-view-result ul li {
-      color: #333333;
-      text-transform: uppercase; }
-  .serch-view-result:hover {
-    background-color: #f8f8f8; }
+.serch-view-result Image {
+  display: inline-block; }
+.serch-view-result ul {
+  display: inline-block;
+  list-style: none; }
+.serch-view-result ul li {
+  color: #333333;
+  text-transform: uppercase; }
+.serch-view-result:hover {
+  background-color: #f8f8f8; }
 
 .search-result > h2 {
   color: #333333;

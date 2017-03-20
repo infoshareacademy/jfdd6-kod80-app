@@ -1,44 +1,44 @@
 [
-{
-  "id": 1,
-  "name": "Arkadiusz",
-  "login": "Arek",
-  "email": "arek@wp.pl",
-  "password": "tralala"
-},
-{
-"id": 2,
-"name": "Barbara",
-"login": "Basia",
-"email": "basia@wp.pl",
-"password": "sialala"
-},
-{
-"id": 3,
-"name": "Cezary",
-"login": "Czarek",
-"email": "czarek@wp.pl",
-"password": "srututu"
-},
-{
-"id": 4,
-"name": "Dariusz",
-"login": "Darek",
-"email": "daga@wp.pl",
-"password": "tajne"
-},
-{
-"id": 5,
-"name": "Edward",
-"login": "Edek",
-"email": "edek@wp.pl",
-"password": "haslo"
-},
-{
-"id": 6,
-"name": "Felicja",
-"login": "Felcia",
-"email": "felcia@wp.pl",
-"password": "okno"
-}
+  {
+    "id": 1,
+    "name": "Arkadiusz",
+    "login": "Arek",
+    "email": "arek@wp.pl",
+    "avatar":"https://robohash.org/recusandaevoluptatemlabore.jpg?size=50x50&set=set1"
+  },
+  {
+    "id": 2,
+    "name": "Barbara",
+    "login": "Basia",
+    "email": "basia@wp.pl",
+    "avatar":"https://robohash.org/idautaperiam.jpg?size=50x50&set=set1"
+  },
+  {
+    "id": 3,
+    "name": "Cezary",
+    "login": "Czarek",
+    "email": "czarek@wp.pl",
+    "avatar":"https://robohash.org/absequivelit.jpg?size=50x50&set=set1"
+  },
+  {
+    "id": 4,
+    "name": "Dariusz",
+    "login": "Darek",
+    "email": "daga@wp.pl",
+    "avatar":"https://robohash.org/etquisest.jpg?size=50x50&set=set1"
+  },
+  {
+    "id": 5,
+    "name": "Edward",
+    "login": "Edek",
+    "email": "edek@wp.pl",
+    "avatar":"https://robohash.org/veniamrecusandaevelit.jpg?size=50x50&set=set1"
+  },
+  {
+    "id": 6,
+    "name": "Felicja",
+    "login": "Felcia",
+    "email": "felcia@wp.pl",
+    "avatar":"https://robohash.org/quoeumet.jpg?size=50x50&set=set1"
+  }
 ]

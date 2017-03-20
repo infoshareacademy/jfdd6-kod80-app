@@ -1,19 +1,20 @@
-//lookFor to nazwa dispatcha, ktory ma sprawdzać czy wpisana w inpucie fraza znajduje sie w bazie
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {setTypeOfMusicSearch, setBandNameSearch} from '../state/concert-filter.js'
+import {FormGroup, FormControl, ControlLabel, Grid} from 'react-bootstrap'
+import styles from '../styles/search-input.css'
+import DatePicker from './datepicker'
 
-const refreshTable = () => {
-}
+import {setTypeOfMusicSearch, setBandNameSearch, setDateSinceSearch, setDateToSearch} from '../state/concert-filter.js'
 
 export default connect (
     state => ({
     }),
     dispatch => ( {
-       //lookFor:(typeOfMusic, band) => dispatch({type: 'LOOK_FOR', typeOfMusic, band})
         filterTypeOfMusic: (typeOfMusic) => dispatch( setTypeOfMusicSearch(typeOfMusic) ),
-        setBandNameSearch: (band) => dispatch( setBandNameSearch(band) )
+        setBandNameSearch: (band) => dispatch( setBandNameSearch(band) ),
+        setDateSinceSearch : (dateSince) => dispatch( setDateSinceSearch(dateSince) ),
+        setDateToSearch: (dateTo) => dispatch( setDateToSearch(dateTo) )
     })
 )(
     class SearchInputCreator extends React.Component {
@@ -21,13 +22,17 @@ export default connect (
             super(props)
             this.state = {
                 typeOfMusic: "",
-                band: ""
+                band: "",
+                dateSince: new Date('2000'),
+                dateTo: ""
             }
         }
         render() {
             const {
               filterTypeOfMusic,
-              setBandNameSearch
+              setBandNameSearch,
+              setDateSinceSearch,
+              setDateToSearch
               } = this.props
 
             return(
@@ -35,22 +40,40 @@ export default connect (
                     event.preventDefault()
                     filterTypeOfMusic(this.state.typeOfMusic)
                     setBandNameSearch(this.state.band)
+                    setDateSinceSearch(this.state.dateSince)
+                    setDateToSearch(this.state.dateTo)
                 }
 
-                }>
-                    <input placeholder='Rodzaj muzyki np.: Rock' value={this.state.typeOfMusic}
-                           onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
-                    <input placeholder='Nazwa koncertu/zespołu' value={this.state.band}
-                           onChange={(event) => this.setState({band: event.target.value})}/>
-
-                    <button onClick={() => refreshTable()}>Szukaj</button>
-                </form> )
-
-
+            }>
+                <Grid>
+                  <FormGroup className="col-md-5 col-lg-3">
+                    <ControlLabel>Rodzaj muzyki</ControlLabel>
+                      <FormControl
+                        placeholder='Rodzaj muzyki np.: Rock'
+                        value={this.state.typeOfMusic}
+                        onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
+                    </FormGroup>
+                  <FormGroup className="col-md-5 col-lg-3">
+                    <ControlLabel>nazwa zespołu/koncertu</ControlLabel>
+                      <FormControl placeholder='Nazwa koncertu/zespołu'
+                                   value={this.state.band}
+                                   onChange={(event) => this.setState({band: event.target.value})}/>
+                    </FormGroup>
+                  <FormGroup className="col-md-2 col-lg-3">
+                    <ControlLabel>Data Koncertu</ControlLabel>
+                    <DatePicker
+                        setDateSinceSearch={(date) => this.setState({dateSince: date})}
+                        setDateToSearch={(date) => this.setState({dateTo: date})}
+                        />
+                  </FormGroup>
+                  <FormGroup className="col-md-2 col-lg-3">
+                    <button className="szukaj-button">Szukaj</button>
+                </FormGroup>
+                </Grid>
+              </form>
+              )
         }
     }
-
-
 )
 
 
