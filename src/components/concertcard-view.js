@@ -63,14 +63,14 @@ export default connect(
                         {
                           (props.attendConcertId.includes(concert.id)) ?
                           <Button
-                            bsStyle="default"
-                            bsSize="xsmall"
+                            bsStyle="primary"
+                            bsSize="medium"
                             onClick={() => props.leaveConcert(concert.id)}>
                             Nie idę na koncert
                           </Button> :
                           <Button
                             bsStyle="success"
-                            bsSize="xsmall"
+                            bsSize="medium"
                             onClick={() => props.attendConcert(concert.id)}>
                             Idę na koncert
                           </Button>
