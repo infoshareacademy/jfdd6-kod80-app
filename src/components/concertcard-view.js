@@ -5,21 +5,26 @@ import {Grid, Table, Button, ProgressBar, Tabs, Tab, Image} from 'react-bootstra
 import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
 import ConcertUsersView from './concertUsers-view'
+import {attendConcert, leaveConcert} from '../state/attend-concert'
 
 export default connect(
   state => ({
     concerts: state.concerts,
     distanceFromGoal: state.distanceChanger.distanceFromGoal,
     maxValue: state.distanceChanger.maxValue,
-    minValue: state.distanceChanger.minValue
+    minValue: state.distanceChanger.minValue,
+    attendConcertId: state.attendConcert.concerts
   }),
   dispatch => ({
-    changeDistance: (value) => dispatch(changeDistance(value))
+    changeDistance: (value) => dispatch(changeDistance(value)),
+    attendConcert: (concertId) => dispatch(attendConcert(concertId)),
+    leaveConcert: (concertId) => dispatch(leaveConcert(concertId))
   })
 )(
   function ConcertCard(props) {
 
-    // const { distanceFromGoal } = props
+    const {attendConcert, leaveConcert} = props
+
     const concertAttractionsTab = (
       <div>
         <h2>W promieniu {props.distanceFromGoal} km możesz znaleźć...</h2>
@@ -36,7 +41,6 @@ export default connect(
         <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
       </div>
     )
-
     const concertUsersTab = (
       <ConcertUsersView />
     )
@@ -57,7 +61,23 @@ export default connect(
                       <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
                       <div>
                         <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
-                        <Button className="btn-success" style={{margin: '3px'}}>Idę na koncert</Button>
+
+                        {
+                          (concert.id) ?
+                            <Button
+                              bsStyle="success"
+                              bsSize="xsmall"
+                              onClick={() => attendConcert(concert.id)}>
+                              Idę na koncert
+                            </Button> :
+                            <Button
+                              bsStyle="default"
+                              bsSize="xsmall"
+                              onClick={() => leaveConcert(concert.id)}>
+                              Idę na koncert
+                            </Button>
+                        }
+
                       </div>
                     </div>
                     <div className="col-xs-12 col-md-8">
