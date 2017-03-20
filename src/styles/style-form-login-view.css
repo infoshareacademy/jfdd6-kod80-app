@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  font-family: 'Lato', sans-serif; }
+
+.page-with-form-login {
+  padding-top: 10%;
+  text-align: center; }
+
+.form-login {
+  margin-top: 20%; }
+  .form-login input {
+    height: 40px; }
+  .form-login button {
+    height: 40px;
+    background-color: white; }
+
+/*# sourceMappingURL=style-form-login-view.css.map */
