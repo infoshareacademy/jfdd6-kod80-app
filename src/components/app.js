@@ -30,7 +30,7 @@ class App extends React.Component {
     this.props.fetchHotels()
     this.props.fetchRestaurants()
     this.props.fetchTaxis()
-    this.props.fetchUsers()
+    // this.props.fetchUsers()
   }
 
   render() {
