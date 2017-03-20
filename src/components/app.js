@@ -46,17 +46,20 @@ class App extends React.Component {
               <div className="form-login">
                 <form onSubmit={(event) => {
                   event.preventDefault();
-                  this.props.fetchSessionLogin(this.refs.username.value, this.refs.password.value);
+                  this.props.fetchSessionLogin(this.state.username, this.state.password);
+                  this.setState({ username: '', password: ''})
                   }}>
 
                     <input type="text"
                            placeholder="nazwa użytkownika"
-                           ref="username"
+                           value={this.state.username}
+                           onChange={(event) => this.setState({ username: event.target.value })}
                     />
 
                     <input type="password"
                            placeholder="hasło"
-                           ref="password"
+                           value={this.state.password}
+                           onChange={(event) => this.setState({ password: event.target.value })}
                     />
 
                     <input type="submit"
