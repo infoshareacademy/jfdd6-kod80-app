@@ -30,7 +30,7 @@ class App extends React.Component {
     this.props.fetchHotels()
     this.props.fetchRestaurants()
     this.props.fetchTaxis()
-    // this.props.fetchUsers()
+    this.props.fetchUsers()
   }
 
   render() {
@@ -96,31 +96,6 @@ class App extends React.Component {
               </Navbar>
               {children}
             </div>
-      )
-    return (
-      <div>
-        <Navbar inverse collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to="/">
-                SOUNDTRIP
-              </Link>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav pullRight>
-              <LinkContainer to="/koncerty">
-                <NavItem href="#">Koncerty</NavItem>
-              </LinkContainer>
-              <LinkContainer to="/moje-konto">
-                <NavItem href="#">Moje konto</NavItem>
-              </LinkContainer>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-        { children }
-      </div>
     );
   }
 }
@@ -137,5 +112,6 @@ export default connect(
       fetchRestaurants: () => dispatch(fetchRestaurants()),
       fetchTaxis: () => dispatch(fetchTaxis()),
       fetchSessionLogin: (username, password) => dispatch(fetchSession(username, password)),
+      fetchUsers: () => dispatch(fetchUsers()),
   })
 )(App)
