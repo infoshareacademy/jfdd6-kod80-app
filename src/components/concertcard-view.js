@@ -13,7 +13,7 @@ export default connect(
     distanceFromGoal: state.distanceChanger.distanceFromGoal,
     maxValue: state.distanceChanger.maxValue,
     minValue: state.distanceChanger.minValue,
-    attendConcertId: state.attendConcert.concerts
+    attendConcertId: state.attendConcert.attendConcertId
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
@@ -22,8 +22,6 @@ export default connect(
   })
 )(
   function ConcertCard(props) {
-
-    const {attendConcert, leaveConcert} = props
 
     const concertAttractionsTab = (
       <div>
@@ -63,19 +61,19 @@ export default connect(
                         <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
 
                         {
-                          (concert.id) ?
-                            <Button
-                              bsStyle="success"
-                              bsSize="xsmall"
-                              onClick={() => attendConcert(concert.id)}>
-                              Idę na koncert
-                            </Button> :
-                            <Button
-                              bsStyle="default"
-                              bsSize="xsmall"
-                              onClick={() => leaveConcert(concert.id)}>
-                              Idę na koncert
-                            </Button>
+                          (props.attendConcertId.includes(concert.id)) ?
+                          <Button
+                            bsStyle="default"
+                            bsSize="xsmall"
+                            onClick={() => props.leaveConcert(concert.id)}>
+                            Nie idę na koncert
+                          </Button> :
+                          <Button
+                            bsStyle="success"
+                            bsSize="xsmall"
+                            onClick={() => props.attendConcert(concert.id)}>
+                            Idę na koncert
+                          </Button>
                         }
 
                       </div>
