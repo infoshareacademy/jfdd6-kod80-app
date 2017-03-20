@@ -25,7 +25,9 @@ export default connect(
       return (
         <Grid>
           <SearchInputCreator/>
-          <h1>Dostępne koncerty</h1>
+            <div className="concerts-result-view">
+
+            <h1>Dostępne koncerty</h1>
 
 
           {
@@ -44,7 +46,7 @@ export default connect(
 
 
 
-          <div>
+
 
             {
               concerts.data ?
@@ -54,14 +56,13 @@ export default connect(
                   .map(
                     (concert, index) => (
 
-                  <div className="concerts-view"
+                <Link to={'/koncerty/' + concert.id} className="link-concerts-view" key={concert.id}>
+                  <div className="concerts-view" data-title="zobacz szczegóły"
                        key={concert.id}>
 
-                      <div>
+                      <div className="band-images">
                           <Image src={"data/images/" + concert.bandImages}
-                                 alt="zdjęcie zespołu"
-                          />
-
+                                 alt="zdjęcie zespołu"/>
                       </div>
 
                       <div className="about-concert">
@@ -69,15 +70,9 @@ export default connect(
                           <span>{concert.typeOfMusic}</span>
                           <p>{concert.date} </p>
                           <p>{concert.place}{'/'}{concert.city}</p>
-
-
-
                       </div>
-
-
-
-
                    </div>
+                </Link>
                   )
                 ) : null
             }

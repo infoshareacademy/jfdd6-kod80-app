@@ -1,30 +1,119 @@
-.concerts-view {
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  font-family: 'Lato', sans-serif; }
 
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  //background-color: rgba(193, 193, 193, 0.42);
-  background-color: rgba(188, 188, 188, 0.25);
-  padding: 10px;
-  margin: 15px 0;
-  box-shadow:  0 0 6px 1px #777;
-}
-
-.about-concert {
-  text-align: right;
-  h1 {
-    color: #ff6a43;
+.concerts-result-view {
+  width: 80%;
+  margin: 0 auto;
+  >h1 {
+    margin: 0;
+    padding: 20px 0;
+    text-transform: uppercase;
+    font-size: 26px;
   }
-  span {
-    color: #333333;
-    &::before {
-      content: '(rodzaj muzyki) ';
-      font-size: smaller;
-      font-style: italic;
+
+  .link-concerts-view {
+    &:hover {
+      text-decoration: none;
     }
-  }
-  p {
-    color: #333333;
+    .concerts-view {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 900px;
+      max-height: 220px;
+      background-color: #fdfdfd;
+      padding: 10px;
+      margin: 15px 0;
+      box-shadow: 0 0 15px 1px #e9e9e9;
+      position: relative;
+      border: 1px solid #d8d8d8;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 100%;
+        bottom: 15px;
+        background-color: rgba(222, 56, 24, 0.96);
+        width: 0;
+        height: 3.5em;
+        transform: skewY(-45deg);
+        transition: all 0.3s linear 0.5s;
+      }
+
+      &::after {
+        content: '';
+        background-color: rgba(243, 91, 25, 0.91);
+        position: absolute;
+        right: -15px;
+        bottom: 22px;
+        height: 3.5em;
+        width: 0;
+        transition: all 0.5s linear;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+
+      img {
+        filter: grayscale(100%);
+        transition: all 0.5s linear;
+      }
+
+      &:hover {
+        &::before {
+
+          width: 1.1em;
+          height: 3.5em;
+          z-index: 1;
+          transition: all 0.3s linear 0s;
+        }
+
+        &::after {
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          width: 250px;
+          text-align: center;
+          line-height: 3.5;
+          text-transform: uppercase;
+          content: attr(data-title);
+          z-index: 2;
+          transition: all 0.5s linear 0.2s;
+        }
+
+        img {
+          filter: none;
+          transition: all 1s linear;
+        }
+      }
+
+      .band-images {
+        box-shadow: inset 0 0 8px rgba(0, 0, 0, .6);
+      }
+
+      .about-concert {
+        text-align: right;
+        padding-right: 30px;
+        h1 {
+          margin: 0;
+          padding-top: 10px;
+          color: #fa3729;
+        }
+        span {
+          display: inline-block;
+          padding: 2px 0;
+          color: #333333;
+          &::before {
+            content: '(rodzaj muzyki) ';
+            font-size: smaller;
+            font-style: italic;
+          }
+        }
+        p {
+          margin: 0;
+          padding: 2px 0;
+          color: #333333;
+        }
+      }
+    }
   }
 }
