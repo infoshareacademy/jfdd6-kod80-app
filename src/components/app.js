@@ -81,18 +81,15 @@ class App extends React.Component {
                       SOUNDTRIP
                     </Link>
                   </Navbar.Brand>
-
                   <Navbar.Toggle />
                 </Navbar.Header>
-
                 <Navbar.Collapse>
-                  <Nav>
+                  <Nav pullRight>
                     <LinkContainer to="/koncerty">
                       <NavItem href="#">Koncerty</NavItem>
                     </LinkContainer>
-
-                    <LinkContainer to="/atrakcje">
-                      <NavItem href="#">Atrakcje</NavItem>
+                    <LinkContainer to="/moje-konto">
+                      <NavItem href="#">Moje konto</NavItem>
                     </LinkContainer>
                   </Nav>
                 </Navbar.Collapse>
