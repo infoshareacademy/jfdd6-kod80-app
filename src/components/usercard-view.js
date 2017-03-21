@@ -22,23 +22,42 @@ const concertsSearchValues = {
 export default connect(
   state => ({
     concerts: state.concerts,
-    favoriteConcerts: state.favoriteConcerts
+    favoriteConcerts: state.favoriteConcerts,
+    user: state.user,
+    session: state.session
   }),
   dispatch => ({
-    fetchFavoriteConcerts: () => dispatch(fetchFavoriteConcerts() )
+    fetchFavoriteConcerts: (session_tokken, userId) => dispatch(fetchFavoriteConcerts(session_tokken, userId) )
 
   })
 )(
   class UsercardView extends React.Component {
 
     componentWillMount() {
-      this.props.fetchFavoriteConcerts()
+      const {
+        user,
+        session,
+        fetchFavoriteConcerts
+      } = this.props
+
+      const session_tokken = session.data ? session.data.id : null
+      const userId = user.data ? user.data.id : null
+
+      console.log('TOKKKKKKKKKKKKKKKKKKKKKKKKEEEEEEEEEEEEEEEEN', session_tokken)
+      console.log('userIIIIIIIIIIIIIIIIIIIIIIID', userId)
+
+      if( session_tokken !== null  && userId !== null) {
+        fetchFavoriteConcerts( session_tokken, userId )
+      }
+
     }
 
     render() {
       const {
         concerts,
-        favoriteConcerts
+        favoriteConcerts,
+        user,
+        session
       } = this.props;
 
       const favoriteConcertsIds =  favoriteConcerts.data ? favoriteConcerts.data.map(item => item.itemId) : []
