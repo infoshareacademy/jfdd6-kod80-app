@@ -1,5 +1,5 @@
-const ATTEND_CONCERT = 'join-concert/ATTEND_CONCERT'
-const LEAVE_CONCERT = 'join-concert/LEAVE_CONCERT'
+const ATTEND_CONCERT = 'attend-concert/ATTEND_CONCERT'
+const LEAVE_CONCERT = 'leave-concert/LEAVE_CONCERT'
 
 export const attendConcert = concertId => ({
   type: ATTEND_CONCERT,
