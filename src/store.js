@@ -14,6 +14,8 @@ import sessionReducer from './state/session'
 import userReducer from './state/user'
 
 import attendConcertReducer from './state/attend-concert'
+import favoriteConcertsReducer from './state/favorite-concerts'
+
 
 const allReducers = combineReducers({
   concerts: concertsReducer,
@@ -25,6 +27,7 @@ const allReducers = combineReducers({
   distanceChanger: distanceReducer,
   concert_filter: concertFilterReducer,
   attendConcert: attendConcertReducer,
+  favoriteConcerts: favoriteConcertsReducer,
   session: sessionReducer,
   user: userReducer
 });
