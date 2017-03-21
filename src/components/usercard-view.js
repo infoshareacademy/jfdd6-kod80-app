@@ -88,6 +88,7 @@ export default connect(
 
             concerts.data ?
               concerts.data
+                .filter( concert => favoriteConcertsIds ? favoriteConcertsIds.includes(concert.id) : null)
                 .filter( filter_concert(concertsSearchValues) )
                 .sort( sortConcertByDate )
                 .map(
