@@ -1,12 +1,12 @@
-const FETCH__BEGIN = 'user/FETCH__BEGIN'
-const FETCH__SUCCESS = 'user/FETCH__SUCCESS'
-const FETCH__FAIL = 'user/FETCH__FAILED'
+const FETCH__BEGIN = 'favorite_concert/FETCH__BEGIN'
+const FETCH__SUCCESS = 'favorite_concert/FETCH__SUCCESS'
+const FETCH__FAIL = 'favorite_concert/FETCH__FAILED'
 
-export const fetchFavoriteConcerts = (accessToken=0, userId = '1') => dispatch => {
+export const fetchFavoriteConcerts = (accessToken = 'ABC1', userId = '1') => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   console.log('FETCH***************************************')
   return fetch(
-    'https://radiant-mountain-66074.herokuapp.com/api/users/1/favoriteItems?access_token=ABC1'
+    'https://radiant-mountain-66074.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
     //'https://radiant-mountain-66074.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + 'ABC1'// accessToken
   ).then(
     response => {
