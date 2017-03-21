@@ -1,10 +1,30 @@
-const ATTEND_CONCERT = 'join-concert/ATTEND_CONCERT'
-const LEAVE_CONCERT = 'join-concert/LEAVE_CONCERT'
+import Api from '../api'
 
-export const attendConcert = concertId => ({
-  type: ATTEND_CONCERT,
-  concertId
-})
+const ATTEND_CONCERT = 'attend-concert/ATTEND_CONCERT'
+const LEAVE_CONCERT = 'leave-concert/LEAVE_CONCERT'
+
+
+
+export const attendConcert = (concertId, userId, accessToken) => dispatch => fetch(
+  Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      itemId: concertId,
+      itemType: 'concert',
+    })
+  }
+).then(
+  response => response.json()
+).then(
+  data => dispatch({
+    type: ATTEND_CONCERT,
+    concertId,
+    favId: data.id
+  })
+)
 
 export const leaveConcert = concertId => ({
   type: LEAVE_CONCERT,

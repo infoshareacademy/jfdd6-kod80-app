@@ -13,15 +13,18 @@ export default connect(
     distanceFromGoal: state.distanceChanger.distanceFromGoal,
     maxValue: state.distanceChanger.maxValue,
     minValue: state.distanceChanger.minValue,
-    attendConcertId: state.attendConcert.attendConcertId
+    attendConcertId: state.attendConcert.attendConcertId,
+    session: state.session,
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
-    attendConcert: (concertId) => dispatch(attendConcert(concertId)),
+    attendConcert: (concertId, userId, accessToken) => dispatch(attendConcert(concertId, userId, accessToken)),
     leaveConcert: (concertId) => dispatch(leaveConcert(concertId))
   })
 )(
   function ConcertCard(props) {
+
+
 
     const concertAttractionsTab = (
       <div>
@@ -42,6 +45,8 @@ export default connect(
     const concertUsersTab = (
       <ConcertUsersView />
     )
+
+    const { session } = props
 
     return (
       <Grid>
@@ -71,7 +76,7 @@ export default connect(
                           <Button
                             bsStyle="success"
                             bsSize="medium"
-                            onClick={() => props.attendConcert(concert.id)}>
+                            onClick={() => props.attendConcert(concert.id, session.data.userId, session.data.id)}>
                             Idę na koncert
                           </Button>
                         }
