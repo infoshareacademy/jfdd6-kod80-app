@@ -41,15 +41,11 @@ export default connect(
       } = this.props
 
       const session_tokken = session.data ? session.data.id : null
-      const userId = user.data ? user.data.id : null
-
-      console.log('TOKKKKKKKKKKKKKKKKKKKKKKKKEEEEEEEEEEEEEEEEN', session_tokken)
-      console.log('userIIIIIIIIIIIIIIIIIIIIIIID', userId)
+      const userId = session.data ? session.data.userId : null
 
       if( session_tokken !== null  && userId !== null) {
         fetchFavoriteConcerts( session_tokken, userId )
       }
-
     }
 
     render() {
