@@ -54,7 +54,7 @@ const datePicker = React.createClass({
             selected={this.state.startDate}
             selectsStart  startDate={this.state.startDate}
             endDate={this.state.endDate}
-            onChange= {onChangeStart} />
+            onChange={onChangeStart} />
           <DatePicker
             selected={this.state.endDate}
             selectsEnd  startDate={this.state.startDate}
