@@ -4,8 +4,9 @@ const ATTEND_CONCERT = 'attend-concert/ATTEND_CONCERT'
 const LEAVE_CONCERT = 'leave-concert/LEAVE_CONCERT'
 
 
+
 export const attendConcert = (concertId, userId, accessToken) => dispatch => fetch(
-  Api.url + userId + '/favoriteItems?access_token=' + accessToken, {
+  Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

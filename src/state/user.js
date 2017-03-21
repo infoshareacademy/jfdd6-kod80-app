@@ -2,10 +2,13 @@ const FETCH__BEGIN = 'user/FETCH__BEGIN';
 const FETCH__SUCCESS = 'user/FETCH__SUCCESS';
 const FETCH__FAIL = 'user/FETCH__FAILED';
 
+import Api from '../api'
+
+
 export const fetchUser = (accessToken, userId) => dispatch => {
   dispatch({type: FETCH__BEGIN});
   return fetch(
-      'https://radiant-mountain-66074.herokuapp.com/api/users/' + userId + '?access_token=' + accessToken
+      Api.url + '/users/' + userId + '?access_token=' + accessToken
   ).then(
       response => {
           if (response.ok) {

@@ -2,20 +2,22 @@ const FETCH__BEGIN = 'session/FETCH__BEGIN';
 const FETCH__SUCCESS = 'session/FETCH__SUCCESS';
 const FETCH__FAIL = 'session/FETCH__FAILED';
 
-import { fetchUser } from './user'
+import Api from '../api'
+import {fetchUser} from './user'
+import {fetchConcert} from './attend-concert'
 
 export const fetchSession = (username, password) => dispatch => {
   dispatch({type: FETCH__BEGIN});
   return fetch(
-      'https://radiant-mountain-66074.herokuapp.com/api/users/login', {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-    username: username,
-    password: password,
-    })
+    Api.url + '/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      })
     }
   ).then(
     response => {
@@ -24,14 +26,14 @@ export const fetchSession = (username, password) => dispatch => {
         return response.json().then(
           data => {
 
-          dispatch({
-            type: FETCH__SUCCESS,
-            data
-          });
+            dispatch({
+              type: FETCH__SUCCESS,
+              data
+            });
 
-          dispatch(fetchUser(data.id, data.userId))
-        }
-
+            dispatch(fetchUser(data.id, data.userId))
+            dispatch(fetchConcert(data.id, data.userId))
+          }
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
@@ -51,12 +53,11 @@ export const fetchSession = (username, password) => dispatch => {
 
             dispatch(fetchUser(data.id, data.userId))
           }
-
         ).catch(
-            error => dispatch({
-                type: FETCH__FAIL,
-                error: 'Malformed JSON response'
-            })
+          error => dispatch({
+            type: FETCH__FAIL,
+            error: 'Malformed JSON response'
+          })
         )
       }
 
