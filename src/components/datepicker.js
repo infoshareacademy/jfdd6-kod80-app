@@ -2,7 +2,7 @@ var React = require('react');
 var DatePicker = require('react-datepicker');
 var moment = require('moment');
 
-import {ControlLabel, FormGroup} from 'react-bootstrap'
+// import {ControlLabel, FormGroup} from 'react-bootstrap'
 
 require('react-datepicker/dist/react-datepicker.css');
 
@@ -57,7 +57,7 @@ const datePicker = React.createClass({
             selected={this.state.startDate}
             selectsStart  startDate={this.state.startDate}
             endDate={this.state.endDate}
-            onChange= {onChangeStart} />
+            onChange={onChangeStart} />
         <div></div>
         <span><strong>do: </strong></span>
           <DatePicker

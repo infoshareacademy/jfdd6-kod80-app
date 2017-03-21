@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+.section-with-form-login {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  min-height: 100vh;
+  background-image: url('../images/concert-crowd.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  >h1 {
+    margin: 0;
+    padding: 5% 0;
+    color: #ff6a43;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #e3e3e3;
+  }
+  >p {
+    padding: 0 2%;
+    font-size: 22px;
+  }
+  .form-login {
+    margin-top: 40px;
+    display: inline-block;
+    padding: 40px 100px;
+    border-radius: 3px;
+    background-color: rgba(193, 193, 193, 0.42);
+    box-shadow: 0 0 6px #a7a7a7;
+    form {
+      padding-bottom: 10px;
+      input {
+        width: 150px;
+        box-sizing: border-box;
+        box-shadow: 0 0 6px #c0c0c0;
+        height: 50px;
+        margin: 2px;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        text-align: center;
+        transition: all 1s;
+        border-bottom: 3px solid transparent;
+        &:focus {
+          border-bottom: 3px solid black;
+          padding: 0;
+          text-align: center;
+        }
+        &:hover {
+          padding: 0;
+          border-bottom: 2px solid black;
+        }
+      }
+      .button {
+        color: #696969;
+        background-color: #f6f6f6;
+        margin: 2px;
+        height: 50px;
+        transition: all 0.5s linear;
+        border: 1px solid transparent;
+        outline: 0;
+        box-sizing: border-box;
+        box-shadow: 0 0 6px #c0c0c0;
+        &:hover {
+          background-color: black;
+          color: #fafafa;
+          border: 1px solid #cdcdcd;
+        }
+        &:focus {
+          border: 1px solid #cdcdcd;
+        }
+      }
+    }
+    span {
+      color: rgb(196, 32, 27);
+      text-transform: uppercase;
+      border-radius: 5px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      background-color: rgba(234, 234, 234, 0.59);
+    }
+  }
+}
+
+@media screen and (max-width: 620px){
+  .section-with-form-login{
+    .form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      span {
+        text-transform: lowercase;
+        font-size: 14px;
+        display: inline-block;
+        width: 150px;
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 590px){
+  .section-with-form-login {
+  h1 {
+    font-size: 28px;
+  }
+  p {
+    color: #fafafa;
+    background-color: rgba(137, 137, 137, 0.42);
+    font-size: 20px;
+  }
+  }
+}
