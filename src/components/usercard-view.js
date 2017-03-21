@@ -35,7 +35,6 @@ export default connect(
       this.props.fetchFavoriteConcerts()
     }
 
-
     render() {
       const {
         concerts,
@@ -58,7 +57,7 @@ export default connect(
           concerts.data ?
             concerts.data
               .sort( sortConcertByDate )
-              .filter( concert => favoriteConcertsIds.data ? favoriteConcertsIds.data.includes(concert.id) : null )
+              .filter( concert => favoriteConcertsIds ? favoriteConcertsIds.includes(concert.id) : null)
               .map(
               concert => (
                 <tr key={concert.id}>
