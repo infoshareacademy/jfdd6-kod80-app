@@ -27,9 +27,7 @@ const allReducers = combineReducers({
   distanceChanger: distanceReducer,
   concert_filter: concertFilterReducer,
   attendConcert: attendConcertReducer,
-  favoriteConcerts: favoriteConcertsReducer
-})
-  attendConcert: attendConcertReducer,
+  favoriteConcerts: favoriteConcertsReducer,
   session: sessionReducer,
   user: userReducer
 });
