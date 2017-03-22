@@ -5,7 +5,7 @@ import {ListGroup, ListGroupItem, Media, Tabs, Tab, Grid, Alert, Table} from 're
 
 import filter_concert from '../search/concert-filter'
 import sortConcertByDate from '../date/sort-concert-by-date'
-
+import {fetchFavoriteConcerts} from '../state/favorite-concerts'
 
 const dat1 = new Date('2000', '06', '16');
 const dat2 =  new Date()
@@ -21,12 +21,43 @@ const concertsSearchValues = {
 
 export default connect(
   state => ({
-    concerts: state.concerts
+    concerts: state.concerts,
+    favoriteConcerts: state.favoriteConcerts,
+    user: state.user,
+    session: state.session
+  }),
+  dispatch => ({
+    fetchFavoriteConcerts: (session_tokken, userId) => dispatch(fetchFavoriteConcerts(session_tokken, userId) )
+
   })
 )(
   class UsercardView extends React.Component {
+
+    componentWillMount() {
+      const {
+        user,
+        session,
+        fetchFavoriteConcerts
+      } = this.props
+
+      const session_tokken = session.data ? session.data.id : null
+      const userId = session.data ? session.data.userId : null
+
+      if( session_tokken !== null  && userId !== null) {
+        fetchFavoriteConcerts( session_tokken, userId )
+      }
+    }
+
     render() {
-      const {concerts} = this.props;
+      const {
+        concerts,
+        favoriteConcerts,
+        user,
+        session
+      } = this.props;
+
+      const favoriteConcertsIds =  favoriteConcerts.data ? favoriteConcerts.data.map(item => item.itemId) : []
+
       const myConcertsTab = (
       <Table striped>
         <thead>
@@ -41,6 +72,7 @@ export default connect(
           concerts.data ?
             concerts.data
               .sort( sortConcertByDate )
+              .filter( concert => favoriteConcertsIds ? favoriteConcertsIds.includes(concert.id) : null)
               .map(
               concert => (
                 <tr key={concert.id}>
@@ -71,6 +103,7 @@ export default connect(
 
             concerts.data ?
               concerts.data
+                .filter( concert => favoriteConcertsIds ? favoriteConcertsIds.includes(concert.id) : null)
                 .filter( filter_concert(concertsSearchValues) )
                 .sort( sortConcertByDate )
                 .map(

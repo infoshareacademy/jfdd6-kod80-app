@@ -1,11 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {Grid, Alert, Table} from 'react-bootstrap'
+import {Grid, Alert, Image} from 'react-bootstrap'
 import SearchInputCreator from './search-input'
 
 import filter_concert from '../search/concert-filter'
 import sortConcertByDate from '../date/sort-concert-by-date'
+
+import '../styles/style-concerts-view.css'
 
 export default connect(
   state => ({
@@ -18,57 +20,60 @@ export default connect(
       const {
         concerts,
         concertsSearchValues
-        } = this.props
+      } = this.props;
 
       return (
         <Grid>
           <SearchInputCreator/>
-          <h1>Dostępne koncerty</h1>
-          {
-            concerts.fetching ?
-              <Alert bsStyle="warning">
-                <strong>Fetching concerts!</strong>
-              </Alert> : null
-          }
-          {
-            concerts.error ?
-              <Alert bsStyle="danger">
-                <strong>{concerts.error}</strong>
-              </Alert> : null
-          }
+          <div className="concerts-result-view">
 
-          <Table striped>
-            <thead>
-            <tr>
-              <th>Lp.</th>
-              <th>Zespół</th>
-              <th>Typ muzyki</th>
-              <th>Miasto</th>
-              <th>Data</th>
-            </tr>
-            </thead>
-            <tbody>
+            <h1>Dostępne koncerty</h1>
+
+            {
+              concerts.fetching ?
+                <Alert bsStyle="warning">
+                  <strong>Fetching concerts!</strong>
+                </Alert> : null
+            }
+            {
+              concerts.error ?
+                <Alert bsStyle="danger">
+                  <strong>{concerts.error}</strong>
+                </Alert> : null
+            }
+
             {
               concerts.data ?
                 concerts.data
-                  .filter( filter_concert(concertsSearchValues) )
-                  .sort( sortConcertByDate )
+                  .filter(filter_concert(concertsSearchValues))
+                  .sort(sortConcertByDate)
                   .map(
                     (concert, index) => (
-                    <tr key={concert.id}>
-                      <td>{index+1}</td>
-                      <td>
-                        <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
-                      </td>
-                      <td>{concert.typeOfMusic}</td>
-                      <td>{concert.city}</td>
-                      <td>{concert.date}</td>
-                    </tr>
-                  )
-                ) : null
+
+                      <div className="concerts-view"
+                           key={concert.id}>
+
+                        <div className="band-images">
+                          <Image src={"data/images/" + concert.bandImages}
+                                 alt="zdjęcie zespołu"/>
+                        </div>
+
+                        <div className="about-concert">
+                          <h1> {concert.band} </h1>
+                          <span>{concert.typeOfMusic}</span>
+                          <p>{concert.date} </p>
+                          <p>{concert.place}{'/'}{concert.city}</p>
+                        </div>
+
+                        <Link to={'/koncerty/' + concert.id} className="link-to-concert-card" key={concert.id}>
+                          zobacz szczegóły
+                        </Link>
+
+                      </div>
+                    )
+                  ) : null
             }
-            </tbody>
-          </Table>
+          </div>
         </Grid>
       )
     }
