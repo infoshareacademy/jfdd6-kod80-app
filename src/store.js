@@ -15,6 +15,7 @@ import userReducer from './state/user'
 
 import attendConcertReducer from './state/attend-concert'
 import favoriteConcertsReducer from './state/favorite-concerts'
+import fetchConcertAttendersReducer from './state/concert_attenders'
 
 
 const allReducers = combineReducers({
@@ -29,7 +30,8 @@ const allReducers = combineReducers({
   attendConcert: attendConcertReducer,
   favoriteConcerts: favoriteConcertsReducer,
   session: sessionReducer,
-  user: userReducer
+  user: userReducer,
+  fetchConcertAttenders: fetchConcertAttendersReducer
 });
 
 
