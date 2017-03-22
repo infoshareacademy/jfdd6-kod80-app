@@ -57,9 +57,14 @@ const deleteConcert = (favId, userId, accessToken) => fetch(
 export const leaveConcert = (favId, userId, accessToken, injectedFetch = fetch) => dispatch =>  injectedFetch(
    deleteConcert(favId,  userId, accessToken)
   ).then(
-    response => dispatch(fetchFavoriteConcerts(accessToken, userId))
+    response => {
+      dispatch(fetchFavoriteConcerts(accessToken, userId))
+      dispatch({
+        type: LEAVE_CONCERT,
+        concertId: favId
+      })
+    }
   )
-
 
 const initialState = {
   attendConcertId: []
