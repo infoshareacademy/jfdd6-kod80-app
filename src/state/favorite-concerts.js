@@ -6,7 +6,6 @@ import Api from '../api'
 
 export const fetchFavoriteConcerts = (accessToken, userId) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
-  console.log('FETCH***************************************')
   return fetch(
     Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken
   ).then(
