@@ -2,11 +2,12 @@ const FETCH__BEGIN = 'favorite_concert/FETCH__BEGIN'
 const FETCH__SUCCESS = 'favorite_concert/FETCH__SUCCESS'
 const FETCH__FAIL = 'favorite_concert/FETCH__FAILED'
 
+import Api from '../api'
+
 export const fetchFavoriteConcerts = (accessToken, userId) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
-  console.log('FETCH***************************************')
   return fetch(
-    'https://radiant-mountain-66074.herokuapp.com/api/users/' + userId + '/favoriteItems?access_token=' + accessToken
+    Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken
   ).then(
     response => {
       if (response.ok) {

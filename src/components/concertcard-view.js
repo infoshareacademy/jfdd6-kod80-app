@@ -19,7 +19,7 @@ export default connect(
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
     attendConcert: (concertId, userId, accessToken) => dispatch(attendConcert(concertId, userId, accessToken)),
-    leaveConcert: (concertId) => dispatch(leaveConcert(concertId))
+    leaveConcert: (concertId, userId, accessToken) => dispatch(leaveConcert(concertId, userId, accessToken))
   })
 )(
   function ConcertCard(props) {
@@ -70,7 +70,7 @@ export default connect(
                           <Button
                             bsStyle="primary"
                             bsSize="medium"
-                            onClick={() => props.leaveConcert(concert.id)}>
+                            onClick={() => props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
                             Nie idę na koncert
                           </Button> :
                           <Button
