@@ -6,7 +6,7 @@ import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
 import ConcertUsersView from './concertUsers-view'
 import {attendConcert, leaveConcert} from '../state/attend-concert'
-import Horizontal from './slider-view'
+import SliderView from './slider-view'
 
 export default connect(
   state => ({
@@ -31,7 +31,11 @@ export default connect(
       <div>
         <h2>W promieniu {props.distanceFromGoal} km możesz znaleźć...</h2>
 
-        <Horizontal/>
+        <SliderView
+          initialValue={props.distanceFromGoal}
+          max={props.maxValue}
+          min={props.minValue}
+        />
 
         <ProgressBar
           now={props.distanceFromGoal}

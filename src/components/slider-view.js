@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 
-class Horizontal extends Component {
+class SliderView extends Component {
   constructor (props, context) {
     super(props, context)
     this.state = {
-      value: 10
+      value: props.initialValue,
+      min: props.min,
+      max: props.max
     }
   }
 
@@ -20,13 +22,15 @@ class Horizontal extends Component {
     console.log('Change event completed')
   }
 
+
+
   render () {
-    const { value } = this.state
+    const { value, min, max } = this.state
     return (
       <div className='slider'>
         <Slider
-          min={0}
-          max={100}
+          min={min}
+          max={max}
           value={value}
           onChange={this.handleChange}
           onChangeComplete={this.handleChangeComplete}
@@ -37,4 +41,4 @@ class Horizontal extends Component {
   }
 }
 
-export default Horizontal
+export default SliderView
