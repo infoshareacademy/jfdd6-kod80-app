@@ -19,6 +19,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
+
         <Route path="koncerty" component={Concerts}/>
         <Route path="moje-konto" component={UsercardView}/>
         <Route path="koncerty/:concertId" component={ConcertCard}/>
