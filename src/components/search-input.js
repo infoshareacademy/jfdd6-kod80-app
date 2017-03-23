@@ -36,41 +36,48 @@ export default connect (
               } = this.props
 
             return(
-                <form onSubmit={(event) => {
+
+              <div>
+
+                <form
+                  onSubmit={(event) => {
                     event.preventDefault()
                     filterTypeOfMusic(this.state.typeOfMusic)
                     setBandNameSearch(this.state.band)
                     setDateSinceSearch(this.state.dateSince)
                     setDateToSearch(this.state.dateTo)
                 }
+                }>
 
-            }>
-                <Grid>
-                  <FormGroup className="col-md-5 col-lg-3">
+
+                  <FormGroup className="col-lg-3">
                     <ControlLabel>Rodzaj muzyki</ControlLabel>
                       <FormControl
                         placeholder='Rodzaj muzyki np.: Rock'
                         value={this.state.typeOfMusic}
                         onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
                     </FormGroup>
-                  <FormGroup className="col-md-5 col-lg-3">
+                  <FormGroup className="col-lg-3">
                     <ControlLabel>nazwa zespołu/koncertu</ControlLabel>
                       <FormControl placeholder='Nazwa koncertu/zespołu'
                                    value={this.state.band}
                                    onChange={(event) => this.setState({band: event.target.value})}/>
                     </FormGroup>
-                  <FormGroup className="col-md-2 col-lg-3">
+                  <FormGroup className="col-lg-3">
                     <ControlLabel>Data Koncertu</ControlLabel>
                     <DatePicker
                         setDateSinceSearch={(date) => this.setState({dateSince: date})}
                         setDateToSearch={(date) => this.setState({dateTo: date})}
                         />
                   </FormGroup>
-                  <FormGroup className="col-md-2 col-lg-3">
+                  <FormGroup className="col-lg-3 ">
                     <button className="szukaj-button">Szukaj</button>
                 </FormGroup>
-                </Grid>
+
+
               </form>
+
+              </div>
               )
         }
     }

@@ -4,3 +4,19 @@
     margin-left: -70px
   }
 }
+
+
+
+
+
+.container {
+ background-color: green;
+margin: auto;
+}
+
+.search-input {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: red;
+}
