@@ -31,6 +31,7 @@ class App extends React.Component {
     this.props.fetchRestaurants()
     this.props.fetchTaxis()
     this.props.fetchUsers()
+
   }
 
   render() {
@@ -85,9 +86,6 @@ class App extends React.Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                   <Nav pullRight>
-                    <LinkContainer to="/koncerty">
-                      <NavItem href="#">Koncerty</NavItem>
-                    </LinkContainer>
                     <LinkContainer to="/moje-konto">
                       <NavItem href="#">Moje konto</NavItem>
                     </LinkContainer>
