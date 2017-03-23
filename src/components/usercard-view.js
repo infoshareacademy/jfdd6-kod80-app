@@ -5,7 +5,7 @@ import {ListGroup, ListGroupItem, Media, Tabs, Tab, Grid, Alert, Table} from 're
 
 import filter_concert from '../search/concert-filter'
 import sortConcertByDate from '../date/sort-concert-by-date'
-import {fetchFavoriteConcerts} from '../state/favorite-concerts'
+import {fetchFavoriteConcerts} from '../state/attend-concert'
 
 const dat1 = new Date('2000', '06', '16');
 const dat2 =  new Date()
@@ -22,7 +22,7 @@ const concertsSearchValues = {
 export default connect(
   state => ({
     concerts: state.concerts,
-    favoriteConcerts: state.favoriteConcerts,
+    favoriteConcerts: state.attendConcert,
     user: state.user,
     session: state.session
   }),

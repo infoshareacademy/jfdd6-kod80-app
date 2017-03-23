@@ -7,7 +7,7 @@ import AttractionsView from './attractions-view'
 import ConcertUsersView from './concertUsers-view'
 import {attendConcert, leaveConcert} from '../state/attend-concert'
 
-import {fetchFavoriteConcerts} from '../state/favorite-concerts'
+import {fetchFavoriteConcerts} from '../state/attend-concert'
 
 export default connect(
   state => ({
@@ -17,7 +17,7 @@ export default connect(
     minValue: state.distanceChanger.minValue,
     attendConcertId: state.attendConcert.attendConcertId,
     session: state.session,
-    favoriteConcerts: state.favoriteConcerts.data
+    favoriteConcerts: state.attendConcert.data
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
