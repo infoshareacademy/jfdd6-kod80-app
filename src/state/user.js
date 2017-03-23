@@ -2,8 +2,6 @@ const FETCH__BEGIN = 'user/FETCH__BEGIN';
 const FETCH__SUCCESS = 'user/FETCH__SUCCESS';
 const FETCH__FAIL = 'user/FETCH__FAILED';
 
-import Api from '../api'
-
 
 export const fetchUser = (accessToken, userId) => dispatch => {
   dispatch({type: FETCH__BEGIN});
