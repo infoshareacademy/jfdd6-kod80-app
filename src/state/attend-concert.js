@@ -72,18 +72,24 @@ export const leaveConcert = (favId, userId, accessToken, injectedFetch = fetch) 
 
 export const fetchFavoriteConcerts = (accessToken, userId) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
-  console.log('fetch!!!!!!!!!!!!!!!!!!!!1')
   return fetch(
     Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken
   ).then(
     response => {
       if (response.ok) {
         return response.json().then(
-          data => dispatch({
+          data =>  {
+            dispatch({
             type: FETCH__SUCCESS,
             data
           })
-        ).catch(
+          data.forEach( concert => dispatch({
+            type: ATTEND_CONCERT,
+            concertId: concert.itemId
+          }) )
+
+      }
+      ).catch(
           error => dispatch({
             type: FETCH__FAIL,
             error: 'Malformed JSON response'

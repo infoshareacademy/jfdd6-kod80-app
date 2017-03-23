@@ -64,8 +64,6 @@ render() {
         favoriteConcerts
       } = this.props
 
-      console.log('faV!!!!!!!!!!!!!!11', favoriteConcerts)
-
       return (
         <Grid>
           <div className="row">
