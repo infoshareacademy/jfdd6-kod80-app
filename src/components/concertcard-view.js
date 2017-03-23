@@ -6,6 +6,7 @@ import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
 import ConcertUsersView from './concertUsers-view'
 import {attendConcert, leaveConcert} from '../state/attend-concert'
+import Horizontal from './slider-view'
 
 export default connect(
   state => ({
@@ -29,6 +30,8 @@ export default connect(
     const concertAttractionsTab = (
       <div>
         <h2>W promieniu {props.distanceFromGoal} km możesz znaleźć...</h2>
+
+        <Horizontal/>
 
         <ProgressBar
           now={props.distanceFromGoal}
