@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Navbar, Nav, NavItem,} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, Button} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
 
@@ -89,6 +89,11 @@ class App extends React.Component {
                     <LinkContainer to="/moje-konto">
                       <NavItem href="#">Moje konto</NavItem>
                     </LinkContainer>
+                    <Button
+                      bsStyle="default"
+                      bsSize="medium">
+                      Wyloguj
+                    </Button>
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>
