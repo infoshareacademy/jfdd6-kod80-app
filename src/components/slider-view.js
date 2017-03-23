@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
+import '../styles/styles.css'
 
 
 
@@ -39,7 +40,6 @@ class HorizontalSlider extends Component {
           onChange={this.handleChange}
           onChangeComplete={this.handleChangeComplete}
         />
-        <div className='value'>{value}</div>
       </div>
     )
   }

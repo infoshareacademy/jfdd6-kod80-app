@@ -8,6 +8,7 @@ import ConcertUsersView from './concertUsers-view'
 import {attendConcert, leaveConcert} from '../state/attend-concert'
 import HorizontalSlider from './slider-view'
 
+
 export default connect(
   state => ({
     concerts: state.concerts,
