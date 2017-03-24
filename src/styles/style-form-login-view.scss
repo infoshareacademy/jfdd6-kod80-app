@@ -14,13 +14,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
-  >h1 {
+
+  .logo-pic {
     margin: 0;
-    padding: 5% 0;
-    color: #ff6a43;
-    font-size: 40px;
-    font-weight: bold;
-    text-shadow: 0 0 5px #e3e3e3;
+    padding: 5% 0 3%;
   }
   >p {
     padding: 0 2%;
@@ -88,6 +85,11 @@
   }
 }
 
+.logo-pic img {
+  max-width: 90%;
+  height: auto;
+}
+
 @media screen and (max-width: 620px){
   .section-with-form-login{
     .form-login {
@@ -122,3 +124,8 @@
   }
   }
 }
+
+@media screen and (max-width: 590px) {
+  .logo-pic img {
+    width: 90%;
+    height: auto; } }
