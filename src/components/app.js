@@ -38,12 +38,13 @@ class App extends React.Component {
   render() {
     const {children} = this.props;
 
-    return (this.props.session.data === null ?
-        (<div className="section-with-form-login">
-            <h1>Witaj w SoundTrip</h1>
-
-            <p>Zaloguj się, aby móc wyszukać interesujący Cię koncert oraz sprawdzić atrakcje znajdujące się w jego
-              okolicy.</p>
+      return (this.props.session.data === null ?
+          (<div className="section-with-form-login">
+              <div className="logo-pic">
+              <img width={500} height={50} src={require('../images/logo-soundtrip.png')} alt="soundtrip-user"/>
+              </div>
+              <p>Zaloguj się, aby móc wyszukać interesujący Cię koncert oraz sprawdzić atrakcje znajdujące się w jego
+                 okolicy.</p>
 
             <div className="form-login">
               <form onSubmit={(event) => {
