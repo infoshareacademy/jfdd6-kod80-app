@@ -3,7 +3,14 @@ import {connect} from 'react-redux'
 
 import {Grid, Table, Alert, Image} from 'react-bootstrap'
 
+import {fetchConcertAttenders} from '../state/concert_attenders'
+
 class UsersView extends React.Component {
+
+  componentWillMount() {
+    this.props.fetchConcertAttenders('ABC1', 1)
+  }
+
 
   render() {
 
@@ -59,6 +66,9 @@ console.log('sdf');
 export default connect(
   state => ({
     users: state.users
+  }),
+  dispatch => ({
+    fetchConcertAttenders: (accessToken, itemId) => dispatch(fetchConcertAttenders( accessToken, itemId)),
   })
 )(UsersView)
 

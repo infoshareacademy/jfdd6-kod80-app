@@ -1,13 +1,13 @@
-const FETCH__BEGIN = 'favorite_concert/FETCH__BEGIN'
-const FETCH__SUCCESS = 'favorite_concert/FETCH__SUCCESS'
-const FETCH__FAIL = 'favorite_concert/FETCH__FAILED'
+const FETCH__BEGIN = 'concert_attenders/FETCH__BEGIN'
+const FETCH__SUCCESS = 'concert_attenders/FETCH__SUCCESS'
+const FETCH__FAIL = 'concert_attenders/FETCH__FAILED'
 
 import Api from '../api'
 
-export const fetchFavoriteConcerts = (accessToken, userId) => dispatch => {
+export const fetchConcertAttenders = (accessToken, itemId ) => dispatch => {
   dispatch({ type: FETCH__BEGIN })
   return fetch(
-    Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken
+    Api.url + '/favoriteItems?filter[where][itemId]=' + itemId +'&access_token=' + accessToken
   ).then(
     response => {
       if (response.ok) {
