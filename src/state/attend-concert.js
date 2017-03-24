@@ -1,9 +1,10 @@
 import Api from '../api'
 
-import {fetchFavoriteConcerts} from './favorite-concerts'
-
 const ATTEND_CONCERT = 'attend-concert/ATTEND_CONCERT'
-const LEAVE_CONCERT = 'leave-concert/LEAVE_CONCERT'
+const LEAVE_CONCERT = 'attend-concert/LEAVE_CONCERT'
+const FETCH__BEGIN = 'attend-concert/FETCH__BEGIN'
+const FETCH__SUCCESS = 'attend-concert/FETCH__SUCCESS'
+const FETCH__FAIL = 'attend-concertFETCH__FAILED'
 
 export const attendConcert = (concertId, userId, accessToken) => dispatch => fetch(
   Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken, {
@@ -54,6 +55,8 @@ const deleteConcert = (favId, userId, accessToken) => fetch(
     }
   })
 
+
+
 export const leaveConcert = (favId, userId, accessToken, injectedFetch = fetch) => dispatch =>  injectedFetch(
    deleteConcert(favId,  userId, accessToken)
   ).then(
@@ -66,8 +69,48 @@ export const leaveConcert = (favId, userId, accessToken, injectedFetch = fetch) 
     }
   )
 
+
+export const fetchFavoriteConcerts = (accessToken, userId) => dispatch => {
+  dispatch({ type: FETCH__BEGIN })
+  return fetch(
+    Api.url + '/users/' + userId + '/favoriteItems?access_token=' + accessToken
+  ).then(
+    response => {
+      if (response.ok) {
+        return response.json().then(
+          data =>  {
+            dispatch({
+            type: FETCH__SUCCESS,
+            data
+          })
+          data.forEach( concert => dispatch({
+            type: ATTEND_CONCERT,
+            concertId: concert.itemId
+          }) )
+
+      }
+      ).catch(
+          error => dispatch({
+            type: FETCH__FAIL,
+            error: 'Malformed JSON response'
+          })
+        )
+      }
+      throw new Error('Connection error')
+    }
+  ).catch(
+    error => dispatch({
+      type: FETCH__FAIL,
+      error: error.message
+    })
+  )
+}
+
 const initialState = {
-  attendConcertId: []
+  attendConcertId: [],
+  data: null,
+  fetching: false,
+  error: null
 }
 
 export default (state = initialState, action = {}) => {
@@ -85,6 +128,24 @@ export default (state = initialState, action = {}) => {
         attendConcertId: state.attendConcertId.filter(
           concertId => concertId !== action.concertId
         )
+      }
+    case FETCH__BEGIN:
+      return {
+        ...state,
+        fetching: true,
+        error: null
+      }
+    case FETCH__SUCCESS:
+      return {
+        ...state,
+        data: action.data,
+        fetching: false
+      }
+    case FETCH__FAIL:
+      return {
+        ...state,
+        fetching: false,
+        error: action.error
       }
     default:
       return state
