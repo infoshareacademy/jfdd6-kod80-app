@@ -4,7 +4,6 @@ const FETCH__FAIL = 'user/FETCH__FAILED';
 
 import Api from '../api'
 
-
 export const fetchUser = (accessToken, userId) => dispatch => {
   dispatch({type: FETCH__BEGIN});
   return fetch(

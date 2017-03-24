@@ -7,6 +7,8 @@ import AttractionsView from './attractions-view'
 import ConcertUsersView from './concertUsers-view'
 import {attendConcert, leaveConcert} from '../state/attend-concert'
 
+import {fetchFavoriteConcerts} from '../state/attend-concert'
+
 export default connect(
   state => ({
     concerts: state.concerts,
@@ -15,110 +17,125 @@ export default connect(
     minValue: state.distanceChanger.minValue,
     attendConcertId: state.attendConcert.attendConcertId,
     session: state.session,
+    favoriteConcerts: state.attendConcert.data
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
     attendConcert: (concertId, userId, accessToken) => dispatch(attendConcert(concertId, userId, accessToken)),
-    leaveConcert: (concertId, userId, accessToken) => dispatch(leaveConcert(concertId, userId, accessToken))
+    leaveConcert: (concertId, userId, accessToken) => dispatch(leaveConcert(concertId, userId, accessToken)),
+    fetchFavoriteConcerts: (accessToken, userId) => dispatch(fetchFavoriteConcerts(accessToken, userId))
   })
 )(
-  function ConcertCard(props) {
+
+  class ConcertCard extends React.Component {
 
 
+    componentWillMount() {
+      const {session} = this.props
+      this.props.fetchFavoriteConcerts(session.data.id, session.data.userId)
+    }
 
-    const concertAttractionsTab = (
-      <div>
-        <h2>W promieniu {props.distanceFromGoal} km możesz znaleźć...</h2>
 
-        <ProgressBar
-          now={props.distanceFromGoal}
-          max={props.maxValue}
-          min={props.minValue}
-        />
+render() {
 
-        <Button onClick={() => props.changeDistance(-1)}>Zmniejsz dystans</Button>
-        <Button onClick={() => props.changeDistance(1)}>Zwiększ dystans</Button>
+      const concertAttractionsTab = (
+        <div>
+          <h2>W promieniu {this.props.distanceFromGoal} km możesz znaleźć...</h2>
 
-        <AttractionsView concertId={parseInt(props.params.concertId, 10)}/>
-      </div>
-    )
-    const concertUsersTab = (
-      <ConcertUsersView />
-    )
+          <ProgressBar
+            now={this.props.distanceFromGoal}
+            max={this.props.maxValue}
+            min={this.props.minValue}
+          />
 
-    const { session } = props
+          <Button onClick={() => this.props.changeDistance(-1)}>Zmniejsz dystans</Button>
+          <Button onClick={() => this.props.changeDistance(1)}>Zwiększ dystans</Button>
 
-    return (
-      <Grid>
-        <div className="row">
-          {
-            props.concerts.data ?
-              props.concerts.data.filter(
-                concert =>
-                concert.id === parseInt(props.params.concertId, 10)
-              ).map(
-                concert => (
-                  <div>
-                    <h1>Koncert: {concert.band}</h1>
-                    <div className="col-xs-12 col-md-4">
-                      <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
-                      <div>
-                        <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
+          <AttractionsView concertId={parseInt(this.props.params.concertId, 10)}/>
+        </div>
+      )
+      const concertUsersTab = (
+        <ConcertUsersView />
+      )
 
-                        {
-                          (props.attendConcertId.includes(concert.id)) ?
-                          <Button
-                            bsStyle="primary"
-                            bsSize="medium"
-                            onClick={() => props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
-                            Nie idę na koncert
-                          </Button> :
-                          <Button
-                            bsStyle="success"
-                            bsSize="medium"
-                            onClick={() => props.attendConcert(concert.id, session.data.userId, session.data.id)}>
-                            Idę na koncert
-                          </Button>
-                        }
 
+      const {
+        session,
+        favoriteConcerts
+      } = this.props
+
+      return (
+        <Grid>
+          <div className="row">
+            {
+              this.props.concerts.data ?
+                this.props.concerts.data.filter(
+                  concert =>
+                  concert.id === parseInt(this.props.params.concertId, 10)
+                ).map(
+                  concert => (
+                    <div>
+                      <h1>Koncert: {concert.band}</h1>
+                      <div className="col-xs-12 col-md-4">
+                        <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
+                        <div>
+                          <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
+
+                          {
+                            (this.props.attendConcertId.includes(concert.id)) ?
+                              <Button
+                                bsStyle="primary"
+                                bsSize="medium"
+                                onClick={() => this.props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
+                                Nie idę na koncert
+                              </Button> :
+                              <Button
+                                bsStyle="success"
+                                bsSize="medium"
+                                onClick={() => this.props.attendConcert(concert.id, session.data.userId, session.data.id)}>
+                                Idę na koncert
+                              </Button>
+                          }
+
+                        </div>
+                      </div>
+                      <div className="col-xs-12 col-md-8">
+                        <Table striped>
+                          <thead>
+                          <tr>
+                            <th>Typ muzyki</th>
+                            <th>Miejsce</th>
+                            <th>Data</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr key={concert.id}>
+                            <td>{concert.typeOfMusic}</td>
+                            <td>{concert.place}</td>
+                            <td>{concert.date}</td>
+                          </tr>
+                          </tbody>
+                        </Table>
                       </div>
                     </div>
-                    <div className="col-xs-12 col-md-8">
-                      <Table striped>
-                        <thead>
-                        <tr>
-                          <th>Typ muzyki</th>
-                          <th>Miejsce</th>
-                          <th>Data</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr key={concert.id}>
-                          <td>{concert.typeOfMusic}</td>
-                          <td>{concert.place}</td>
-                          <td>{concert.date}</td>
-                        </tr>
-                        </tbody>
-                      </Table>
-                    </div>
-                  </div>
+                  )
                 )
-              )
-              : null
-          }
+                : null
+            }
 
-        </div>
+          </div>
 
-        <hr/>
+          <hr/>
 
-        <div className="row">
-          <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-            <Tab eventKey={1} title="Atrakcje koncertu"> {concertAttractionsTab}</Tab>
-            <Tab eventKey={2} title="Uczestnicy koncertu">{concertUsersTab}</Tab>
-          </Tabs>
-        </div>
+          <div className="row">
+            <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+              <Tab eventKey={1} title="Atrakcje koncertu"> {concertAttractionsTab}</Tab>
+              <Tab eventKey={2} title="Uczestnicy koncertu">{concertUsersTab}</Tab>
+            </Tabs>
+          </div>
 
-      </Grid>
-    )
+        </Grid>
+      )
+    }
   }
 )
