@@ -121,6 +121,9 @@ export default connect(
           </tbody>
         </Table>
       );
+      const userName = user.data ? user.data.username : null
+      const userEmail = user.data ? user.data.email : null
+      const userId = session.data ? session.data.userId : null
 
       const myAccountTab = (  <div>
         <Media>
@@ -129,9 +132,9 @@ export default connect(
           </Media.Left>
           <Media.Body>
             <ListGroup>
-              <ListGroupItem header="Imię i nazwisko">Anna Muza</ListGroupItem>
-              <ListGroupItem header="Login">MyMamaDontLikeYou</ListGroupItem>
-              <ListGroupItem header="E-mail">4ever@sound.trip</ListGroupItem>
+              <ListGroupItem header="Imię">{userName}</ListGroupItem>
+              <ListGroupItem header="E-mail">{userEmail}</ListGroupItem>
+              <ListGroupItem header="Numer użytkownika">{userId}</ListGroupItem>
 
             </ListGroup>          </Media.Body>
         </Media>
