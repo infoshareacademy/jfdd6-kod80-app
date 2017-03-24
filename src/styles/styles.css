@@ -15,6 +15,10 @@
 * {
   font-family: 'Lato', sans-serif; }
 
+.rangeslider-horizontal .rangeslider__fill {
+  background-color: #c4201b;
+}
+
 .serch-view-result {
   border: 1px solid gray;
   padding: 2% 5%; }
