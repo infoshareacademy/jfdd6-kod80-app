@@ -81,9 +81,7 @@ export const logOut = (accessToken) => dispatch => fetch(
       'Content-Type': 'application/json'
     }
   }).then(
-    response => response.json()
-  ).then(
-    data => dispatch({
+    response => dispatch({
       type: LOGOUT_USER
     })
   )
