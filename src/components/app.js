@@ -90,12 +90,9 @@ class App extends React.Component {
                 <LinkContainer to="/moje-konto">
                   <NavItem href="#">Moje konto</NavItem>
                 </LinkContainer>
-                <Button
-                  bsStyle="default"
-                  bsSize="medium"
-                  onClick={() => this.props.logOut()}>
-                  Wyloguj
-                </Button>
+                <LinkContainer to="/moje-konto"  onClick={() => this.props.logOut()}>
+                  <NavItem href="#">Wyloguj</NavItem>
+                </LinkContainer>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
