@@ -1,6 +1,7 @@
 const FETCH__BEGIN = 'session/FETCH__BEGIN';
 const FETCH__SUCCESS = 'session/FETCH__SUCCESS';
 const FETCH__FAIL = 'session/FETCH__FAILED';
+const LOGOUT_USER = 'session/LOGOUT_USER'
 
 import Api from '../api'
 import {fetchUser} from './user'
@@ -72,6 +73,26 @@ export const fetchSession = (username, password) => dispatch => {
   )
 };
 
+
+export const logOut = (accessToken) => dispatch => fetch(
+  Api.url + '/users/logout?access_token=' + accessToken, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      accessToken: accessToken
+    })
+  }).then(
+    response => response.json()
+  ).then(
+    data => dispatch({
+      type: LOGOUT_USER
+    })
+  )
+
+
+
 const initialState = {
   data: null,
   fetching: false,
@@ -98,7 +119,11 @@ export default (state = initialState, action = {}) => {
         fetching: false,
         error: action.error
       };
-
+    case LOGOUT_USER:
+      return {
+        ...state,
+        data: null,
+      };
     default:
       return state
   }

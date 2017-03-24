@@ -11,7 +11,7 @@ import {fetchRestaurants} from '../state/restaurants'
 import {fetchTaxis} from '../state/taxis'
 import {fetchSession} from '../state/session'
 import {fetchUsers} from '../state/users'
-import {logOut} from '../state/logout'
+import {logOut} from '../state/session'
 
 import '../styles/style-form-login-view.css'
 
