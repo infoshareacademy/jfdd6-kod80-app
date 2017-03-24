@@ -22,9 +22,7 @@ export default (state = initialState, action = {}) => {
     case CHANGE:
       return {
         ...state,
-        distanceFromGoal: action.value > 1 ?
-          Math.min(state.distanceFromGoal + action.value, state.maxValue) :
-          Math.max(state.distanceFromGoal + action.value, state.minValue)
+        distanceFromGoal: action.value
       }
     default:
       return state
