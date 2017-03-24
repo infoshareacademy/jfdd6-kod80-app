@@ -90,7 +90,7 @@ class App extends React.Component {
                 <LinkContainer to="/moje-konto">
                   <NavItem href="#">Moje konto</NavItem>
                 </LinkContainer>
-                <LinkContainer to="/moje-konto"  onClick={() => this.props.logOut()}>
+                <LinkContainer to="/moje-konto"  onClick={() => this.props.logOut(this.props.session.data.id)}>
                   <NavItem href="#">Wyloguj</NavItem>
                 </LinkContainer>
               </Nav>
@@ -115,6 +115,6 @@ export default connect(
     fetchTaxis: () => dispatch(fetchTaxis()),
     fetchSessionLogin: (username, password) => dispatch(fetchSession(username, password)),
     fetchUsers: () => dispatch(fetchUsers()),
-    logOut: () => dispatch(logOut())
+    logOut: (accessToken) => dispatch(logOut(accessToken))
   })
 )(App)

@@ -79,10 +79,7 @@ export const logOut = (accessToken) => dispatch => fetch(
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      accessToken: accessToken
-    })
+    }
   }).then(
     response => response.json()
   ).then(
