@@ -8,7 +8,7 @@ import {fetchConcertAttenders} from '../state/concert_attenders'
 class UsersView extends React.Component {
 
   componentWillMount() {
-    this.props.fetchConcertAttenders('ABC1', 1)
+    this.props.fetchConcertAttenders(this.props.session.id, this.props.session.userId)
   }
 
 
@@ -65,7 +65,8 @@ console.log('sdf');
 
 export default connect(
   state => ({
-    users: state.users
+    users: state.users,
+    session: state.session
   }),
   dispatch => ({
     fetchConcertAttenders: (accessToken, itemId) => dispatch(fetchConcertAttenders( accessToken, itemId)),

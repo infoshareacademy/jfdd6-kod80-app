@@ -19,7 +19,7 @@ export default connect(
     minValue: state.distanceChanger.minValue,
     attendConcertId: state.attendConcert.attendConcertId,
     session: state.session,
-    favoriteConcerts: state.attendConcert.data
+    concertAttenders: state.concertAttenders
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
@@ -34,7 +34,7 @@ export default connect(
 
     componentWillMount() {
       const {session} = this.props
-      this.props.fetchFavoriteConcerts(session.data.id, session.data.userId)
+      this.props.fetchConcertAttenders(session.data.id, session.params.concertId)
     }
 
 
@@ -61,8 +61,11 @@ render() {
 
       const {
         session,
-        favoriteConcerts
+        favoriteConcerts,
+        concertAttenders
       } = this.props
+
+    console.log(" concertAttenders!!!!!!!!!!!!!!!!!!!!!!!!!!1", concertAttenders)
 
       return (
         <Grid>

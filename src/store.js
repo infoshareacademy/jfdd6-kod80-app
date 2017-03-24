@@ -1,6 +1,6 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-import persistState from 'redux-localstorage'
+//import persistState from 'redux-localstorage'
 
 import concertsReducer from './state/concerts'
 import attractionsReducer from './state/attractions'
@@ -14,7 +14,7 @@ import sessionReducer from './state/session'
 import userReducer from './state/user'
 
 import attendConcertReducer from './state/attend-concert'
-import fetchConcertAttendersReducer from './state/concert_attenders'
+import concertAttendersReducer from './state/concert_attenders'
 
 
 const allReducers = combineReducers({
@@ -29,7 +29,7 @@ const allReducers = combineReducers({
   attendConcert: attendConcertReducer,
   session: sessionReducer,
   user: userReducer,
-  fetchConcertAttenders: fetchConcertAttendersReducer
+  concertAttenders: concertAttendersReducer
 });
 
 
@@ -38,7 +38,7 @@ const store = createStore(
   allReducers,
 
   composeEnhancers(
-    persistState(['session']),
+    //persistState(['session']),
     applyMiddleware(thunk)
   )
 );
