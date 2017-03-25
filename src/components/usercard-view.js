@@ -6,6 +6,7 @@ import {ListGroup, ListGroupItem, Media, Tabs, Tab, Grid, Alert, Table} from 're
 import filter_concert from '../search/concert-filter'
 import sortConcertByDate from '../date/sort-concert-by-date'
 import {fetchFavoriteConcerts} from '../state/attend-concert'
+import '../styles/style-user-view.css'
 
 const dat1 = new Date('2000', '06', '16');
 const dat2 =  new Date()
@@ -128,7 +129,7 @@ export default connect(
       const myAccountTab = (  <div>
         <Media>
           <Media.Left>
-            <img width={210} height={190} src={require('../graphics/user.jpg')} alt="soundtrip-user"/>
+            <img width={210} height={190} src={require('../images/login-view.png')} alt="soundtrip-user"/>
           </Media.Left>
           <Media.Body>
             <ListGroup>
