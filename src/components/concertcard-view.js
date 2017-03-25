@@ -8,8 +8,8 @@ import ConcertUsersView from './concertUsers-view'
 import {attendConcert, leaveConcert} from '../state/attend-concert'
 import HorizontalSlider from './slider-view'
 
-
 import {fetchFavoriteConcerts} from '../state/attend-concert'
+import {fetchConcertAttenders} from '../state/concert_attenders'
 
 export default connect(
   state => ({
@@ -25,7 +25,8 @@ export default connect(
     changeDistance: (value) => dispatch(changeDistance(value)),
     attendConcert: (concertId, userId, accessToken) => dispatch(attendConcert(concertId, userId, accessToken)),
     leaveConcert: (concertId, userId, accessToken) => dispatch(leaveConcert(concertId, userId, accessToken)),
-    fetchFavoriteConcerts: (accessToken, userId) => dispatch(fetchFavoriteConcerts(accessToken, userId))
+    fetchFavoriteConcerts: (accessToken, userId) => dispatch(fetchFavoriteConcerts(accessToken, userId)),
+    fetchConcertAttenders: (accessToken, itemId )=> dispatch( fetchConcertAttenders(accessToken, itemId))
   })
 )(
 
@@ -34,7 +35,7 @@ export default connect(
 
     componentWillMount() {
       const {session} = this.props
-      //this.props.fetchConcertAttenders(session.data.id, session.params.concertId)
+      this.props.fetchConcertAttenders(session.data.id, this.props.params.concertId)
     }
 
 
@@ -54,18 +55,16 @@ render() {
           <AttractionsView concertId={parseInt(this.props.params.concertId, 10)}/>
         </div>
       )
-      const concertUsersTab = (
-        <ConcertUsersView />
-      )
-
 
       const {
         session,
         favoriteConcerts,
         concertAttenders
-      } = this.props
+        } = this.props
 
-    console.log(" concertAttenders!!!!!!!!!!!!!!!!!!!!!!!!!!1", concertAttenders)
+      const concertUsersTab = (
+        <ConcertUsersView concertAttenders={concertAttenders.data}/>
+      )
 
       return (
         <Grid>
