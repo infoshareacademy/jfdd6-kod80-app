@@ -6,16 +6,19 @@
     .search-input form input {
       height: 40px;
       outline: 0;
+      border: 1px solid #b9b9b9;
       border-radius: 0; }
       .search-input form input:focus {
         outline-color: #333333;
-        border-color: #d3d3d3;
+        border-color: #6b0e0e;
         box-shadow: none; }
     .search-input form button {
       color: #696969;
-      background-color: #f6f6f6;
+      background-color: rgba(244, 237, 238, 0.66);
+      min-height: 40px;
+      width: 100%;
       transition: all 0.5s linear;
-      border: 1px solid transparent;
+      border: 1px solid #ece5e6;
       outline: 0;
       box-sizing: border-box; }
       .search-input form button:hover {

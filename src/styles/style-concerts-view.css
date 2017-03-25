@@ -3,6 +3,7 @@
   font-family: 'Lato', sans-serif; }
 
 .page-body {
+  background-color: white;
   background-image: url("../images/crowd-bg.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -27,6 +28,8 @@
     padding: 20px 0;
     text-transform: uppercase;
     font-size: 26px; }
+  .concerts-result-view .top-link-to-concert-card {
+    text-decoration: none; }
   .concerts-result-view .concerts-view {
     display: flex;
     flex-direction: row;
@@ -68,7 +71,7 @@
       white-space: pre;
       text-decoration: none;
       color: black; }
-    .concerts-result-view .concerts-view img {
+    .concerts-result-view .concerts-view .band-images img {
       filter: grayscale(100%);
       transition: all 0.5s linear; }
     .concerts-result-view .concerts-view:hover::before {
@@ -93,7 +96,7 @@
       text-decoration: none;
       transform: scaleX(1);
       color: black; }
-    .concerts-result-view .concerts-view:hover img {
+    .concerts-result-view .concerts-view:hover .band-images img {
       filter: none;
       transition: all 1s linear; }
     .concerts-result-view .concerts-view .band-images {
@@ -107,10 +110,31 @@
         color: #fa3729; }
       .concerts-result-view .concerts-view .about-concert span {
         display: inline-block;
-        padding: 2px 0; }
+        padding: 2px 0;
+        color: #333333; }
       .concerts-result-view .concerts-view .about-concert p {
         margin: 0;
         padding: 2px 0;
         color: #333333; }
+
+@media screen and (max-width: 768px) {
+  .concerts-result-view {
+    width: 50%;
+    margin: 0 auto; }
+    .concerts-result-view > h1 {
+      display: none; }
+    .concerts-result-view .concerts-view {
+      display: flex;
+      flex-direction: column;
+      max-height: 600px;
+      max-width: 325px; }
+      .concerts-result-view .concerts-view img {
+        width: 100%; }
+      .concerts-result-view .concerts-view:hover::before {
+        display: none; }
+      .concerts-result-view .concerts-view .link-to-concert-card {
+        display: none; }
+      .concerts-result-view .concerts-view .about-concert > h1 {
+        font-size: 18px; } }
 
 /*# sourceMappingURL=style-concerts-view.css.map */

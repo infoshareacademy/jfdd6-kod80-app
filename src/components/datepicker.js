@@ -55,19 +55,21 @@ const datePicker = React.createClass({
 
     return (
       <div className="datapickerinput">
-        <span>od:</span>
+
+        <span>od: </span>
           <DatePicker
             selected={this.state.startDate}
             selectsStart  startDate={this.state.startDate}
             endDate={this.state.endDate}
             onChange={onChangeStart} />
 
-        <span>do:</span>
+        <span>do: </span>
           <DatePicker
             selected={this.state.endDate}
             selectsEnd  startDate={this.state.startDate}
             endDate={this.state.endDate}
             onChange={onChangeEnd} />
+
       </div>
     )
   }

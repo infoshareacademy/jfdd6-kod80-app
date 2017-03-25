@@ -7,7 +7,27 @@
 
 
 .datapickerinput {
-  display: flex;
-  flex-direction: row;
+  display: inline-block;
 
+}
+
+.datapickerinput span {
+  padding: 0 2px;
+  color: rgb(85, 85, 85);
+}
+
+@media screen and (max-width: 768px) {
+  .search-button{
+    margin: 5px 0;
+    min-width: 150px;
+  }
+}
+
+
+
+@media screen and (max-width: 520px) {
+  .datapickerinput {
+    display: flex;
+    flex-direction: column;
+  }
 }

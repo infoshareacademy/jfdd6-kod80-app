@@ -65,7 +65,7 @@ export default connect(
                   .sort(sortConcertByDate)
                   .map(
                     (concert, index) => (
-
+                      <Link to={'/koncerty/' + concert.id}  key={concert.id} className="top-link-to-concert-card">
                       <div className="concerts-view"
                            key={concert.id}>
 
@@ -78,7 +78,7 @@ export default connect(
                           <h1> {concert.band} </h1>
                           <span>{concert.typeOfMusic}</span>
                           <p>{concert.date} </p>
-                          <p>{concert.place}{'/'}{concert.city}</p>
+                          <p>{concert.place}{' / '}{concert.city}</p>
                         </div>
 
                         <Link to={'/koncerty/' + concert.id} className="link-to-concert-card" key={concert.id}>
@@ -86,6 +86,7 @@ export default connect(
                         </Link>
 
                       </div>
+                      </Link>
                     )
                   ) : null
             }

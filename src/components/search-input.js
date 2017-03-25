@@ -54,20 +54,25 @@ export default connect (
 
 
 
-                  <FormGroup className="col-md-3 col-lg-3">
+                  <FormGroup className="col-xs-12 col-md-6 col-lg-3">
 
                       <FormControl
                         placeholder='Rodzaj muzyki np.: Rock'
                         value={this.state.typeOfMusic}
                         onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
-                    </FormGroup>
-                  <FormGroup className="col-md-3 col-lg-3">
+
+                  </FormGroup>
+
+
+                  <FormGroup className="col-xs-12 col-md-6 col-lg-3">
 
                       <FormControl placeholder='Nazwa koncertu/zespołu'
                                    value={this.state.band}
                                    onChange={(event) => this.setState({band: event.target.value})}/>
                     </FormGroup>
-                  <FormGroup className="col-md-3 col-lg-3">
+
+
+                  <FormGroup className=" col-xs-10 col-md-10 col-lg-4">
 
                     <DatePicker
                         setDateSinceSearch={(date) => this.setState({dateSince: date})}
@@ -76,10 +81,11 @@ export default connect (
 
                   </FormGroup>
 
-                  <FormGroup className="col-md-3 col-lg-3">
-                    <button className="szukaj-button">Szukaj</button>
+                  <FormGroup className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
 
-                </FormGroup>
+                      <button className="search-button">Szukaj</button>
+
+                  </FormGroup>
 
 
 
