@@ -8,7 +8,8 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: bottom; }
+  background-position: bottom;
+  min-height: 100vh; }
 
 .info-about-page {
   padding: 3% 0;

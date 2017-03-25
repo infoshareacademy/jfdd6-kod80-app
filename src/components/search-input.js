@@ -1,11 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {FormGroup, FormControl, ControlLabel, Grid} from 'react-bootstrap'
+import {FormGroup, FormControl, Grid} from 'react-bootstrap'
 import '../styles/search-input.css'
-import '../styles/wyszukiwarka.css'
-// style z wyszukiwarka.scss po zakonczeniu pracy przeniesc do search-input.css
-
 
 import DatePicker from './datepicker'
 
@@ -38,7 +35,6 @@ export default connect (
               setDateSinceSearch,
               setDateToSearch
               } = this.props
-
             return(
                 <Grid className="search-input">
                 <form
@@ -48,11 +44,8 @@ export default connect (
                     setBandNameSearch(this.state.band)
                     setDateSinceSearch(this.state.dateSince)
                     setDateToSearch(this.state.dateTo)
-                }
-
-            }>
-
-
+                    }
+                }>
 
                   <FormGroup className="col-xs-12 col-md-6 col-lg-3">
 
@@ -60,41 +53,26 @@ export default connect (
                         placeholder='Rodzaj muzyki np.: Rock'
                         value={this.state.typeOfMusic}
                         onChange={(event) => this.setState({typeOfMusic: event.target.value})}/>
-
                   </FormGroup>
 
-
                   <FormGroup className="col-xs-12 col-md-6 col-lg-3">
-
                       <FormControl placeholder='Nazwa koncertu/zespołu'
                                    value={this.state.band}
                                    onChange={(event) => this.setState({band: event.target.value})}/>
                     </FormGroup>
 
-
                   <FormGroup className=" col-xs-10 col-md-10 col-lg-4">
-
                     <DatePicker
                         setDateSinceSearch={(date) => this.setState({dateSince: date})}
-                        setDateToSearch={(date) => this.setState({dateTo: date})}
-                        />
-
+                        setDateToSearch={(date) => this.setState({dateTo: date})}/>
                   </FormGroup>
 
                   <FormGroup className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
-
                       <button className="search-button">Szukaj</button>
-
                   </FormGroup>
-
-
-
               </form>
             </Grid>
-              )
+            )
         }
     }
 )
-
-
-
