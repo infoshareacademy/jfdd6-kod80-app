@@ -1,74 +1,33 @@
 import React from 'react';
-import {connect} from 'react-redux'
 
-import {Grid, Table, Alert, Image} from 'react-bootstrap'
-
-import {fetchConcertAttenders} from '../state/concert_attenders'
+import {Grid, Table, Alert, Image, Jumbotron} from 'react-bootstrap'
 
 class UsersView extends React.Component {
 
-  componentWillMount() {
-    this.props.fetchConcertAttenders('ABC1', 1)
-  }
-
-
   render() {
 
-    const {users}= this.props
-console.log('sdf');
+    const {
+      users,
+      concertAttenders
+      }= this.props
+
+    const concertAttendersNapis =  concertAttenders
+      ? concertAttenders.length > 0
+        ? concertAttenders.length == 1
+          ? <h2>Na koncert zapisała się <strong> {concertAttenders.length} </strong> osoba!</h2>
+          :<h2>Na koncert zapisały się już <strong> {concertAttenders.length} </strong> osoby!</h2>
+        : <h2>Bądź pierwszy. Zapisz się na koncert</h2>
+      : null
+
     return (
       <Grid>
-
-        <div>
-          {
-            users.fetching ?
-              <Alert bsStyle="warning">
-                <strong>Fetching users!</strong>
-              </Alert> : null
-          }
-          {
-            users.error ?
-              <Alert bsStyle="danger">
-                <strong>{users.error}</strong>
-              </Alert> : null
-          }
-        </div>
-
-        <div className="row">
-          <div className="col-xs-12">
-            <h2>Uczestnicy wydarzenia</h2>
-            <Table striped>
-              <tbody>
-              {
-                users.data ?
-                  users.data.map(
-                    user => (
-                      <tr key={user.id}>
-                        <td>
-                          <dl>
-                            <dd><Image src={user.avatar} circle alt={user.band}/></dd>
-                            <dd>{user.name}</dd>
-                          </dl>
-                        </td>
-                      </tr>
-                    )
-                  ) : null
-              }
-              </tbody>
-            </Table>
-          </div>
-        </div>
+      <Jumbotron>
+        {concertAttendersNapis}
+      </Jumbotron>
       </Grid>
     )
-  }
+  };
 }
 
-export default connect(
-  state => ({
-    users: state.users
-  }),
-  dispatch => ({
-    fetchConcertAttenders: (accessToken, itemId) => dispatch(fetchConcertAttenders( accessToken, itemId)),
-  })
-)(UsersView)
+export default UsersView
 
