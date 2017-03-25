@@ -11,7 +11,7 @@ import {fetchRestaurants} from '../state/restaurants'
 import {fetchTaxis} from '../state/taxis'
 import {fetchSession} from '../state/session'
 import {fetchUsers} from '../state/users'
-import {logOut} from '../state/logout'
+import {logOut} from '../state/session'
 
 import '../styles/style-form-login-view.css'
 
@@ -45,6 +45,9 @@ class App extends React.Component {
               </div>
               <p>Zaloguj się, aby móc wyszukać interesujący Cię koncert oraz sprawdzić atrakcje znajdujące się w jego
                  okolicy.</p>
+
+            <p>Zaloguj się, aby móc wyszukać interesujący Cię koncert oraz sprawdzić atrakcje znajdujące się w jego
+              okolicy.</p>
 
             <div className="form-login">
               <form onSubmit={(event) => {
@@ -91,6 +94,8 @@ class App extends React.Component {
                 <LinkContainer to="/moje-konto">
                   <NavItem href="#">Moje konto</NavItem>
                 </LinkContainer>
+                <LinkContainer onClick={() => this.props.logOut(this.props.session.data.id)}  to="/">
+                  <NavItem>Wyloguj</NavItem>
                 <LinkContainer to="/"  onClick={() => this.props.logOut()}>
                   <NavItem>Wyloguj</NavItem>
                 </LinkContainer>
@@ -116,6 +121,6 @@ export default connect(
     fetchTaxis: () => dispatch(fetchTaxis()),
     fetchSessionLogin: (username, password) => dispatch(fetchSession(username, password)),
     fetchUsers: () => dispatch(fetchUsers()),
-    logOut: () => dispatch(logOut())
+    logOut: (accessToken) => dispatch(logOut(accessToken))
   })
 )(App)
