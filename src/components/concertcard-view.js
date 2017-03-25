@@ -55,6 +55,10 @@ render() {
           <AttractionsView concertId={parseInt(this.props.params.concertId, 10)}/>
         </div>
       )
+      );
+      const concertUsersTab = (
+        <ConcertUsersView />
+      );
 
       const {
         session,
@@ -65,6 +69,8 @@ render() {
       const concertUsersTab = (
         <ConcertUsersView concertAttenders={concertAttenders.data}/>
       )
+        // favoriteConcerts
+      } = this.props;
 
       return (
         <Grid>

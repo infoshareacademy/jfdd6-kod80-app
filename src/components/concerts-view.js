@@ -23,12 +23,20 @@ export default connect(
       } = this.props;
 
       return (
-        <Grid>
-          <SearchInputCreator/>
-          <div className="concerts-result-view">
+        <div className="page-body">
+          <Grid>
+            <div className="info-about-page">
+              <p>
+                <span> Witaj w  SoundTrip! </span>
+              </p>
 
-            <h1>Dostępne koncerty</h1>
+              <p> Wyszukaj koncert wpisując w wyszukiwarce rodzaj interesującej Cię muzyki, nazwę zespołu lub datę koncertu</p>
+            </div>
 
+            <SearchInputCreator/>
+
+            <div className="concerts-result-view">
+              <h1>Dostępne koncerty</h1>
             {
               concerts.fetching ?
                 <Alert bsStyle="warning">
@@ -41,7 +49,6 @@ export default connect(
                   <strong>{concerts.error}</strong>
                 </Alert> : null
             }
-
             {
               concerts.data ?
                 concerts.data
@@ -49,32 +56,38 @@ export default connect(
                   .sort(sortConcertByDate)
                   .map(
                     (concert, index) => (
+              <Link to={'/koncerty/' + concert.id}
+                    key={concert.id}
+                    className="top-link-to-concert-card">
 
-                      <div className="concerts-view"
-                           key={concert.id}>
+                  <div className="concerts-view"
+                     key={concert.id}>
 
-                        <div className="band-images">
-                          <Image src={"data/images/" + concert.bandImages}
-                                 alt="zdjęcie zespołu"/>
-                        </div>
-
-                        <div className="about-concert">
-                          <h1> {concert.band} </h1>
-                          <span>{concert.typeOfMusic}</span>
-                          <p>{concert.date} </p>
-                          <p>{concert.place}{'/'}{concert.city}</p>
-                        </div>
-
-                        <Link to={'/koncerty/' + concert.id} className="link-to-concert-card" key={concert.id}>
-                          zobacz szczegóły
-                        </Link>
-
+                      <div className="band-images">
+                        <Image src={"data/images/" + concert.bandImages}
+                               alt="zdjęcie zespołu"/>
                       </div>
-                    )
-                  ) : null
+
+                      <div className="about-concert">
+                        <h1> {concert.band} </h1>
+
+                        <span>{concert.typeOfMusic}</span>
+
+                        <p>{concert.date} </p>
+
+                        <p>{concert.place}{' / '}{concert.city}</p>
+                      </div>
+
+                      <Link to={'/koncerty/' + concert.id} className="link-to-concert-card" key={concert.id}> zobacz szczegóły</Link>
+
+                  </div>
+              </Link>
+                )
+              ) : null
             }
-          </div>
-        </Grid>
+            </div>
+          </Grid>
+        </div>
       )
     }
   }
