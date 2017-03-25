@@ -143,14 +143,16 @@ export default connect(
       const myAccountTab = (  <div className="table-view">
         <Media>
           <Media.Left>
-            <img width={210} height={190} src={require('../images/login-view.png')} alt="soundtrip-user"/>
+            <img width={210} height={190} src={require('../images/soundtrip-user.jpg')} alt="soundtrip-user"/>
           </Media.Left>
           <Media.Body>
             <ListGroup>
               <ListGroupItem header="Imię">{userName}</ListGroupItem>
               <ListGroupItem header="E-mail">{userEmail}</ListGroupItem>
+              <ListGroupItem header="Powrót do strony głownej"><Link to={'/'}> Wróc </Link> </ListGroupItem>
 
-            </ListGroup>          </Media.Body>
+            </ListGroup>
+          </Media.Body>
         </Media>
       </div>);
 

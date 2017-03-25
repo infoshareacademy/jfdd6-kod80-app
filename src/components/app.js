@@ -81,7 +81,7 @@ class App extends React.Component {
             <Navbar.Header>
               <Navbar.Brand>
                 <Link to="/">
-                  <img width={160} height={35} src={require('../images/logo-soundtrip.png')} alt="soundtrip-user"/>
+                  <img width={160} height={35} src={require('../images/logo-soundtrip.png')} alt="soundtrip-logo"/>
                 </Link>
               </Navbar.Brand>
               <Navbar.Toggle />
