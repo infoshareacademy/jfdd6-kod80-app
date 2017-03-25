@@ -43,7 +43,7 @@ export default connect(
 
       const concertAttractionsTab = (
         <div>
-          <h2>W promieniu {this.props.distanceFromGoal} km możesz znaleźć...</h2>
+          <h2>W promieniu do {this.props.distanceFromGoal} km możesz znaleźć...</h2>
 
           <HorizontalSlider
             value={this.props.distanceFromGoal}
