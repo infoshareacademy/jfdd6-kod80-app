@@ -14,8 +14,8 @@ const datePicker = React.createClass({
 
   getInitialState: function() {
     return {
-      startDate: moment(),
-      endDate: moment()
+      startDate: null,
+      endDate: null
     };
   },
 
