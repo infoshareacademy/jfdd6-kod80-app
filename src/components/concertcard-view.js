@@ -88,7 +88,7 @@ export default connect(
                                 bsStyle="primary"
                                 bsSize="medium"
                                 onClick={() => this.props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
-                                Nie idę na koncert
+                                Rezygnuje z koncertu
                               </Button> :
                               <Button
                                 bsStyle="success"
