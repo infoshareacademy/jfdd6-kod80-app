@@ -36,6 +36,7 @@ export default connect(
     componentWillMount() {
       const {session} = this.props
       this.props.fetchConcertAttenders(session.data.id, this.props.params.concertId)
+      this.props.fetchFavoriteConcerts(session.data.id, session.data.userId)
     }
 
 
@@ -80,8 +81,6 @@ render() {
                       <div className="col-xs-12 col-md-4">
                         <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
                         <div>
-                          <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
-
                           {
                             (this.props.attendConcertId.includes(concert.id)) ?
                               <Button

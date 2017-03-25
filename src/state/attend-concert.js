@@ -55,8 +55,6 @@ const deleteConcert = (favId, userId, accessToken) => fetch(
     }
   })
 
-
-
 export const leaveConcert = (favId, userId, accessToken, injectedFetch = fetch) => dispatch =>  injectedFetch(
    deleteConcert(favId,  userId, accessToken)
   ).then(
