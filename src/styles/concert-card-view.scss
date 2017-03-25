@@ -1,0 +1,44 @@
+.concert-card {
+  padding: 5% 0;
+
+  .info-about-band {
+    color: #333333;
+    >h1 {
+      color: #fa3729;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 3rem;
+      margin: 0;
+      padding-bottom: 3%;
+    }
+
+    >p {
+      text-align: justify;
+    }
+
+  }
+
+  .info-about-concert {
+    color: #333333;
+    text-align: right;
+
+    button {
+      color: white;
+      min-width: 150px;
+      min-height: 40px;
+      background-color: #4f4f4f;
+      border-radius: 0;
+      background-image: none;
+      margin: 1%;
+      &:hover {
+        background-color: #fa3729;
+      }
+      &.go-concert:active {
+        background-color: #fa3729;
+      }
+
+    }
+  }
+}
+
+

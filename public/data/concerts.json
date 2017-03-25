@@ -2,14 +2,15 @@
   {
     "id": 1,
     "band": "Piotr Rubik",
-    "typeOfMusic": "Classic",
+    "typeOfMusic": "Pop",
     "city": "Gdańsk",
     "place": "Klub B90",
     "date": "16/06/2017",
     "latitude": "54.3641295",
     "longitude": "18.6478889",
     "ticketPrice": "800 złotych",
-    "bandImages": "piotr-rubik.jpg"
+    "bandImages": "piotr-rubik.jpg",
+    "bandInfo": "Polski kompozytor muzyki filmowej i teatralnej, producent muzyczny oraz prezenter telewizyjny. W wieku siedmiu lat zaczął się uczyć grać na wiolonczeli w klasie Jerzego Ługiewicza. Po ukończeniu tej szkoły dostał się do liceum muzycznego, gdzie kontynuował naukę gry na wiolonczeli pod kierownictwem prof. Andrzeja Zielińskiego, który prowadził go do ukończenia Akademii Muzycznej im. Fryderyka Chopina w Warszawie."
   },
   {
     "id": 2,
@@ -21,7 +22,8 @@
     "latitude": "54.3477652",
     "longitude": "18.6489656",
     "ticketPrice": "100 złotych",
-    "bandImages": "queen.jpg"
+    "bandImages": "queen.jpg",
+    "bandInfo": "Queen – brytyjski zespół rockowy utworzony w 1970 w Londynie przez Briana Maya, Rogera Taylora i Freddiego Mercury’ego. Basista John Deacon dołączył do grupy rok później. Muzyka Queen odznacza się różnorodnością brzmienia, sprawiającą, że zespół trudno jest przypisać do konkretnego stylu. Większość utworów nosi cechy rocka i jego odmian (hard rock, rock progresywny) oraz, w pewnym stopniu, muzyki pop. Charakterystyczną cechą zespołu są też wielowarstwowe aranżacje, harmonie wokalne oraz aktywny udział publiczności podczas koncertów. W 2001 grupa Queen została wprowadzona do Rock and Roll Hall of Fame w USA, a 11 listopada 2004 do Hall of Fame w Wielkiej Brytanii. W 2007 Queen została wybrana najlepszą brytyjską grupą wszech czasów przez słuchaczy BBC Radio 2."
   },
   {
     "id": 3,
@@ -33,7 +35,8 @@
     "latitude": "54.3907065",
     "longitude": "18.6385357",
     "ticketPrice": "200 złotych",
-    "bandImages": "pink-floyd.jpg"
+    "bandImages": "pink-floyd.jpg",
+    "bandInfo": "Angielski zespół rockowy założony w 1965 roku w Londynie. Ich twórczość, początkowo klasyfikowana jako rock psychodeliczny, w późniejszych latach nabrała cech rocka progresywnego. Grupa znana jest z filozoficznie zabarwionych tekstów piosenek, eksperymentów z dźwiękiem, innowacyjnego podejścia do kwestii grafiki w albumach oraz rozbudowanych występów koncertowych. Sprzedali na całym świecie ponad 250 milionów albumów (z tego ok. 74,5 miliona w samych Stanach Zjednoczonych), co czyni ich jedną z najlepiej sprzedających się grup muzycznych w historii."
   },
   {
     "id": 4,
@@ -45,7 +48,8 @@
     "latitude": "54.42559",
     "longitude": "18.5840682",
     "ticketPrice": "150 złotych",
-    "bandImages": "deep-purple.jpg"
+    "bandImages": "deep-purple.jpg",
+    "bandInfo": "Deep Purple to jeden z najpopularniejszych zespołów w historii muzyki rockowej. Grupa przez kilkadziesiąt lat swojej działalności wylansowała wiele przebojów, które weszły do klasyki gatunku. Muzyka Deep Purple wywarła olbrzymi wpływ na późniejsze gwiazdy rocka i metalu. Wśród wielu artystów przyznających się do fascynacji zespołem można wskazać choćby Metallikę."
   },
   {
     "id": 5,
@@ -57,7 +61,8 @@
     "latitude": "54.3641295",
     "longitude": "18.6478889",
     "ticketPrice": "250 złotych",
-    "bandImages": "queen.jpg"
+    "bandImages": "queen.jpg",
+    "bandInfo": "Queen – brytyjski zespół rockowy utworzony w 1970 w Londynie przez Briana Maya, Rogera Taylora i Freddiego Mercury’ego. Basista John Deacon dołączył do grupy rok później. Muzyka Queen odznacza się różnorodnością brzmienia, sprawiającą, że zespół trudno jest przypisać do konkretnego stylu. Większość utworów nosi cechy rocka i jego odmian (hard rock, rock progresywny) oraz, w pewnym stopniu, muzyki pop. Charakterystyczną cechą zespołu są też wielowarstwowe aranżacje, harmonie wokalne oraz aktywny udział publiczności podczas koncertów. W 2001 grupa Queen została wprowadzona do Rock and Roll Hall of Fame w USA, a 11 listopada 2004 do Hall of Fame w Wielkiej Brytanii. W 2007 Queen została wybrana najlepszą brytyjską grupą wszech czasów przez słuchaczy BBC Radio 2."
   },
   {
     "id": 6,
@@ -69,7 +74,8 @@
     "latitude": "54.3477652",
     "longitude": "18.6489656",
     "ticketPrice": "50 złotych",
-    "bandImages": "deep-purple.jpg"
+    "bandImages": "deep-purple.jpg",
+    "bandInfo": "Deep Purple to jeden z najpopularniejszych zespołów w historii muzyki rockowej. Grupa przez kilkadziesiąt lat swojej działalności wylansowała wiele przebojów, które weszły do klasyki gatunku. Muzyka Deep Purple wywarła olbrzymi wpływ na późniejsze gwiazdy rocka i metalu. Wśród wielu artystów przyznających się do fascynacji zespołem można wskazać choćby Metallikę."
   },
   {
     "id": 7,
@@ -81,19 +87,21 @@
     "latitude": "54.3907065",
     "longitude": "18.6385357",
     "ticketPrice": "110 złotych",
-    "bandImages": "bon-jovi.jpg"
+    "bandImages": "bon-jovi.jpg",
+    "bandInfo": "Bon Jovi to amerykańska grupa, na której czele stoi Jon Bon Jovi. Przez ponad 30 lat działalności grupa sprzedała ponad 13 milionów płyt i zagrała ponad 2700 koncertów.  Do największych hitów Bon Jovi należą 'You Give Love A Bad Name' i 'Livin' on a Prayer'."
   },
   {
     "id": 8,
     "band": "Piotr Rubik",
-    "typeOfMusic": "Classic",
+    "typeOfMusic": "Pop",
     "city": "Gdańsk",
     "place": "Ergo Arena",
     "date": "25/03/2017",
     "latitude": "54.42559",
     "longitude": "18.5840682",
     "ticketPrice": "90 złotych",
-    "bandImages": "piotr-rubik.jpg"
+    "bandImages": "piotr-rubik.jpg",
+    "bandInfo": "Polski kompozytor muzyki filmowej i teatralnej, producent muzyczny oraz prezenter telewizyjny. W wieku siedmiu lat zaczął się uczyć grać na wiolonczeli w klasie Jerzego Ługiewicza. Po ukończeniu tej szkoły dostał się do liceum muzycznego, gdzie kontynuował naukę gry na wiolonczeli pod kierownictwem prof. Andrzeja Zielińskiego, który prowadził go do ukończenia Akademii Muzycznej im. Fryderyka Chopina w Warszawie."
   },
   {
     "id": 9,
@@ -105,7 +113,8 @@
     "latitude": "54.3641295",
     "longitude": "18.6478889",
     "ticketPrice": "150 złotych",
-    "bandImages": "bon-jovi.jpg"
+    "bandImages": "bon-jovi.jpg",
+    "bandInfo": "Bon Jovi to amerykańska grupa, na której czele stoi Jon Bon Jovi. Przez ponad 30 lat działalności grupa sprzedała ponad 13 milionów płyt i zagrała ponad 2700 koncertów.  Do największych hitów Bon Jovi należą 'You Give Love A Bad Name' i 'Livin' on a Prayer'."
   },
   {
     "id": 10,
@@ -117,19 +126,21 @@
     "latitude": "54.3477652",
     "longitude": "18.6489656",
     "ticketPrice": "300 złotych",
-    "bandImages": "pink-floyd.jpg"
+    "bandImages": "pink-floyd.jpg",
+    "bandInfo": "Angielski zespół rockowy założony w 1965 roku w Londynie. Ich twórczość, początkowo klasyfikowana jako rock psychodeliczny, w późniejszych latach nabrała cech rocka progresywnego. Grupa znana jest z filozoficznie zabarwionych tekstów piosenek, eksperymentów z dźwiękiem, innowacyjnego podejścia do kwestii grafiki w albumach oraz rozbudowanych występów koncertowych. Sprzedali na całym świecie ponad 250 milionów albumów (z tego ok. 74,5 miliona w samych Stanach Zjednoczonych), co czyni ich jedną z najlepiej sprzedających się grup muzycznych w historii."
   },
   {
     "id": 11,
     "band": "Piotr Rubik",
-    "typeOfMusic": "Classic",
+    "typeOfMusic": "Pop",
     "city": "Gdańsk",
     "place": "Stadion ENERGA",
     "date": "10/11/2017",
     "latitude": "54.3907065",
     "longitude": "18.6385357",
     "ticketPrice": "100 złotych",
-    "bandImages": "piotr-rubik.jpg"
+    "bandImages": "piotr-rubik.jpg",
+    "bandInfo": "Polski kompozytor muzyki filmowej i teatralnej, producent muzyczny oraz prezenter telewizyjny. W wieku siedmiu lat zaczął się uczyć grać na wiolonczeli w klasie Jerzego Ługiewicza. Po ukończeniu tej szkoły dostał się do liceum muzycznego, gdzie kontynuował naukę gry na wiolonczeli pod kierownictwem prof. Andrzeja Zielińskiego, który prowadził go do ukończenia Akademii Muzycznej im. Fryderyka Chopina w Warszawie."
   },
   {
     "id": 12,
@@ -141,7 +152,8 @@
     "latitude": "54.42559",
     "longitude": "18.5840682",
     "ticketPrice": "230 złotych",
-    "bandImages": "ed-sheeran.jpg"
+    "bandImages": "ed-sheeran.jpg",
+    "bandInfo": "Ed Sheeran urodził się 17 lutego 1991 roku w Hebden Bridge, handlowym mieście w Calderdale w West Yorkshire. W 2005 roku nagrywał swoje pierwsze utwory, trzy lata później przeniósł się do Londynu, by móc dalej rozwijać karierę muzyczną. W czerwcu 2011 roku wydał swój pierwszy singel – 'The A Team', który zadebiutował na trzecim miejscu brytyjskiej listy przebojów. Na fali sukcesów singli 'The A Team' i „Lego House” jego debiutancki album, zatytułowany +, uzyskał w kraju status czterokrotnej platynowej płyty, rozchodząc się w ponad 1,2 miliona egzemplarzy. W 2012 roku zdobył dwie nagrody Brit Awards w kategoriach 'Najlepszy artysta' oraz 'Najlepszy przełomowy wykonawca', a za utwór 'The A Team' otrzymał nagrodę Ivor Novello Awards."
   },
   {
     "id": 13,
@@ -153,7 +165,8 @@
     "latitude": "54.3641295",
     "longitude": "18.6478889",
     "ticketPrice": "180 złotych",
-    "bandImages": "deep-purple.jpg"
+    "bandImages": "deep-purple.jpg",
+    "bandInfo": "Deep Purple to jeden z najpopularniejszych zespołów w historii muzyki rockowej. Grupa przez kilkadziesiąt lat swojej działalności wylansowała wiele przebojów, które weszły do klasyki gatunku. Muzyka Deep Purple wywarła olbrzymi wpływ na późniejsze gwiazdy rocka i metalu. Wśród wielu artystów przyznających się do fascynacji zespołem można wskazać choćby Metallikę."
   },
   {
     "id": 14,
@@ -165,7 +178,8 @@
     "latitude": "54.3477652",
     "longitude": "18.6489656",
     "ticketPrice": "190 złotych",
-    "bandImages": "deep-purple.jpg"
+    "bandImages": "deep-purple.jpg",
+    "bandInfo": "Deep Purple to jeden z najpopularniejszych zespołów w historii muzyki rockowej. Grupa przez kilkadziesiąt lat swojej działalności wylansowała wiele przebojów, które weszły do klasyki gatunku. Muzyka Deep Purple wywarła olbrzymi wpływ na późniejsze gwiazdy rocka i metalu. Wśród wielu artystów przyznających się do fascynacji zespołem można wskazać choćby Metallikę."
   },
   {
     "id": 15,
@@ -177,7 +191,8 @@
     "latitude": "54.3907065",
     "longitude": "18.6385357",
     "ticketPrice": "280 złotych",
-    "bandImages": "coldplay.jpg"
+    "bandImages": "coldplay.jpg",
+    "bandInfo": "Zespół powstał w 1996 roku przez 4 przyjaciół. Poznali się w londyńskim collegu.W 1998 roku ustalił się skład zespołu i zaczęły się pierwsze próby. Zespół Coldplay charakteryzuje się niesamowitym głosem wokalisty Chrisa Martina. W lipcu 2000 roku odbyła się premiera płyty Parachutes. Ta debiutancka płyta wstrząsnęła fanami zespołu. Już w ciągu kilku dni sprzedało się 70 tysięcy kopii tej płyty.W 2001 roku Coldplay zdobywało niezwykłe nagrody. Wśród nich nagroda Grammy dla Parachutes za najlepszy album alternatywny."
   },
   {
     "id": 16,
@@ -189,7 +204,8 @@
     "latitude": "54.42559",
     "longitude": "18.5840682",
     "ticketPrice": "150 złotych",
-    "bandImages": "radiohead.jpg"
+    "bandImages": "radiohead.jpg",
+    "bandInfo": "Zespół Radiohead został założony w 1986 roku w Abingdon w hrabstwie Oxfordshire w Anglii przez Thoma Yorke'a, Eda O’Briena, Phila Selway'a oraz Colina i Jonny'ego Greenwoodów. Wszyscy znali się ze szkoły Abingdon School, do której uczęszczali. Pierwsza nazwa zespołu brzmiała On A Friday - członkowie wybrali taką nazwę, ponieważ jedynie w piątki mieli czas na spotkanie i grę razem. Swój pierwszy występ dali pod koniec 1986 roku w klubie Jericho Tavern w Oksfordzie. Jonny Greenwood, który początkowo w zespole grał na keyboardzie, został głównym gitarzystą."
   },
   {
     "id": 17,
@@ -201,7 +217,8 @@
     "latitude": "54.3641295",
     "longitude": "18.6478889",
     "ticketPrice": "180 złotych",
-    "bandImages": "deep-purple.jpg"
+    "bandImages": "deep-purple.jpg",
+    "bandInfo": "Deep Purple to jeden z najpopularniejszych zespołów w historii muzyki rockowej. Grupa przez kilkadziesiąt lat swojej działalności wylansowała wiele przebojów, które weszły do klasyki gatunku. Muzyka Deep Purple wywarła olbrzymi wpływ na późniejsze gwiazdy rocka i metalu. Wśród wielu artystów przyznających się do fascynacji zespołem można wskazać choćby Metallikę."
   },
   {
     "id": 18,
@@ -213,7 +230,8 @@
     "latitude": "54.3477652",
     "longitude": "18.6489656",
     "ticketPrice": "100 złotych",
-    "bandImages": "ed-sheeran.jpg"
+    "bandImages": "ed-sheeran.jpg",
+    "bandInfo": "Zespół Radiohead został założony w 1986 roku w Abingdon w hrabstwie Oxfordshire w Anglii przez Thoma Yorke'a, Eda O’Briena, Phila Selway'a oraz Colina i Jonny'ego Greenwoodów. Wszyscy znali się ze szkoły Abingdon School, do której uczęszczali. Pierwsza nazwa zespołu brzmiała On A Friday - członkowie wybrali taką nazwę, ponieważ jedynie w piątki mieli czas na spotkanie i grę razem. Swój pierwszy występ dali pod koniec 1986 roku w klubie Jericho Tavern w Oksfordzie. Jonny Greenwood, który początkowo w zespole grał na keyboardzie, został głównym gitarzystą."
   },
   {
     "id": 19,
@@ -225,7 +243,8 @@
     "latitude": "54.3907065",
     "longitude": "18.6385357",
     "ticketPrice": "130 złotych",
-    "bandImages": "radiohead.jpg"
+    "bandImages": "radiohead.jpg",
+    "bandInfo": "Zespół Radiohead został założony w 1986 roku w Abingdon w hrabstwie Oxfordshire w Anglii przez Thoma Yorke'a, Eda O’Briena, Phila Selway'a oraz Colina i Jonny'ego Greenwoodów. Wszyscy znali się ze szkoły Abingdon School, do której uczęszczali. Pierwsza nazwa zespołu brzmiała On A Friday - członkowie wybrali taką nazwę, ponieważ jedynie w piątki mieli czas na spotkanie i grę razem. Swój pierwszy występ dali pod koniec 1986 roku w klubie Jericho Tavern w Oksfordzie. Jonny Greenwood, który początkowo w zespole grał na keyboardzie, został głównym gitarzystą."
   },
   {
     "id": 20,
@@ -237,7 +256,8 @@
     "latitude": "54.42559",
     "longitude": "18.5840682",
     "ticketPrice": "200 złotych",
-    "bandImages": "deep-purple.jpg"
+    "bandImages": "deep-purple.jpg",
+    "bandInfo": "Deep Purple to jeden z najpopularniejszych zespołów w historii muzyki rockowej. Grupa przez kilkadziesiąt lat swojej działalności wylansowała wiele przebojów, które weszły do klasyki gatunku. Muzyka Deep Purple wywarła olbrzymi wpływ na późniejsze gwiazdy rocka i metalu. Wśród wielu artystów przyznających się do fascynacji zespołem można wskazać choćby Metallikę."
   },
   {
     "id": 21,
@@ -249,7 +269,8 @@
     "latitude": "54.3641295",
     "longitude": "18.6478889",
     "ticketPrice": "190 złotych",
-    "bandImages": "bob-sinclar.jpg"
+    "bandImages": "bob-sinclar.jpg",
+    "bandInfo": "Bob Sinclar czyli francuski DJ Christophe Le Friant, urodził się w 1973 roku w Paryżu, gdzie wychowywał się w dzielnicy Le Marais. Znany jest przede wszystkim z takich utworów jak: 'Gymtonic', 'The Ghetto', 'I Feel For You' i 'Sexy Dancer'. Jest jednym z prekursorów francuskich brzmień muzyki techno oraz DJ-em znanym na całym świecie."
   },
   {
     "id": 22,
@@ -261,7 +282,8 @@
     "latitude": "54.3477652",
     "longitude": "18.6489656",
     "ticketPrice": "200 złotych",
-    "bandImages": "bruno-mars.jpg"
+    "bandImages": "bruno-mars.jpg",
+    "bandInfo": "Bruno Mars, właściwie Peter Gene Hernandez – amerykański piosenkarz filipińskiego i portorykańskiego pochodzenia, producent muzyczny i autor tekstów. Wychowany na Hawajach, 24 - letni artysta. Dlaczego Bruno Mars? Bruno pochodzi od Bruna Sammartino - włoskiego wrestlera, a Mars od nazwy planety. Jak artysta wyjaśnia: 'W czasach szkolnych czułem się mało przebojowy, dużo dziewczyn mówiło, że nie jestem z tego świata, więc mówiłem że jestem z Marsa'."
   },
   {
     "id": 23,
@@ -273,6 +295,7 @@
     "latitude": "54.3477652",
     "longitude": "18.6489656",
     "ticketPrice": "200 złotych",
-    "bandImages": "metallica.jpg"
+    "bandImages": "metallica.jpg",
+    "bandInfo": "Amerykański zespół założony w Los Angeles w 1981 roku przez Jamesa Hetfielda i Larsa Ulricha. Uważany za jeden z najważniejszych, najbardziej wpływowych zespołów metalowych lat 80. XX wieku, w latach 90. ubiegłego stulecia za najbardziej dochodowy zespół metalowy, a także za jeden z najpopularniejszych i najwybitniejszych zespołów metalowych w dziejach. Jest formacją heavymetalową z największą liczbą sprzedanych wydawnictw muzycznych w historii."
   }
 ]
