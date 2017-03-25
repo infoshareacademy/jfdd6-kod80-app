@@ -34,7 +34,7 @@ export default connect(
 
     componentWillMount() {
       const {session} = this.props
-      this.props.fetchConcertAttenders(session.data.id, session.params.concertId)
+      //this.props.fetchConcertAttenders(session.data.id, session.params.concertId)
     }
 
 
