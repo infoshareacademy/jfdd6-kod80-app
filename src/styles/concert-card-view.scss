@@ -1,5 +1,6 @@
-.concert-card {
+.page-concert-card {
   padding: 5% 0;
+
 
   .info-about-band {
     color: #333333;
@@ -30,15 +31,29 @@
       border-radius: 0;
       background-image: none;
       margin: 1%;
-      &:hover {
+      outline-color: transparent;
+      &.go-concert {
         background-color: #fa3729;
       }
-      &.go-concert:active {
-        background-color: #fa3729;
+      &.no-go-concert {
+        background-color: #34217f;
       }
-
     }
   }
 }
 
+@media screen and (max-width: 768px){
+  .concert-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .info-about-band {
+      width: 70%;
+      padding: 2% 0;
+    }
+    .info-about-concert {
+      text-align: left;
+    }
+  }
+}
 

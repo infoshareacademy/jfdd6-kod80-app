@@ -1,30 +1,42 @@
-.concert-card {
+.page-concert-card {
   padding: 5% 0; }
-  .concert-card .info-about-band {
+  .page-concert-card .info-about-band {
     color: #333333; }
-    .concert-card .info-about-band > h1 {
+    .page-concert-card .info-about-band > h1 {
       color: #fa3729;
       text-align: center;
       text-transform: uppercase;
       font-size: 3rem;
       margin: 0;
       padding-bottom: 3%; }
-    .concert-card .info-about-band > p {
+    .page-concert-card .info-about-band > p {
       text-align: justify; }
-  .concert-card .info-about-concert {
+  .page-concert-card .info-about-concert {
     color: #333333;
     text-align: right; }
-    .concert-card .info-about-concert button {
+    .page-concert-card .info-about-concert button {
       color: white;
       min-width: 150px;
       min-height: 40px;
       background-color: #4f4f4f;
       border-radius: 0;
       background-image: none;
-      margin: 1%; }
-      .concert-card .info-about-concert button:hover {
+      margin: 1%;
+      outline-color: transparent; }
+      .page-concert-card .info-about-concert button.go-concert {
         background-color: #fa3729; }
-      .concert-card .info-about-concert button.go-concert:active {
-        background-color: #fa3729; }
+      .page-concert-card .info-about-concert button.no-go-concert {
+        background-color: #34217f; }
+
+@media screen and (max-width: 768px) {
+  .concert-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .concert-card .info-about-band {
+      width: 70%;
+      padding: 2% 0; }
+    .concert-card .info-about-concert {
+      text-align: left; } }
 
 /*# sourceMappingURL=concert-card-view.css.map */

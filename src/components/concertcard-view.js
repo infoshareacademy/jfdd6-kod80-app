@@ -67,7 +67,8 @@ render() {
 
       return (
         <Grid>
-          <div className="row">
+            <div className="container-fluid"></div>
+          <div className="row page-concert-card">
             {
               this.props.concerts.data ?
                 this.props.concerts.data.filter(
@@ -79,26 +80,22 @@ render() {
 
                     <div className="concert-card">
 
-                        <div className="col-xs-12 col-md-3">
-
-
-
+                        <div className="col-sm-6 col-md-3">
 
                             <Image src={"/data/images/" + concert.bandImages}/>
-
 
 
                         </div>
 
 
 
-                        <div className="col-xs-12 col-md-5 col-md-offset-1 info-about-band" >
+                        <div className="col-sm-6 col-md-5 col-md-offset-1 info-about-band" >
                             <h1>{concert.band}</h1>
                             <p>{concert.bandInfo}</p>
                         </div>
 
 
-                        <div className="col-xs-12 col-md-3 info-about-concert">
+                        <div className="col-sm-12 col-md-3 info-about-concert">
 
                             <div>
                                <p>Data: {concert.date}</p>
@@ -132,14 +129,6 @@ render() {
             }
 
           </div>
-
-
-
-
-
-
-
-          <hr/>
 
           <div className="row">
             <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
