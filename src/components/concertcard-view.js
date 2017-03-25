@@ -46,7 +46,7 @@ export default connect(
           <h2>W promieniu {this.props.distanceFromGoal} km możesz znaleźć...</h2>
 
           <HorizontalSlider
-            initialValue={this.props.distanceFromGoal}
+            value={this.props.distanceFromGoal}
             max={this.props.maxValue}
             min={this.props.minValue}
             onChange={this.props.changeDistance}
