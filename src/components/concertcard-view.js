@@ -8,8 +8,8 @@ import ConcertUsersView from './concertUsers-view'
 import {attendConcert, leaveConcert} from '../state/attend-concert'
 import HorizontalSlider from './slider-view'
 
-
 import {fetchFavoriteConcerts} from '../state/attend-concert'
+import {fetchConcertAttenders} from '../state/concert_attenders'
 
 export default connect(
   state => ({
@@ -19,13 +19,14 @@ export default connect(
     minValue: state.distanceChanger.minValue,
     attendConcertId: state.attendConcert.attendConcertId,
     session: state.session,
-    favoriteConcerts: state.attendConcert.data
+    concertAttenders: state.concertAttenders
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
     attendConcert: (concertId, userId, accessToken) => dispatch(attendConcert(concertId, userId, accessToken)),
     leaveConcert: (concertId, userId, accessToken) => dispatch(leaveConcert(concertId, userId, accessToken)),
-    fetchFavoriteConcerts: (accessToken, userId) => dispatch(fetchFavoriteConcerts(accessToken, userId))
+    fetchFavoriteConcerts: (accessToken, userId) => dispatch(fetchFavoriteConcerts(accessToken, userId)),
+    fetchConcertAttenders: (accessToken, itemId )=> dispatch( fetchConcertAttenders(accessToken, itemId))
   })
 )(
 
@@ -34,36 +35,38 @@ export default connect(
 
     componentWillMount() {
       const {session} = this.props
+      this.props.fetchConcertAttenders(session.data.id, this.props.params.concertId)
       this.props.fetchFavoriteConcerts(session.data.id, session.data.userId)
+      this.props.changeDistance(1)
     }
 
 
-render() {
+    render() {
 
       const concertAttractionsTab = (
         <div>
           <h2>W promieniu {this.props.distanceFromGoal} km możesz znaleźć...</h2>
 
-        <HorizontalSlider
-          initialValue={this.props.distanceFromGoal}
-          max={this.props.maxValue}
-          min={this.props.minValue}
-          onChangeValue={this.props.changeDistance}
-        />
+          <HorizontalSlider
+            value={this.props.distanceFromGoal}
+            max={this.props.maxValue}
+            min={this.props.minValue}
+            onChange={this.props.changeDistance}
+          />
 
           <AttractionsView concertId={parseInt(this.props.params.concertId, 10)}/>
         </div>
       )
-      const concertUsersTab = (
-        <ConcertUsersView />
-      )
-
 
       const {
         session,
-        favoriteConcerts
-      } = this.props
+        favoriteConcerts,
+        concertAttenders
+        } = this.props
 
+      const concertUsersTab = (
+        <ConcertUsersView concertAttenders={concertAttenders.data}/>
+      )
       return (
         <Grid>
           <div className="row">
@@ -79,15 +82,13 @@ render() {
                       <div className="col-xs-12 col-md-4">
                         <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
                         <div>
-                          <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
-
                           {
                             (this.props.attendConcertId.includes(concert.id)) ?
                               <Button
                                 bsStyle="primary"
                                 bsSize="medium"
                                 onClick={() => this.props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
-                                Nie idę na koncert
+                                Rezygnuje z koncertu
                               </Button> :
                               <Button
                                 bsStyle="success"
