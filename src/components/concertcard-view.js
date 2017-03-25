@@ -35,21 +35,22 @@ export default connect(
     componentWillMount() {
       const {session} = this.props
       this.props.fetchFavoriteConcerts(session.data.id, session.data.userId)
+      this.props.changeDistance(1)
     }
 
 
-render() {
+    render() {
 
       const concertAttractionsTab = (
         <div>
           <h2>W promieniu {this.props.distanceFromGoal} km możesz znaleźć...</h2>
 
-        <HorizontalSlider
-          initialValue={this.props.distanceFromGoal}
-          max={this.props.maxValue}
-          min={this.props.minValue}
-          onChangeValue={this.props.changeDistance}
-        />
+          <HorizontalSlider
+            initialValue={this.props.distanceFromGoal}
+            max={this.props.maxValue}
+            min={this.props.minValue}
+            onChange={this.props.changeDistance}
+          />
 
           <AttractionsView concertId={parseInt(this.props.params.concertId, 10)}/>
         </div>
