@@ -23,8 +23,24 @@ export default connect(
       } = this.props;
 
       return (
+         <div  className="page-body">
         <Grid>
+
+
+          <div className="info-about-page">
+            <p>
+                <span> Witaj w  SoundTrip! </span>
+            </p>
+            <p> Wyszukaj koncert wpisując w wyszukiwarce rodzaj interesującej Cię muzyki, nazwę zespołu lub datę koncertu
+            </p>
+          </div>
+
+
+
+
           <SearchInputCreator/>
+
+
           <div className="concerts-result-view">
 
             <h1>Dostępne koncerty</h1>
@@ -75,6 +91,7 @@ export default connect(
             }
           </div>
         </Grid>
+         </div>
       )
     }
   }

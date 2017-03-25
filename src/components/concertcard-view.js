@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Grid, Table, Button, ProgressBar, Tabs, Tab, Image} from 'react-bootstrap'
+import {Grid, Table, Button, Tabs, Tab, Image} from 'react-bootstrap'
 
 import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
@@ -33,7 +33,7 @@ export default connect(
 
 
     componentWillMount() {
-      const {session} = this.props
+      const {session} = this.props;
       this.props.fetchFavoriteConcerts(session.data.id, session.data.userId)
     }
 
@@ -53,16 +53,16 @@ render() {
 
           <AttractionsView concertId={parseInt(this.props.params.concertId, 10)}/>
         </div>
-      )
+      );
       const concertUsersTab = (
         <ConcertUsersView />
-      )
+      );
 
 
       const {
         session,
-        favoriteConcerts
-      } = this.props
+        // favoriteConcerts
+      } = this.props;
 
       return (
         <Grid>

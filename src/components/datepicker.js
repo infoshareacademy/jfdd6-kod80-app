@@ -4,6 +4,9 @@ var moment = require('moment');
 
 // import {ControlLabel, FormGroup} from 'react-bootstrap'
 
+import '../styles/search-input.css'
+
+
 require('react-datepicker/dist/react-datepicker.css');
 
 // CSS Modules, react-datepicker-cssmodules.css
@@ -51,23 +54,41 @@ const datePicker = React.createClass({
     }
 
     return (
-      <div>
-        <span><strong>od: </strong></span>
+      <div className="datapickerinput">
+        <span>od:</span>
           <DatePicker
             selected={this.state.startDate}
             selectsStart  startDate={this.state.startDate}
             endDate={this.state.endDate}
             onChange={onChangeStart} />
-        <div></div>
-        <span><strong>do: </strong></span>
+
+        <span>do:</span>
           <DatePicker
             selected={this.state.endDate}
             selectsEnd  startDate={this.state.startDate}
             endDate={this.state.endDate}
             onChange={onChangeEnd} />
-        </div>
+      </div>
     )
   }
 });
 
 export default datePicker
+
+
+
+// <div>
+// <span>od:</span>
+// <DatePicker
+//     selected={this.state.startDate}
+//     selectsStart  startDate={this.state.startDate}
+//     endDate={this.state.endDate}
+//     onChange={onChangeStart} />
+// <div></div>
+// <span>do:</span>
+// <DatePicker
+//     selected={this.state.endDate}
+//     selectsEnd  startDate={this.state.startDate}
+//     endDate={this.state.endDate}
+//     onChange={onChangeEnd} />
+// </div>

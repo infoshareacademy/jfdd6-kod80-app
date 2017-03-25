@@ -38,7 +38,7 @@ const store = createStore(
   allReducers,
 
   composeEnhancers(
-    // persistState(['session']),
+    persistState(['session']),
     applyMiddleware(thunk)
   )
 );
