@@ -80,7 +80,7 @@ export default connect(
                       <div className="col-xs-12 col-md-4">
                         <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
                         <div>
-                          <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
+                          <Button className="btn-info" style={{margin: '3px'}}><a href="https://www.facebook.com" style={{color: 'white'}}>Powiadom znajomych</a></Button>
 
                           {
                             (this.props.attendConcertId.includes(concert.id)) ?
