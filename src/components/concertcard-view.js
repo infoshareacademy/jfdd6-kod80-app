@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Grid, Table, Button, ProgressBar, Tabs, Tab, Image} from 'react-bootstrap'
+import {Grid, Table, Button, Tabs, Tab, Image} from 'react-bootstrap'
 
 import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
@@ -19,7 +19,8 @@ export default connect(
     minValue: state.distanceChanger.minValue,
     attendConcertId: state.attendConcert.attendConcertId,
     session: state.session,
-    concertAttenders: state.concertAttenders
+      favoriteConcerts: state.attendConcert.data,
+      concertAttenders: state.concertAttenders
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
@@ -45,7 +46,7 @@ export default connect(
 
       const concertAttractionsTab = (
         <div>
-          <h2>W promieniu {this.props.distanceFromGoal} km możesz znaleźć...</h2>
+          <h2>W promieniu do {this.props.distanceFromGoal} km możesz znaleźć...</h2>
 
           <HorizontalSlider
             value={this.props.distanceFromGoal}
@@ -57,12 +58,18 @@ export default connect(
           <AttractionsView concertId={parseInt(this.props.params.concertId, 10)}/>
         </div>
       )
+      const concertUsersTab = (
+        <ConcertUsersView />
+      )
+
 
       const {
         session,
         favoriteConcerts,
         concertAttenders
         } = this.props
+        // favoriteConcerts
+      } = this.props
 
       const concertUsersTab = (
         <ConcertUsersView concertAttenders={concertAttenders.data}/>
@@ -82,6 +89,8 @@ export default connect(
                       <div className="col-xs-12 col-md-4">
                         <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
                         <div>
+                          <Button className="btn-info" style={{margin: '3px'}}><a href="https://www.facebook.com" style={{color: 'white'}}>Powiadom znajomych</a></Button>
+
                           {
                             (this.props.attendConcertId.includes(concert.id)) ?
                               <Button

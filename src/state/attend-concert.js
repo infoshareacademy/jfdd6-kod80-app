@@ -34,8 +34,8 @@ const deleteConcert = (favId, userId, accessToken) => fetch(
     if (response.ok) {
       return response.json().then(
         data => {
-          console.log(data.filter(favItem => favItem.itemId == favId).map(item => item.id))
-          return data.filter(favItem => favItem.itemId == favId).map(item => item.id)
+          console.log(data.filter(favItem => favItem.itemId === favId).map(item => item.id))
+          return data.filter(favItem => favItem.itemId === favId).map(item => item.id)
         }
       ).then(
         idsTable => idsTable.forEach(
@@ -55,17 +55,9 @@ const deleteConcert = (favId, userId, accessToken) => fetch(
     }
   })
 
-export const leaveConcert = (favId, userId, accessToken, injectedFetch = fetch) => dispatch =>  injectedFetch(
-   deleteConcert(favId,  userId, accessToken)
-  ).then(
-    response => {
-      dispatch(fetchFavoriteConcerts(accessToken, userId))
-      dispatch({
-        type: LEAVE_CONCERT,
-        concertId: favId
-      })
-    }
-  )
+
+
+
 
 
 export const fetchFavoriteConcerts = (accessToken, userId) => dispatch => {
@@ -103,6 +95,18 @@ export const fetchFavoriteConcerts = (accessToken, userId) => dispatch => {
     })
   )
 }
+
+export const leaveConcert = (favId, userId, accessToken, injectedFetch = fetch) => dispatch =>  injectedFetch(
+  deleteConcert(favId,  userId, accessToken)
+).then(
+  response => {
+    dispatch(fetchFavoriteConcerts(accessToken, userId))
+    dispatch({
+      type: LEAVE_CONCERT,
+      concertId: favId
+    })
+  }
+)
 
 const initialState = {
   attendConcertId: [],
