@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 import {Grid, Button, Tabs, Tab, Image} from 'react-bootstrap'
 
 import {changeDistance} from '../state/distance-changer'
@@ -110,7 +111,7 @@ export default connect(
 
                             <div>
                                 <div>
-                                    <Button ><a href="https://www.facebook.com">Powiadom znajomych</a></Button>
+                                    <Link href="https://www.facebook.com" style={{color: 'white'}} target="_blank"><Button >Zaproś</Button></Link>
                                 </div>
                                 <div>
                                 {
