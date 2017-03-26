@@ -16,20 +16,25 @@
 
 .table-head {
   border-top-left-radius: 3px;
-  opacity: 0.8;
   background-color: black;
   font-weight: 400;
   color: white; }
 
+.tabel-background {
+  background: lightgrey;
+  opacity: 0.8; }
+
 .table-body {
   border-radius: 3px;
   font-weight: bold;
-  color: black; }
+  color: black;
+  vertical-align: middle; }
+  .table-body a {
+    color: #fa3729;
+    font-size: medium; }
 
 .table-view {
   border-radius: 3px;
-  opacity: 0.7;
-  background: lightgrey;
   vertical-align: middle; }
 
 .nav {

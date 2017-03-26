@@ -60,6 +60,8 @@ export default connect(
       const favoriteConcertsIds =  favoriteConcerts.data ? favoriteConcerts.data.map(item => item.itemId) : []
 
       const myConcertsTab = (
+
+        <div className="tabel-background">
         <Table stripped className="table-view">
         <thead className="table-head">
         <tr>
@@ -70,7 +72,10 @@ export default connect(
           <th></th>
         </tr>
         </thead>
-        <tbody className = "table-body">
+
+
+        <tbody className="table-body">
+
         {
           concerts.data ?
             concerts.data
@@ -87,7 +92,7 @@ export default connect(
                   </td>
                   <td>{concert.city}</td>
                   <td>{concert.date}</td>
-                  <td className = "td-img">
+                  <td className ="td-img">
                     <Image width={150} height={110} src={"data/images/" + concert.bandImages}
                            alt="zdjęcie zespołu"/> </td>
                 </tr>
@@ -97,10 +102,16 @@ export default connect(
             ) : null
         }
         </tbody>
+
+
       </Table>
+        </div>
+
       );
 
       const pastConcerts = (
+        <div className="tabel-background">
+
         <Table stripped className="table-view">
           <thead className="table-head">
           <tr>
@@ -110,7 +121,7 @@ export default connect(
             <th> </th>
           </tr>
           </thead>
-          <tbody className = "table-body">
+          <tbody className ="table-body">
           {
 
             concerts.data ?
@@ -126,7 +137,7 @@ export default connect(
                     </td>
                     <td>{concert.city}</td>
                     <td>{concert.date}</td>
-                    <td>
+                    <td className="td-img">
                       <Image width={150} height={110} src={"data/images/" + concert.bandImages}
                              alt="zdjęcie zespołu"/> </td>
                   </tr>
@@ -135,6 +146,7 @@ export default connect(
           }
           </tbody>
         </Table>
+        </div>
       );
       const userName = user.data ? user.data.username : null
       const userEmail = user.data ? user.data.email : null

@@ -111,14 +111,14 @@ export default connect(
 
                             <div>
                                 <div>
-                                    <Link href="https://www.facebook.com" style={{color: 'white'}} target="_blank"><Button >Zaproś</Button></Link>
+                                    <Link href="https://www.facebook.com" style={{color: 'white'}} target="_blank"><Button >Zaproś znajomego</Button></Link>
                                 </div>
                                 <div>
                                 {
                                     (this.props.attendConcertId.includes(concert.id)) ?
                                         <Button className="no-go-concert"
                                             onClick={() => this.props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
-                                            Rezygnuje
+                                            Rezygnuję
                                         </Button> :
                                         <Button className="go-concert"
                                             onClick={() => this.props.attendConcert(concert.id, session.data.userId, session.data.id)}>
