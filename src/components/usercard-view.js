@@ -60,6 +60,8 @@ export default connect(
       const favoriteConcertsIds =  favoriteConcerts.data ? favoriteConcerts.data.map(item => item.itemId) : []
 
       const myConcertsTab = (
+
+        <div className="tabel-background">
         <Table stripped className="table-view">
         <thead className="table-head">
         <tr>
@@ -70,7 +72,10 @@ export default connect(
           <th></th>
         </tr>
         </thead>
+
+
         <tbody className = "table-body">
+
         {
           concerts.data ?
             concerts.data
@@ -97,10 +102,16 @@ export default connect(
             ) : null
         }
         </tbody>
+
+
       </Table>
+        </div>
+
       );
 
       const pastConcerts = (
+        <div className="tabel-background">
+
         <Table stripped className="table-view">
           <thead className="table-head">
           <tr>
@@ -135,6 +146,7 @@ export default connect(
           }
           </tbody>
         </Table>
+        </div>
       );
       const userName = user.data ? user.data.username : null
       const userEmail = user.data ? user.data.email : null
