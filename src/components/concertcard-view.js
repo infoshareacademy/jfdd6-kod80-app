@@ -58,18 +58,12 @@ export default connect(
           <AttractionsView concertId={parseInt(this.props.params.concertId, 10)}/>
         </div>
       )
-      const concertUsersTab = (
-        <ConcertUsersView />
-      )
-
 
       const {
         session,
         favoriteConcerts,
         concertAttenders
         } = this.props
-        // favoriteConcerts
-      } = this.props
 
       const concertUsersTab = (
         <ConcertUsersView concertAttenders={concertAttenders.data}/>
@@ -97,7 +91,7 @@ export default connect(
                                 bsStyle="primary"
                                 bsSize="medium"
                                 onClick={() => this.props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
-                                Rezygnuje z koncertu
+                                Rezygnuje
                               </Button> :
                               <Button
                                 bsStyle="success"
