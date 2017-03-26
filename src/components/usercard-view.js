@@ -74,7 +74,7 @@ export default connect(
         </thead>
 
 
-        <tbody className = "table-body">
+        <tbody className="table-body">
 
         {
           concerts.data ?
@@ -92,7 +92,7 @@ export default connect(
                   </td>
                   <td>{concert.city}</td>
                   <td>{concert.date}</td>
-                  <td className = "td-img">
+                  <td className ="td-img">
                     <Image width={150} height={110} src={"data/images/" + concert.bandImages}
                            alt="zdjęcie zespołu"/> </td>
                 </tr>
@@ -121,7 +121,7 @@ export default connect(
             <th> </th>
           </tr>
           </thead>
-          <tbody className = "table-body">
+          <tbody className ="table-body">
           {
 
             concerts.data ?
@@ -137,7 +137,7 @@ export default connect(
                     </td>
                     <td>{concert.city}</td>
                     <td>{concert.date}</td>
-                    <td>
+                    <td className="td-img">
                       <Image width={150} height={110} src={"data/images/" + concert.bandImages}
                              alt="zdjęcie zespołu"/> </td>
                   </tr>
