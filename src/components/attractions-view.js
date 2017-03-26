@@ -122,7 +122,7 @@ export default connect(
                       return attraction.distance < distanceFromGoal
                     }
                   ).sort(
-                    (attraction1, attraction2) => attraction1.distance - attraction2.distance
+                    (attraction1, attraction2) => attraction2.distance - attraction1.distance
                   ).map(
                     attraction => (
                       <tr key={attraction.id}>
@@ -183,7 +183,7 @@ export default connect(
                       return restaurant.distance  < distanceFromGoal
                     }
                   ).sort(
-                    (restaurant1, restaurant2) => restaurant1.distance - restaurant2.distance
+                    (restaurant1, restaurant2) => restaurant2.distance - restaurant1.distance
                   ).map(
                     restaurant => (
                       <tr key={restaurant.id}>
@@ -244,7 +244,7 @@ export default connect(
                       return hotel.distance < distanceFromGoal
                     }
                   ).sort(
-                    (hotel1, hotel2) => hotel1.distance - hotel2.distance
+                    (hotel1, hotel2) => hotel2.distance - hotel1.distance
                   ).map(
                     hotel => (
                       <tr key={hotel.id}>

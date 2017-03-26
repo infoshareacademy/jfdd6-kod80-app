@@ -11,7 +11,7 @@ import {fetchRestaurants} from '../state/restaurants'
 import {fetchTaxis} from '../state/taxis'
 import {fetchSession} from '../state/session'
 import {fetchUsers} from '../state/users'
-import {logOut} from '../state/logout'
+import {logOut} from '../state/session'
 
 import '../styles/style-form-login-view.css'
 
@@ -91,8 +91,8 @@ class App extends React.Component {
                 <LinkContainer to="/moje-konto">
                   <NavItem href="#">Moje konto</NavItem>
                 </LinkContainer>
-                <LinkContainer to="/moje-konto"  onClick={() => this.props.logOut()}>
-                  <NavItem href="#">Wyloguj</NavItem>
+                <LinkContainer onClick={() => this.props.logOut(this.props.session.data.id)}  to="/">
+                  <NavItem>Wyloguj</NavItem>
                 </LinkContainer>
               </Nav>
             </Navbar.Collapse>
@@ -116,6 +116,6 @@ export default connect(
     fetchTaxis: () => dispatch(fetchTaxis()),
     fetchSessionLogin: (username, password) => dispatch(fetchSession(username, password)),
     fetchUsers: () => dispatch(fetchUsers()),
-    logOut: () => dispatch(logOut())
+    logOut: (accessToken) => dispatch(logOut(accessToken))
   })
 )(App)

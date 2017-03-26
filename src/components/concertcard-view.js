@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Grid, Table, Button, ProgressBar, Tabs, Tab, Image} from 'react-bootstrap'
+import {Link} from 'react-router'
+import {Grid, Button, Tabs, Tab, Image} from 'react-bootstrap'
 
 import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
@@ -8,8 +9,10 @@ import ConcertUsersView from './concertUsers-view'
 import {attendConcert, leaveConcert} from '../state/attend-concert'
 import HorizontalSlider from './slider-view'
 
+import '../styles/concert-card-view.css'
 
 import {fetchFavoriteConcerts} from '../state/attend-concert'
+import {fetchConcertAttenders} from '../state/concert_attenders'
 
 export default connect(
   state => ({
@@ -19,13 +22,15 @@ export default connect(
     minValue: state.distanceChanger.minValue,
     attendConcertId: state.attendConcert.attendConcertId,
     session: state.session,
-    favoriteConcerts: state.attendConcert.data
+      favoriteConcerts: state.attendConcert.data,
+      concertAttenders: state.concertAttenders
   }),
   dispatch => ({
     changeDistance: (value) => dispatch(changeDistance(value)),
     attendConcert: (concertId, userId, accessToken) => dispatch(attendConcert(concertId, userId, accessToken)),
     leaveConcert: (concertId, userId, accessToken) => dispatch(leaveConcert(concertId, userId, accessToken)),
-    fetchFavoriteConcerts: (accessToken, userId) => dispatch(fetchFavoriteConcerts(accessToken, userId))
+    fetchFavoriteConcerts: (accessToken, userId) => dispatch(fetchFavoriteConcerts(accessToken, userId)),
+    fetchConcertAttenders: (accessToken, itemId )=> dispatch( fetchConcertAttenders(accessToken, itemId))
   })
 )(
 
@@ -34,39 +39,42 @@ export default connect(
 
     componentWillMount() {
       const {session} = this.props
+      this.props.fetchConcertAttenders(session.data.id, this.props.params.concertId)
       this.props.fetchFavoriteConcerts(session.data.id, session.data.userId)
+      this.props.changeDistance(1)
     }
 
 
-render() {
+    render() {
 
       const concertAttractionsTab = (
         <div>
-          <h2>W promieniu {this.props.distanceFromGoal} km możesz znaleźć...</h2>
+          <h2>W promieniu do {this.props.distanceFromGoal} km możesz znaleźć...</h2>
 
-        <HorizontalSlider
-          initialValue={this.props.distanceFromGoal}
-          max={this.props.maxValue}
-          min={this.props.minValue}
-          onChangeValue={this.props.changeDistance}
-        />
+          <HorizontalSlider
+            value={this.props.distanceFromGoal}
+            max={this.props.maxValue}
+            min={this.props.minValue}
+            onChange={this.props.changeDistance}
+          />
 
           <AttractionsView concertId={parseInt(this.props.params.concertId, 10)}/>
         </div>
       )
-      const concertUsersTab = (
-        <ConcertUsersView />
-      )
-
 
       const {
         session,
-        favoriteConcerts
-      } = this.props
+        favoriteConcerts,
+        concertAttenders
+        } = this.props
 
+      const concertUsersTab = (
+        <ConcertUsersView concertAttenders={concertAttenders.data}/>
+      )
       return (
         <Grid>
-          <div className="row">
+            <div className="container-fluid"></div>
+          <div className="row page-concert-card">
             {
               this.props.concerts.data ?
                 this.props.concerts.data.filter(
@@ -74,49 +82,52 @@ render() {
                   concert.id === parseInt(this.props.params.concertId, 10)
                 ).map(
                   concert => (
-                    <div>
-                      <h1>Koncert: {concert.band}</h1>
-                      <div className="col-xs-12 col-md-4">
-                        <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
-                        <div>
-                          <Button className="btn-info" style={{margin: '3px'}}>Zaproś znajomych</Button>
 
-                          {
-                            (this.props.attendConcertId.includes(concert.id)) ?
-                              <Button
-                                bsStyle="primary"
-                                bsSize="medium"
-                                onClick={() => this.props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
-                                Nie idę na koncert
-                              </Button> :
-                              <Button
-                                bsStyle="success"
-                                bsSize="medium"
-                                onClick={() => this.props.attendConcert(concert.id, session.data.userId, session.data.id)}>
-                                Idę na koncert
-                              </Button>
-                          }
+
+                    <div className="concert-card">
+
+                        <div className="col-sm-6 col-md-3">
+
+                            <Image src={"/data/images/" + concert.bandImages}/>
+
 
                         </div>
-                      </div>
-                      <div className="col-xs-12 col-md-8">
-                        <Table striped>
-                          <thead>
-                          <tr>
-                            <th>Typ muzyki</th>
-                            <th>Miejsce</th>
-                            <th>Data</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr key={concert.id}>
-                            <td>{concert.typeOfMusic}</td>
-                            <td>{concert.place}</td>
-                            <td>{concert.date}</td>
-                          </tr>
-                          </tbody>
-                        </Table>
-                      </div>
+
+
+
+                        <div className="col-sm-6 col-md-5 col-md-offset-1 info-about-band" >
+                            <h1>{concert.band}</h1>
+                            <p>{concert.bandInfo}</p>
+                        </div>
+
+
+                        <div className="col-sm-12 col-md-3 info-about-concert">
+
+                            <div>
+                               <p>Data: {concert.date}</p>
+                               <p>Miejsce: {concert.place}</p>
+                               <p>{concert.city}</p>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <Link href="https://www.facebook.com" style={{color: 'white'}} target="_blank"><Button >Zaproś</Button></Link>
+                                </div>
+                                <div>
+                                {
+                                    (this.props.attendConcertId.includes(concert.id)) ?
+                                        <Button className="no-go-concert"
+                                            onClick={() => this.props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
+                                            Rezygnuje
+                                        </Button> :
+                                        <Button className="go-concert"
+                                            onClick={() => this.props.attendConcert(concert.id, session.data.userId, session.data.id)}>
+                                            Idę na koncert
+                                        </Button>
+                                }
+                                </div>
+                            </div>
+                        </div>
                     </div>
                   )
                 )
@@ -124,8 +135,6 @@ render() {
             }
 
           </div>
-
-          <hr/>
 
           <div className="row">
             <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">

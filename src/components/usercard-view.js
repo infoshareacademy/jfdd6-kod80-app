@@ -36,7 +36,7 @@ export default connect(
 
     componentWillMount() {
       const {
-        user,
+        // user,
         session,
         fetchFavoriteConcerts
       } = this.props
