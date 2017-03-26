@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import {Image, Navbar, Nav, NavItem} from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Link} from 'react-router'
 
@@ -77,11 +77,11 @@ class App extends React.Component {
           </div>
         ) :
         <div>
-          <Navbar inverse collapseOnSelect>
+          <Navbar collapseOnSelect>
             <Navbar.Header>
               <Navbar.Brand>
                 <Link to="/">
-                  SOUNDTRIP
+                  <img width={160} height={35} src={require('../images/logo-soundtrip.png')} alt="soundtrip-logo"/>
                 </Link>
               </Navbar.Brand>
               <Navbar.Toggle />
