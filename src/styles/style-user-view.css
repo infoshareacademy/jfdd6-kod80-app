@@ -24,7 +24,11 @@
 .table-body {
   border-radius: 3px;
   font-weight: bold;
-  color: black; }
+  color: black;
+  vertical-align: middle; }
+  .table-body a {
+    color: #fa3729;
+    font-size: medium; }
 
 .table-view {
   border-radius: 3px;
