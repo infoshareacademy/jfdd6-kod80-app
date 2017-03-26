@@ -1,12 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Grid, Table, Button, Tabs, Tab, Image} from 'react-bootstrap'
+import {Grid, Button, Tabs, Tab, Image} from 'react-bootstrap'
 
 import {changeDistance} from '../state/distance-changer'
 import AttractionsView from './attractions-view'
 import ConcertUsersView from './concertUsers-view'
 import {attendConcert, leaveConcert} from '../state/attend-concert'
 import HorizontalSlider from './slider-view'
+
+import '../styles/concert-card-view.css'
 
 import {fetchFavoriteConcerts} from '../state/attend-concert'
 import {fetchConcertAttenders} from '../state/concert_attenders'
@@ -70,7 +72,8 @@ export default connect(
       )
       return (
         <Grid>
-          <div className="row">
+            <div className="container-fluid"></div>
+          <div className="row page-concert-card">
             {
               this.props.concerts.data ?
                 this.props.concerts.data.filter(
@@ -78,49 +81,52 @@ export default connect(
                   concert.id === parseInt(this.props.params.concertId, 10)
                 ).map(
                   concert => (
-                    <div>
-                      <h1>Koncert: {concert.band}</h1>
-                      <div className="col-xs-12 col-md-4">
-                        <Image src={"/data/images/" + concert.bandImages} rounded alt={concert.band}/>
-                        <div>
-                          <Button className="btn-info" style={{margin: '3px'}}><a href="https://www.facebook.com" style={{color: 'white'}}>Powiadom znajomych</a></Button>
 
-                          {
-                            (this.props.attendConcertId.includes(concert.id)) ?
-                              <Button
-                                bsStyle="primary"
-                                bsSize="medium"
-                                onClick={() => this.props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
-                                Rezygnuje
-                              </Button> :
-                              <Button
-                                bsStyle="success"
-                                bsSize="medium"
-                                onClick={() => this.props.attendConcert(concert.id, session.data.userId, session.data.id)}>
-                                Idę na koncert
-                              </Button>
-                          }
+
+                    <div className="concert-card">
+
+                        <div className="col-sm-6 col-md-3">
+
+                            <Image src={"/data/images/" + concert.bandImages}/>
+
 
                         </div>
-                      </div>
-                      <div className="col-xs-12 col-md-8">
-                        <Table striped>
-                          <thead>
-                          <tr>
-                            <th>Typ muzyki</th>
-                            <th>Miejsce</th>
-                            <th>Data</th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr key={concert.id}>
-                            <td>{concert.typeOfMusic}</td>
-                            <td>{concert.place}</td>
-                            <td>{concert.date}</td>
-                          </tr>
-                          </tbody>
-                        </Table>
-                      </div>
+
+
+
+                        <div className="col-sm-6 col-md-5 col-md-offset-1 info-about-band" >
+                            <h1>{concert.band}</h1>
+                            <p>{concert.bandInfo}</p>
+                        </div>
+
+
+                        <div className="col-sm-12 col-md-3 info-about-concert">
+
+                            <div>
+                               <p>Data: {concert.date}</p>
+                               <p>Miejsce: {concert.place}</p>
+                               <p>{concert.city}</p>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <Button ><a href="https://www.facebook.com">Powiadom znajomych</a></Button>
+                                </div>
+                                <div>
+                                {
+                                    (this.props.attendConcertId.includes(concert.id)) ?
+                                        <Button className="no-go-concert"
+                                            onClick={() => this.props.leaveConcert(concert.id, session.data.userId, session.data.id)}>
+                                            Rezygnuje
+                                        </Button> :
+                                        <Button className="go-concert"
+                                            onClick={() => this.props.attendConcert(concert.id, session.data.userId, session.data.id)}>
+                                            Idę na koncert
+                                        </Button>
+                                }
+                                </div>
+                            </div>
+                        </div>
                     </div>
                   )
                 )
@@ -128,8 +134,6 @@ export default connect(
             }
 
           </div>
-
-          <hr/>
 
           <div className="row">
             <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">

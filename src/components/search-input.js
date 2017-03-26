@@ -61,13 +61,13 @@ export default connect (
                                    onChange={(event) => this.setState({band: event.target.value})}/>
                     </FormGroup>
 
-                  <FormGroup className=" col-xs-10 col-md-10 col-lg-4">
+                  <FormGroup className=" col-xs-10 col-md-10 col-lg-5">
                     <DatePicker
                         setDateSinceSearch={(date) => this.setState({dateSince: date})}
                         setDateToSearch={(date) => this.setState({dateTo: date})}/>
                   </FormGroup>
 
-                  <FormGroup className="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+                  <FormGroup className="col-xs-3 col-sm-2 col-md-2 col-lg-1">
                       <button className="search-button">Szukaj</button>
                   </FormGroup>
               </form>
