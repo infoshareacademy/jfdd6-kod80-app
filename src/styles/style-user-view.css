@@ -3,17 +3,20 @@
   font-family: 'Lato', sans-serif; }
 
 .body-background {
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
   background-color: white;
   background-image: url("../images/crowd-bg.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: top;
-  min-height: 200vh; }
+  min-height: 100vh; }
 
 .table-head {
   border-top-left-radius: 3px;
-  opacity: 0.7;
+  opacity: 0.8;
   background-color: black;
   font-weight: 400;
   color: white; }
@@ -25,7 +28,7 @@
 
 .table-view {
   border-radius: 3px;
-  opacity: 0.8;
+  opacity: 0.7;
   background: lightgrey;
   vertical-align: middle; }
 
@@ -73,6 +76,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
-    height: 100%; } }
+    min-height: 100vh; } }
 
 /*# sourceMappingURL=style-user-view.css.map */

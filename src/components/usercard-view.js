@@ -158,11 +158,6 @@ export default connect(
 
       return (
         <Grid className ="body-background" >
-          {/*<div className = "welcoming-div">*/}
-
-{/*to jest div bez klasy*/}
-
-          {/*</div>*/}
           {
             concerts.fetching ?
               <Alert bsStyle="warning">
