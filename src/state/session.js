@@ -38,7 +38,7 @@ export const fetchSession = (username, password) => dispatch => {
         ).catch(
           error => dispatch({
             type: FETCH__FAIL,
-            error: 'Malformed JSON response'
+            error: ''
           })
         )
       }
