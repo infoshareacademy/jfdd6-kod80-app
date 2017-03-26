@@ -16,10 +16,13 @@
 
 .table-head {
   border-top-left-radius: 3px;
-  opacity: 0.8;
   background-color: black;
   font-weight: 400;
   color: white; }
+
+.tabel-background {
+  background: lightgrey;
+  opacity: 0.8; }
 
 .table-body {
   border-radius: 3px;
@@ -32,8 +35,6 @@
 
 .table-view {
   border-radius: 3px;
-  opacity: 0.7;
-  background: lightgrey;
   vertical-align: middle; }
 
 .nav {

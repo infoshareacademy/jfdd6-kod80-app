@@ -18,11 +18,15 @@
 
 .table-head{
   border-top-left-radius: 3px;
-  opacity: 0.8;
   background-color: black;
   font-weight: 400;
   color: white;
 
+}
+
+.tabel-background {
+  background: lightgrey;
+  opacity: 0.8;
 }
 
 .table-body {
@@ -41,8 +45,6 @@
 
 .table-view {
   border-radius: 3px;
-  opacity: 0.7;
-  background: lightgrey;
   vertical-align: middle;
 }
 
@@ -74,8 +76,11 @@ background-color: #333333;
   border-bottom: none;
 }
 
+
+
 .td-img {
   text-align: right;
+
 
 }
 
