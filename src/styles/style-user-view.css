@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  font-family: 'Lato', sans-serif; }
+
+.body-background {
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  background-image: url("../images/crowd-bg.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  min-height: 100vh; }
+
+.table-head {
+  border-top-left-radius: 3px;
+  opacity: 0.8;
+  background-color: black;
+  font-weight: 400;
+  color: white; }
+
+.table-body {
+  border-radius: 3px;
+  font-weight: bold;
+  color: black; }
+
+.table-view {
+  border-radius: 3px;
+  opacity: 0.7;
+  background: lightgrey;
+  vertical-align: middle; }
+
+.nav {
+  margin-left: 5%; }
+
+#uncontrolled-tab-example-tab-1 {
+  background-color: #333333;
+  color: white; }
+
+#uncontrolled-tab-example-tab-2 {
+  background-color: #333333;
+  color: white; }
+
+#uncontrolled-tab-example-tab-3 {
+  background-color: #333333;
+  color: white; }
+
+.tab-pane {
+  margin: 30px 0 0 5%;
+  width: 90%; }
+
+.nav-tabs {
+  border-bottom: none; }
+
+.td-img {
+  text-align: right; }
+
+.media {
+  background: none; }
+
+.media-body {
+  padding: 40px 15px 15px 15px; }
+
+.media-left img {
+  margin: 40px 10px;
+  border: solid;
+  border-radius: 3px; }
+
+@media screen and (max-width: 768px) {
+  .body-background {
+    width: 100%;
+    background-color: white;
+    background-image: url("../images/crowd-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    min-height: 100vh; } }
+
+/*# sourceMappingURL=style-user-view.css.map */
