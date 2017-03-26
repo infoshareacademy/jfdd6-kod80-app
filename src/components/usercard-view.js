@@ -1,11 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {ListGroup, ListGroupItem, Media, Tabs, Tab, Grid, Alert, Table} from 'react-bootstrap'
+import {ListGroup, ListGroupItem, Media, Tabs, Tab, Grid, Alert, Table, Image} from 'react-bootstrap'
 
 import filter_concert from '../search/concert-filter'
 import sortConcertByDate from '../date/sort-concert-by-date'
 import {fetchFavoriteConcerts} from '../state/attend-concert'
+import '../styles/style-user-view.css'
 
 const dat1 = new Date('2000', '06', '16');
 const dat2 =  new Date()
@@ -35,7 +36,7 @@ export default connect(
 
     componentWillMount() {
       const {
-        user,
+        // user,
         session,
         fetchFavoriteConcerts
       } = this.props
@@ -59,15 +60,17 @@ export default connect(
       const favoriteConcertsIds =  favoriteConcerts.data ? favoriteConcerts.data.map(item => item.itemId) : []
 
       const myConcertsTab = (
-      <Table striped>
-        <thead>
+        <Table stripped className="table-view">
+        <thead className="table-head">
         <tr>
-          <th>Zespół</th>
+
+          <th>Nazwa koncertu</th>
           <th>Miejscowość</th>
           <th>Data</th>
+          <th></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody className = "table-body">
         {
           concerts.data ?
             concerts.data
@@ -75,13 +78,21 @@ export default connect(
               .filter( concert => favoriteConcertsIds ? favoriteConcertsIds.includes(concert.id) : null)
               .map(
               concert => (
+
+
                 <tr key={concert.id}>
+
                   <td>
                     <Link to={'/koncerty/' + concert.id}>{concert.band}</Link>
                   </td>
                   <td>{concert.city}</td>
                   <td>{concert.date}</td>
+                  <td className = "td-img">
+                    <Image width={150} height={110} src={"data/images/" + concert.bandImages}
+                           alt="zdjęcie zespołu"/> </td>
                 </tr>
+
+
               )
             ) : null
         }
@@ -90,15 +101,16 @@ export default connect(
       );
 
       const pastConcerts = (
-        <Table striped>
-          <thead>
+        <Table stripped className="table-view">
+          <thead className="table-head">
           <tr>
-            <th>Zespół</th>
+            <th>Nazwa koncertu</th>
             <th>Miejscowość</th>
             <th>Data</th>
+            <th> </th>
           </tr>
           </thead>
-          <tbody>
+          <tbody className = "table-body">
           {
 
             concerts.data ?
@@ -114,6 +126,9 @@ export default connect(
                     </td>
                     <td>{concert.city}</td>
                     <td>{concert.date}</td>
+                    <td>
+                      <Image width={150} height={110} src={"data/images/" + concert.bandImages}
+                             alt="zdjęcie zespołu"/> </td>
                   </tr>
                 )
               ) : null
@@ -125,23 +140,24 @@ export default connect(
       const userEmail = user.data ? user.data.email : null
       const userId = session.data ? session.data.userId : null
 
-      const myAccountTab = (  <div>
+      const myAccountTab = (  <div className="table-view">
         <Media>
           <Media.Left>
-            <img width={210} height={190} src={require('../graphics/user.jpg')} alt="soundtrip-user"/>
+            <img width={210} height={190} src={require('../images/soundtrip-user.jpg')} alt="soundtrip-user"/>
           </Media.Left>
           <Media.Body>
             <ListGroup>
               <ListGroupItem header="Imię">{userName}</ListGroupItem>
               <ListGroupItem header="E-mail">{userEmail}</ListGroupItem>
-              <ListGroupItem header="Numer użytkownika">{userId}</ListGroupItem>
+              <ListGroupItem header="Powrót do strony głownej"><Link to={'/'}> Wróc </Link> </ListGroupItem>
 
-            </ListGroup>          </Media.Body>
+            </ListGroup>
+          </Media.Body>
         </Media>
       </div>);
 
       return (
-        <Grid>
+        <Grid className ="body-background" >
           {
             concerts.fetching ?
               <Alert bsStyle="warning">
@@ -160,6 +176,7 @@ export default connect(
             <Tab eventKey={2} title="Moje dane">{myAccountTab}</Tab>
             <Tab eventKey={3} title="Historia">{pastConcerts}</Tab>
           </Tabs>
+
         </Grid>
       )
     }
